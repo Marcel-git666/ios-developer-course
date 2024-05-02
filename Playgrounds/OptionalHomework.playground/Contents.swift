@@ -1,5 +1,6 @@
 import UIKit
 
+// MARK: Constants
 enum Constants {
     static let pi = 3.141592654
 }
