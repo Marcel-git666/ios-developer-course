@@ -73,12 +73,12 @@ struct UserActionEvent: AnalyticEvent {
 }
 
 protocol AnalyticsService {
-    func logEvent(_ event: any AnalyticEvent)
+    func logEvent<Event: AnalyticEvent>(_ event: Event)
 }
 
 class AnalyticsServiceImpl: AnalyticsService {
     var logs: [String: Any] = [:]
-    func logEvent(_ event: any AnalyticEvent) {
+    func logEvent<Event: AnalyticEvent>(_ event: Event) {
         
         print(event.name)
         logs[event.identifier.uuidString] = event.parameters
