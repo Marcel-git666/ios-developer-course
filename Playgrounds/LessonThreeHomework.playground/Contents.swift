@@ -13,7 +13,7 @@ protocol AnalyticEvent {
 
 extension AnalyticEvent {
     var name: String {
-        return type.name
+        type.name
     }
 }
 
@@ -28,16 +28,23 @@ enum ScreenAction: String {
     case edit = "Edit screen"
 }
 
+extension Date {
+    func timestamp() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .short
+        return formatter.string(from: Date())
+    }
+}
+
 struct ScreenViewEvent: AnalyticEvent {
-    var identifier = UUID()
+    let identifier = UUID()
     
     let screenAction: String
     var type: ScreenViewType
     var parameters: [String : Any] {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.timeStyle = .short
-        let timestamp = formatter.string(from: Date())
+        
+        let timestamp = Date().timestamp()
         return [
             "action": type.name,
             "timestamp": timestamp
@@ -61,10 +68,8 @@ struct UserActionEvent: AnalyticEvent {
     var type: UserActionType
     let userAction: String
     var parameters: [String : Any] {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.timeStyle = .short
-        let timestamp = formatter.string(from: Date())
+        
+        let timestamp = Date().timestamp()
         return [
             "action": type.name,
             "timestamp": timestamp
