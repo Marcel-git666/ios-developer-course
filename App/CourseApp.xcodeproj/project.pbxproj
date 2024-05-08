@@ -14,6 +14,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1FBDCB2C2BEB64FB00F14095 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		1FBDCB2D2BEB651000F14095 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		1FD32B512BDACCE1006472B3 /* CourseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD32B542BDACCE1006472B3 /* CourseAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAppApp.swift; sourceTree = "<group>"; };
 		1FD32B562BDACCE1006472B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +37,8 @@
 		1FD32B482BDACCE1006472B3 = {
 			isa = PBXGroup;
 			children = (
+				1FBDCB2C2BEB64FB00F14095 /* Development.xcconfig */,
+				1FBDCB2D2BEB651000F14095 /* Production.xcconfig */,
 				1FD32B532BDACCE1006472B3 /* CourseApp */,
 				1FD32B522BDACCE1006472B3 /* Products */,
 			);
@@ -81,6 +85,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1FBDCB302BEB6A3500F14095 /* PBXTargetDependency */,
 			);
 			name = CourseApp;
 			productName = CourseApp;
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 1FD32B482BDACCE1006472B3;
+			packageReferences = (
+				1FBDCB2E2BEB6A0300F14095 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			productRefGroup = 1FD32B522BDACCE1006472B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -143,6 +151,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FBDCB302BEB6A3500F14095 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 1FBDCB2F2BEB6A3500F14095 /* SwiftLintPlugin */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1FD32B5D2BDACCE3006472B3 /* Debug */ = {
@@ -346,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1FBDCB2E2BEB6A0300F14095 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.54.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1FBDCB2F2BEB6A3500F14095 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FBDCB2E2BEB6A0300F14095 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1FD32B492BDACCE1006472B3 /* Project object */;
 }
