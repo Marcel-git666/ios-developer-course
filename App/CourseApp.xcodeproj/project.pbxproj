@@ -15,6 +15,7 @@
 		1FC7EC302BEE319D007BCDC4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1FC7EC2F2BEE319D007BCDC4 /* FirebaseFirestore */; };
 		1FC7EC322BEE319D007BCDC4 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1FC7EC312BEE319D007BCDC4 /* FirebaseFirestoreCombine-Community */; };
 		1FC7EC342BEE319D007BCDC4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FC7EC332BEE319D007BCDC4 /* FirebaseFirestoreSwift */; };
+		1FC7EC372BEE35AE007BCDC4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7EC362BEE35AE007BCDC4 /* Configuration.swift */; };
 		1FD32B552BDACCE1006472B3 /* CourseAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD32B542BDACCE1006472B3 /* CourseAppApp.swift */; };
 		1FD32B572BDACCE1006472B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD32B562BDACCE1006472B3 /* ContentView.swift */; };
 		1FD32B592BDACCE3006472B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD32B582BDACCE3006472B3 /* Assets.xcassets */; };
@@ -25,6 +26,11 @@
 /* Begin PBXFileReference section */
 		1FBDCB2C2BEB64FB00F14095 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		1FBDCB2D2BEB651000F14095 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		1FC7EC352BEE333E007BCDC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1FC7EC362BEE35AE007BCDC4 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		1FC7EC382BEE3B22007BCDC4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		1FC7EC392BEE3B22007BCDC4 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		1FC7EC3A2BEE3B22007BCDC4 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1FD32B512BDACCE1006472B3 /* CourseApp Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CourseApp Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD32B542BDACCE1006472B3 /* CourseAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAppApp.swift; sourceTree = "<group>"; };
 		1FD32B562BDACCE1006472B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,10 +78,15 @@
 		1FD32B532BDACCE1006472B3 /* CourseApp */ = {
 			isa = PBXGroup;
 			children = (
-				1FF3DEEA2BED0170008817F4 /* GoogleService-Info.plist */,
-				1FD32B542BDACCE1006472B3 /* CourseAppApp.swift */,
-				1FD32B562BDACCE1006472B3 /* ContentView.swift */,
 				1FD32B582BDACCE3006472B3 /* Assets.xcassets */,
+				1FC7EC362BEE35AE007BCDC4 /* Configuration.swift */,
+				1FD32B562BDACCE1006472B3 /* ContentView.swift */,
+				1FD32B542BDACCE1006472B3 /* CourseAppApp.swift */,
+				1FF3DEEA2BED0170008817F4 /* GoogleService-Info.plist */,
+				1FC7EC352BEE333E007BCDC4 /* Info.plist */,
+				1FC7EC382BEE3B22007BCDC4 /* Poppins-Bold.ttf */,
+				1FC7EC3A2BEE3B22007BCDC4 /* Poppins-MediumItalic.ttf */,
+				1FC7EC392BEE3B22007BCDC4 /* Poppins-Regular.ttf */,
 				1FD32B5A2BDACCE3006472B3 /* Preview Content */,
 			);
 			path = CourseApp;
@@ -180,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FC7EC372BEE35AE007BCDC4 /* Configuration.swift in Sources */,
 				1FD32B572BDACCE1006472B3 /* ContentView.swift in Sources */,
 				1FD32B552BDACCE1006472B3 /* CourseAppApp.swift in Sources */,
 			);
@@ -328,6 +340,9 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CourseApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_BUNDLE_NAME)";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -357,6 +372,9 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CourseApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_BUNDLE_NAME)";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,6 +468,9 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CourseApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_BUNDLE_NAME)";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -543,6 +564,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_BUNDLE_NAME)";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
