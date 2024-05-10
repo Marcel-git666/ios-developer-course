@@ -23,7 +23,7 @@ struct ContentView: View {
         .padding()
         .onAppear {
             logger.info("🐴 Jokes base url \(jokesBaseURL)")
-            logger.log("🦈 ContentView has appeared.")
+            
             // Use this identifier to filter out the system fonts in the logs.
             let identifier: String = "[SYSTEM FONTS]"
             // Here's the functionality that prints all the system fonts.
