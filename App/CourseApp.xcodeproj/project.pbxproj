@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1CC4D82BEE78AC00037CE0 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC382BEE3B22007BCDC4 /* Poppins-Bold.ttf */; };
+		1F1CC4D92BEE78AF00037CE0 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC3A2BEE3B22007BCDC4 /* Poppins-MediumItalic.ttf */; };
+		1F1CC4DA2BEE78B200037CE0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC392BEE3B22007BCDC4 /* Poppins-Regular.ttf */; };
 		1FBDCB342BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB362BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB382BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -181,6 +184,9 @@
 				1FD32B5C2BDACCE3006472B3 /* Preview Assets.xcassets in Resources */,
 				1FD32B592BDACCE3006472B3 /* Assets.xcassets in Resources */,
 				1FF3DEEB2BED0170008817F4 /* GoogleService-Info.plist in Resources */,
+				1F1CC4DA2BEE78B200037CE0 /* Poppins-Regular.ttf in Resources */,
+				1F1CC4D82BEE78AC00037CE0 /* Poppins-Bold.ttf in Resources */,
+				1F1CC4D92BEE78AF00037CE0 /* Poppins-MediumItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
