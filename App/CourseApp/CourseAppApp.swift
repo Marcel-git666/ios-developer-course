@@ -6,6 +6,7 @@
 //
 
 import FirebaseCore
+import os
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -21,9 +22,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct CourseAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    private let logger = Logger()
+    private let isUIKit = true
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            homeView
+                .onAppear {
+                    logger.info("🦈 ContentView has appeared.")
+                }
+        }
+    }
+    @ViewBuilder
+    var homeView: some View {
+        
+        if isUIKit {
+            HomeView()
+        } else {
+            // HomeViewSwiftUI()
         }
     }
 }
