@@ -7,8 +7,7 @@
 
 import UIKit
 
-final class LabelCollectionViewCell: UICollectionViewCell {
-    
+final class LabelCollectionViewCell: UICollectionViewCell, ReusableIdentifier {
     lazy var nameLabel = UILabel()
     
     // MARK: Lifecycle
@@ -18,6 +17,7 @@ final class LabelCollectionViewCell: UICollectionViewCell {
         setupUI()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -36,17 +36,16 @@ private extension LabelCollectionViewCell {
     }
     
     func configureLabel() {
-        translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.textColor = .white
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
-            
+            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
         ])
     }
 }
