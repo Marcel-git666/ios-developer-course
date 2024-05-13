@@ -16,6 +16,7 @@
 		1F1CC4E92BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */; };
 		1F1CC4EC2BEEA96C00037CE0 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */; };
 		1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */; };
+		1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */; };
 		1FBDCB342BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB362BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB382BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -40,6 +41,7 @@
 		1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReusableIdenfifier.swift"; sourceTree = "<group>"; };
 		1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FBDCB2C2BEB64FB00F14095 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		1FBDCB2D2BEB651000F14095 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		1FC7EC352BEE333E007BCDC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		1F1CC4DF2BEEA71400037CE0 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				1F65879F2BF154B70006025B /* UICollectionViewCells */,
 				1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */,
 				1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */,
 			);
@@ -144,6 +147,14 @@
 				1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		1F65879F2BF154B70006025B /* UICollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */,
+			);
+			path = UICollectionViewCells;
 			sourceTree = "<group>";
 		};
 		1FD32B482BDACCE1006472B3 = {
@@ -328,6 +339,7 @@
 				1F1CC4E92BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift in Sources */,
 				1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */,
 				1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */,
+				1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
