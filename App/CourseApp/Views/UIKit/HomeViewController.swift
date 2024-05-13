@@ -122,7 +122,7 @@ private extension HomeViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
         layout.sectionHeadersPinToVisibleBounds = true
         layout.headerReferenceSize = CGSize(width: categoriesCollectionView.contentSize.width, height: 30)
-        categoriesCollectionView.setCollectionViewLayout(layout, animated: true)
+        categoriesCollectionView.setCollectionViewLayout(layout, animated: false)
     }
 }
 
