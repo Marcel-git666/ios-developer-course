@@ -39,7 +39,7 @@ final class MockDataProvider: ObservableObject {
 
     init() {
         data = localData
-        updateData()
+//        updateData()
     }
 }
 
