@@ -10,22 +10,29 @@ import UIKit
 class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
     
     // MARK: - Properties
+    
+    private var collectionView: UICollectionView!
+    private var images: [UIImage?] = []
+    
+    // MARK: - Initialization
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        private var collectionView: UICollectionView!
-        
-        // MARK: - Initialization
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            
-            setup()
-        }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
-        // MARK: - Setup
+        setup()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setImages(_ images: [UIImage]) {
+        self.images = images
+        collectionView.reloadData()
+    }
+    
+    // MARK: - Setup
     
     func setup() {
         setupCollectionView()
@@ -39,6 +46,7 @@ class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
         
         self.collectionView = UICollectionView(frame: contentView.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
+        collectionView.isPagingEnabled = true
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(ImageCollectionViewCell.self)
@@ -62,11 +70,13 @@ class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
 
 extension HorizontalScrollingImageCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
+        images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.dequeueReusableCell(for: indexPath) as ImageCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(for: indexPath) as ImageCollectionViewCell
+        cell.imageView.image = images[indexPath.item]
+        return cell
     }
 }
 
