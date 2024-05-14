@@ -12,7 +12,7 @@ class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
     // MARK: - Properties
     
     private var collectionView: UICollectionView!
-    private var images: [UIImage?] = []
+    var images: [UIImage?] = []
     
     // MARK: - Initialization
     
@@ -27,10 +27,6 @@ class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setImages(_ images: [UIImage]) {
-        self.images = images
-        collectionView.reloadData()
-    }
     
     // MARK: - Setup
     
@@ -50,6 +46,8 @@ class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(ImageCollectionViewCell.self)
+        
+        layout.itemSize = CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
     }
     
     func addSubviews() {
@@ -57,13 +55,14 @@ class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
     }
     
     func setupConstraints() {
+        let border: CGFloat = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: border),
+            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -border),
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: border),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -border)
         ])
     }
 }
