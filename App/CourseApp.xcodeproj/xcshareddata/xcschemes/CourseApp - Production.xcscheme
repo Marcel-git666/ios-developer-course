@@ -16,15 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1FD32B502BDACCE1006472B3"
-<<<<<<< HEAD
-<<<<<<< HEAD
                BuildableName = "CourseApp Dev.app"
-=======
-               BuildableName = "CourseApp.app"
->>>>>>> af6f0b0 (add proper configuration)
-=======
-               BuildableName = "CourseApp Dev.app"
->>>>>>> 4cfb80a (add logger)
                BlueprintName = "CourseApp"
                ReferencedContainer = "container:CourseApp.xcodeproj">
             </BuildableReference>
@@ -53,22 +45,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1FD32B502BDACCE1006472B3"
-<<<<<<< HEAD
-<<<<<<< HEAD
             BuildableName = "CourseApp Dev.app"
-=======
-            BuildableName = "CourseApp.app"
->>>>>>> af6f0b0 (add proper configuration)
-=======
-            BuildableName = "CourseApp Dev.app"
->>>>>>> 4cfb80a (add logger)
             BlueprintName = "CourseApp"
             ReferencedContainer = "container:CourseApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Production - Release"
+      buildConfiguration = "Production - Debug"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -78,15 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1FD32B502BDACCE1006472B3"
-<<<<<<< HEAD
-<<<<<<< HEAD
             BuildableName = "CourseApp Dev.app"
-=======
-            BuildableName = "CourseApp.app"
->>>>>>> af6f0b0 (add proper configuration)
-=======
-            BuildableName = "CourseApp Dev.app"
->>>>>>> 4cfb80a (add logger)
             BlueprintName = "CourseApp"
             ReferencedContainer = "container:CourseApp.xcodeproj">
          </BuildableReference>

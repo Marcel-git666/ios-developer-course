@@ -14,8 +14,8 @@ final class HomeViewController: UIViewController {
     
     // MARK: - DataSource
     private lazy var dataProvider = MockDataProvider()
-    typealias DataSource = UICollectionViewDiffableDataSource<SectionData, Joke>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<SectionData, Joke>
+    typealias DataSource = UICollectionViewDiffableDataSource<SectionData, [Joke]>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<SectionData, [Joke]>
     private lazy var dataSource = makeDataSource()
     private lazy var cancellables = Set<AnyCancellable>()
     
@@ -40,7 +40,7 @@ private extension HomeViewController {
         guard dataSource.snapshot().numberOfSections == 0 else {
             //
             var snapshot = dataSource.snapshot()
-            snapshot.moveItem((data.first?.jokes.first)!, afterItem: (data.first?.jokes.last)!)
+//            snapshot.moveItem((data.first?.jokes.first)!, afterItem: (data.first?.jokes.last)!)
             
             dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
             return
@@ -50,7 +50,7 @@ private extension HomeViewController {
         snapshot.appendSections(data)
         
         data.forEach { section in
-            snapshot.appendItems(section.jokes, toSection: section)
+            snapshot.appendItems([section.jokes], toSection: section)
         }
         
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
@@ -60,13 +60,9 @@ private extension HomeViewController {
         let dataSource = DataSource(collectionView: categoriesCollectionView) { collectionView, indexPath, joke in
             let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
             
-//            let imageCell: ImageCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-//            imageCell.imageView.image = section.jokes[indexPath.item].image
-//            return imageCell
-            
+
             let horizontalCell: HorizontalScrollingImageCell = collectionView.dequeueReusableCell(for: indexPath)
-            horizontalCell.setImages(section.jokes.compactMap { $0.image })
-            
+            horizontalCell.images = section.jokes.map { $0.image }
             return horizontalCell
         }
         
@@ -87,8 +83,9 @@ private extension HomeViewController {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = CGSize(width: collectionView.bounds.width - 8, height: collectionView.bounds.height / 3)
-        return size
+        let width = view.frame.width // Use full width for horizontal scrolling
+        let height: CGFloat = 250   // Maintain aspect ratio (assuming all images have similar heights)
+        return CGSize(width: width, height: height)
     }
 }
 
@@ -112,7 +109,7 @@ private extension HomeViewController {
     }
     
     func setupCollectionView() {
-        categoriesCollectionView.backgroundColor = .bg
+        categoriesCollectionView.backgroundColor = .systemMint
         categoriesCollectionView.isPagingEnabled = true
         categoriesCollectionView.contentInsetAdjustmentBehavior = .never
         categoriesCollectionView.showsVerticalScrollIndicator = false
@@ -120,14 +117,14 @@ private extension HomeViewController {
         categoriesCollectionView.register(HorizontalScrollingImageCell.self)
         categoriesCollectionView.register(LabelCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
         
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .vertical // Change this to vertical
-//        layout.minimumLineSpacing = 8 // Spacing here is not necessary, but adds a better inset for horizontal scrolling. Gives you a tiny peek of the background. Probably not great for vertical
-//        layout.minimumInteritemSpacing = 10
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
-//        layout.sectionHeadersPinToVisibleBounds = true
-//        layout.headerReferenceSize = CGSize(width: categoriesCollectionView.contentSize.width, height: 30)
-//        categoriesCollectionView.setCollectionViewLayout(layout, animated: false)
+                let layout = UICollectionViewFlowLayout()
+                layout.scrollDirection = .vertical // Change this to vertical
+                layout.minimumLineSpacing = 8 // Spacing here is not necessary, but adds a better inset for horizontal scrolling. Gives you a tiny peek of the background. Probably not great for vertical
+                layout.minimumInteritemSpacing = 10
+                layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
+                layout.sectionHeadersPinToVisibleBounds = true
+                layout.headerReferenceSize = CGSize(width: categoriesCollectionView.contentSize.width, height: 30)
+                categoriesCollectionView.setCollectionViewLayout(layout, animated: false)
     }
 }
 
