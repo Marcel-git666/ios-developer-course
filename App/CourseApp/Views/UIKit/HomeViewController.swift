@@ -27,10 +27,9 @@ final class HomeViewController: UIViewController {
         setup()
         // Do any additional setup after loading the view.
     }
-}
-
-// MARK: - UICollectionViewDataSource
-private extension HomeViewController {
+    
+    
+    // MARK: - UICollectionViewDataSource
     func readData() {
         dataProvider.$data.sink { [weak self] data in
             self?.logger.log(level: .info, "The value is \(data)")
@@ -57,8 +56,6 @@ private extension HomeViewController {
     
     func makeDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: categoriesCollectionView) { collectionView, indexPath, joke in
-            let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
-
             let horizontalCell: HorizontalScrollingImageCell = collectionView.dequeueReusableCell(for: indexPath)
             horizontalCell.images = joke.map { $0.image }
             return horizontalCell
@@ -76,11 +73,9 @@ private extension HomeViewController {
         }
         return dataSource
     }
-}
-
-// MARK: - UISetup
-
-private extension HomeViewController {
+    
+    // MARK: - UISetup
+    
     func setup() {
         setupCollectionView()
         readData()
@@ -94,7 +89,7 @@ private extension HomeViewController {
         categoriesCollectionView.delegate = self
         categoriesCollectionView.register(HorizontalScrollingImageCell.self)
         categoriesCollectionView.register(LabelCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
-
+        
         let interitemSpacing: CGFloat = 10
         let minimumLineSpacing: CGFloat = 8
         let sectionInset: CGFloat = 4
@@ -107,19 +102,5 @@ private extension HomeViewController {
         layout.sectionHeadersPinToVisibleBounds = true
         layout.headerReferenceSize = CGSize(width: categoriesCollectionView.contentSize.width, height: headerSize)
         categoriesCollectionView.setCollectionViewLayout(layout, animated: false)
-    }
-}
-
-// MARK: - HELPER
-struct HomeView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> HomeViewController {
-        //        let storyboard = UIStoryboard(name: "HomeViewController", bundle: nil)
-        //        if let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-        //            return viewController
-        //        }
-        HomeViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: HomeViewController, context: Context) {
     }
 }

@@ -35,6 +35,7 @@
 		1FD32B5C2BDACCE3006472B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD32B5B2BDACCE3006472B3 /* Preview Assets.xcassets */; };
 		1FF3DEEB2BED0170008817F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FF3DEEA2BED0170008817F4 /* GoogleService-Info.plist */; };
 		1FF653B52BF4ED230015C82A /* HomeViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF653B42BF4ED230015C82A /* HomeViewController+Ext.swift */; };
+		1FF653B92BF4F8750015C82A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF653B82BF4F8750015C82A /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		1FD32B5B2BDACCE3006472B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1FF3DEEA2BED0170008817F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1FF653B42BF4ED230015C82A /* HomeViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Ext.swift"; sourceTree = "<group>"; };
+		1FF653B82BF4F8750015C82A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				1F65879F2BF154B70006025B /* UICollectionViewCells */,
 				1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */,
+				1FF653B82BF4F8750015C82A /* HomeView.swift */,
 				1FF653B42BF4ED230015C82A /* HomeViewController+Ext.swift */,
 				1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */,
 			);
@@ -345,6 +348,7 @@
 				1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */,
 				1FD2A47D2BF222D9005D6D7F /* ImageCollectionViewCell.swift in Sources */,
 				1FF653B52BF4ED230015C82A /* HomeViewController+Ext.swift in Sources */,
+				1FF653B92BF4F8750015C82A /* HomeView.swift in Sources */,
 				1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */,
 				1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */,
 			);
