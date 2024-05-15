@@ -11,7 +11,9 @@ import SwiftUI
 import UIKit
 
 final class HomeViewController: UIViewController {
+    // swiftlint:disable prohibited_interface_builder
     @IBOutlet private var categoriesCollectionView: UICollectionView!
+    // swiftlint:enable prohibited_interface_builder
     let logger = Logger()
     // MARK: - DataSource
     private lazy var dataProvider = MockDataProvider()

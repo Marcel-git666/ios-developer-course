@@ -9,8 +9,9 @@ import UIKit
 
 class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
     // MARK: - Properties
-    
+    // swiftlint:disable implicitly_unwrapped_optional
     private var collectionView: UICollectionView!
+    // swiftlint:enable implicitly_unwrapped_optional
     var images: [UIImage?] = []
     
     // MARK: - Initialization
