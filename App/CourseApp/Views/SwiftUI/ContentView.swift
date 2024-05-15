@@ -11,13 +11,14 @@ import SwiftUI
 struct ContentView: View {
     private let jokesBaseURL = Configuration.default.apiJokesBaseURL
     var logger = Logger()
+    let fontSize: CGFloat = 36
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
-                .font(.custom("Poppins-MediumItalic", size: 36))
+                .font(.custom("Poppins-MediumItalic", size: fontSize))
             Text("test")
         }
         .padding()

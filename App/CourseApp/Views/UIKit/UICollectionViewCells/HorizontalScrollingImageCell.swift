@@ -8,7 +8,6 @@
 import UIKit
 
 class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
-    
     // MARK: - Properties
     
     private var collectionView: UICollectionView!
@@ -80,5 +79,4 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
 }
 
 extension HorizontalScrollingImageCell: UICollectionViewDelegate {
-    
 }

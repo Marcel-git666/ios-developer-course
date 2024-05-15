@@ -41,11 +41,12 @@ private extension LabelCollectionViewCell {
     }
     
     func setupConstraints() {
+        let padding: CGFloat = 5
         NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
         ])
     }
 }
