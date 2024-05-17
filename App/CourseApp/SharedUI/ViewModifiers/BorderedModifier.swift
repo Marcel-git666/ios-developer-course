@@ -9,16 +9,25 @@ import SwiftUI
 
 struct BorderedModifier: ViewModifier {
     var cornerRadius: CGFloat
-
+    
     func body(content: Content) -> some View {
         content
             .background(.gray)
             .cornerRadius(cornerRadius)
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(Color.white, lineWidth: 2)
+                    .strokeBorder(
+                        LinearGradient(
+                            gradient: Gradient(colors: [
+                                .red, .orange, .yellow, .green, .blue, .indigo, .purple
+                            ]),
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        ),
+                        lineWidth: UIConstants.thinLine
+                    )
             )
-            .shadow(radius: 2)
+            .shadow(radius: UIConstants.shadowRadius)
     }
 }
 

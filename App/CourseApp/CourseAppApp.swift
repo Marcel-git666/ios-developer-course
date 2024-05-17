@@ -23,21 +23,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct CourseAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     private let logger = Logger()
-    private let isUIKit = false
     var body: some Scene {
         WindowGroup {
-            homeView
+            MainTabView()
                 .onAppear {
                     logger.info("🦈 HomeView has appeared.")
                 }
-        }
-    }
-    @ViewBuilder
-    var homeView: some View {
-        if isUIKit {
-            HomeView()
-        } else {
-            HomeViewSwiftUI()
         }
     }
 }

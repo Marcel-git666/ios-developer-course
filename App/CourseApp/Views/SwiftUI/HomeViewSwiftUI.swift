@@ -5,25 +5,28 @@
 //  Created by Marcel Mravec on 16.05.2024.
 //
 
+import os
 import SwiftUI
 
 struct HomeViewSwiftUI: View {
     @StateObject private var dataProvider = MockDataProvider()
+    let logger = Logger()
     
     var body: some View {
 #if DEBUG
-        Self._printChanges()
+    Self._printChanges()
 #endif
-        return List {
+    return
+        List {
             ForEach(dataProvider.data, id: \.self) { section in
                 Section {
                     VStack {
                         ForEach(section.jokes) { joke in
                             ZStack(alignment: .bottomLeading) {
                                 Image(uiImage: joke.image ?? UIImage())
-                                    .resizableBordered(cornerRadius: 10)
+                                    .resizableBordered(cornerRadius: UIConstants.normalImageRadius)
                                     .onTapGesture {
-                                        print("Tapped joke \(joke)")
+                                        logger.log("Tapped joke \(joke.text)")
                                     }
                                 
                                 imagePanel
@@ -31,13 +34,13 @@ struct HomeViewSwiftUI: View {
                         }
                     }
                     .background(.bg)
-                    .padding(.leading, 5)
-                    .padding(.trailing, 5)
+                    .padding(.leading, UIConstants.smallPadding)
+                    .padding(.trailing, UIConstants.smallPadding)
                 } header: {
                     Text(section.title)
                         .foregroundColor(.white)
-                        .padding(.leading, 5)
-                        .padding(.trailing, 5)
+                        .padding(.leading, UIConstants.smallPadding)
+                        .padding(.trailing, UIConstants.smallPadding)
                 }
                 .background(.bg)
                 .listRowInsets(EdgeInsets())
@@ -56,14 +59,13 @@ struct HomeViewSwiftUI: View {
             Spacer()
             
             Button {
-                print("tapped button")
+                logger.log("tapped button 💖")
             } label: {
                 Image(systemName: "heart")
             }
             .buttonStyle(SelectableButtonStyle(isSelected: .constant(false), color: .gray))
-            
         }
-        .padding(5)
+        .padding(UIConstants.smallPadding)
     }
 }
 

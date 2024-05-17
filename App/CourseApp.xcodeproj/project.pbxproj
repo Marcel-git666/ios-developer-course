@@ -18,6 +18,11 @@
 		1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */; };
 		1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */; };
 		1FB653522BF78F3A00923AD7 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653512BF78F3A00923AD7 /* UIConstants.swift */; };
+		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
+		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
+		1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653572BF7C05700923AD7 /* ScratchView.swift */; };
+		1FB6535A2BF7C19900923AD7 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653592BF7C19800923AD7 /* DesignSystem.swift */; };
+		1FB6535C2BF7D7F200923AD7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6535B2BF7D7F200923AD7 /* MainTabBarController.swift */; };
 		1FBDCB342BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB362BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB382BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -52,6 +57,11 @@
 		1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FB653512BF78F3A00923AD7 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
+		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
+		1FB653572BF7C05700923AD7 /* ScratchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
+		1FB653592BF7C19800923AD7 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		1FB6535B2BF7D7F200923AD7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1FBDCB2C2BEB64FB00F14095 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		1FBDCB2D2BEB651000F14095 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		1FC7EC352BEE333E007BCDC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -135,6 +145,9 @@
 			children = (
 				1FD32B562BDACCE1006472B3 /* ContentView.swift */,
 				1FEF4A162BF686F100FBA218 /* HomeViewSwiftUI.swift */,
+				1FB653572BF7C05700923AD7 /* ScratchView.swift */,
+				1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */,
+				1FB653532BF7BCBB00923AD7 /* SwipingView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -147,6 +160,7 @@
 				1FF653B82BF4F8750015C82A /* HomeView.swift */,
 				1FF653B42BF4ED230015C82A /* HomeViewController+Ext.swift */,
 				1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */,
+				1FB6535B2BF7D7F200923AD7 /* MainTabBarController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -198,15 +212,15 @@
 		1FD32B532BDACCE1006472B3 /* CourseApp */ = {
 			isa = PBXGroup;
 			children = (
-				1FEF4A182BF687BA00FBA218 /* SharedUI */,
-				1F1CC4E52BEEA8DA00037CE0 /* Common */,
 				1FC7EC362BEE35AE007BCDC4 /* BuildConfiguration.swift */,
+				1F1CC4E52BEEA8DA00037CE0 /* Common */,
 				1FD32B542BDACCE1006472B3 /* CourseAppApp.swift */,
 				1F1CC4E02BEEA74500037CE0 /* DataAPI */,
 				1FF3DEEA2BED0170008817F4 /* GoogleService-Info.plist */,
 				1FC7EC352BEE333E007BCDC4 /* Info.plist */,
 				1FD32B5A2BDACCE3006472B3 /* Preview Content */,
 				1F1CC4DD2BEEA6E000037CE0 /* Resources */,
+				1FEF4A182BF687BA00FBA218 /* SharedUI */,
 				1F1CC4DB2BEEA68200037CE0 /* Views */,
 			);
 			path = CourseApp;
@@ -223,9 +237,10 @@
 		1FEF4A182BF687BA00FBA218 /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
-				1FEF4A1A2BF687CC00FBA218 /* ViewModifiers */,
 				1FEF4A192BF687C500FBA218 /* Styles */,
 				1FB653512BF78F3A00923AD7 /* UIConstants.swift */,
+				1FEF4A1A2BF687CC00FBA218 /* ViewModifiers */,
+				1FB653592BF7C19800923AD7 /* DesignSystem.swift */,
 			);
 			path = SharedUI;
 			sourceTree = "<group>";
@@ -380,19 +395,24 @@
 			files = (
 				1F1CC4E22BEEA76700037CE0 /* MockDataProvider.swift in Sources */,
 				1FC7EC372BEE35AE007BCDC4 /* BuildConfiguration.swift in Sources */,
+				1FB6535C2BF7D7F200923AD7 /* MainTabBarController.swift in Sources */,
 				1FD32B572BDACCE1006472B3 /* ContentView.swift in Sources */,
 				1FEF4A1E2BF6887900FBA218 /* Image+ResizableBordered.swift in Sources */,
 				1FD32B552BDACCE1006472B3 /* CourseAppApp.swift in Sources */,
 				1F1CC4E92BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift in Sources */,
+				1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */,
 				1FD2A47F2BF26FEF005D6D7F /* HorizontalScrollingImageCell.swift in Sources */,
 				1FEF4A202BF688AB00FBA218 /* SelectableButtonStyle.swift in Sources */,
 				1FB653522BF78F3A00923AD7 /* UIConstants.swift in Sources */,
 				1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */,
+				1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */,
 				1FD2A47D2BF222D9005D6D7F /* ImageCollectionViewCell.swift in Sources */,
 				1FF653B52BF4ED230015C82A /* HomeViewController+Ext.swift in Sources */,
 				1FF653B92BF4F8750015C82A /* HomeView.swift in Sources */,
 				1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */,
+				1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */,
 				1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */,
+				1FB6535A2BF7C19900923AD7 /* DesignSystem.swift in Sources */,
 				1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */,
 				1FEF4A172BF686F100FBA218 /* HomeViewSwiftUI.swift in Sources */,
 			);
