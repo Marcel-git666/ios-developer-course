@@ -10,26 +10,89 @@ import os
 import SwiftUI
 import UIKit
 
+// MARK: - UIViewControllerRepresentable
+struct HomeView: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> HomeViewController {
+        HomeViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: HomeViewController, context: Context) {
+    }
+}
+
 final class HomeViewController: UIViewController {
-    // swiftlint:disable prohibited_interface_builder
+    // swiftlint:disable:next prohibited_interface_builder
     @IBOutlet private var categoriesCollectionView: UICollectionView!
-    // swiftlint:enable prohibited_interface_builder
-    let logger = Logger()
+    
     // MARK: - DataSource
-    private lazy var dataProvider = MockDataProvider()
+    private let dataProvider = MockDataProvider()
     typealias DataSource = UICollectionViewDiffableDataSource<SectionData, [Joke]>
     typealias Snapshot = NSDiffableDataSourceSnapshot<SectionData, [Joke]>
     private lazy var dataSource = makeDataSource()
     private lazy var cancellables = Set<AnyCancellable>()
+    private let logger = Logger()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        title = "Categories"
         // Do any additional setup after loading the view.
     }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width - UIConstants.cellSpacing
+        let height: CGFloat = collectionView.bounds.height / UIConstants.sectionScale
+        return CGSize(width: width, height: height)
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.logger.info("Home collection view did select item at \(indexPath)")
+    }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.logger.info("Home collection view cell will display \(indexPath)")
+    }
+}
+
+// MARK: - UISetup
+private extension HomeViewController {
+    func setup() {
+        setupCollectionView()
+        readData()
+    }
     
-    // MARK: - UICollectionViewDataSource
+    func setupCollectionView() {
+        categoriesCollectionView.register(HorizontalScrollingImageCell.self)
+        categoriesCollectionView.register(LabelCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
+        
+        categoriesCollectionView.backgroundColor = .bg
+        categoriesCollectionView.isPagingEnabled = true
+        categoriesCollectionView.contentInsetAdjustmentBehavior = .never
+        categoriesCollectionView.showsVerticalScrollIndicator = false
+        categoriesCollectionView.delegate = self
+        setupCollectionViewLayout()
+    }
+    
+    func setupCollectionViewLayout() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = UIConstants.cellSpacing
+        layout.minimumInteritemSpacing = UIConstants.cellSpacing
+        layout.sectionInset = UIEdgeInsets(top: 0, left: UIConstants.sectionInset, bottom: 0, right: UIConstants.sectionInset)
+        layout.sectionHeadersPinToVisibleBounds = true
+        layout.headerReferenceSize = CGSize(width: categoriesCollectionView.contentSize.width, height: UIConstants.headerHeight)
+        categoriesCollectionView.setCollectionViewLayout(layout, animated: false)
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+private extension HomeViewController {
     func readData() {
         dataProvider.$data.sink { [weak self] data in
             self?.logger.log(level: .info, "The value is \(data)")
@@ -39,11 +102,6 @@ final class HomeViewController: UIViewController {
     }
     
     func applySnapshot(data: [SectionData], animatingDifferences: Bool = true) {
-        guard dataSource.snapshot().numberOfSections == 0 else {
-            //
-            return
-        }
-        
         var snapshot = Snapshot()
         snapshot.appendSections(data)
         
@@ -57,7 +115,7 @@ final class HomeViewController: UIViewController {
     func makeDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: categoriesCollectionView) { collectionView, indexPath, joke in
             let horizontalCell: HorizontalScrollingImageCell = collectionView.dequeueReusableCell(for: indexPath)
-            horizontalCell.images = joke.map { $0.image }
+            horizontalCell.setData(joke)
             return horizontalCell
         }
         
@@ -72,35 +130,5 @@ final class HomeViewController: UIViewController {
             return labelCell
         }
         return dataSource
-    }
-    
-    // MARK: - UISetup
-    
-    func setup() {
-        setupCollectionView()
-        readData()
-    }
-    
-    func setupCollectionView() {
-        categoriesCollectionView.backgroundColor = .systemMint
-        categoriesCollectionView.isPagingEnabled = true
-        categoriesCollectionView.contentInsetAdjustmentBehavior = .never
-        categoriesCollectionView.showsVerticalScrollIndicator = false
-        categoriesCollectionView.delegate = self
-        categoriesCollectionView.register(HorizontalScrollingImageCell.self)
-        categoriesCollectionView.register(LabelCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
-        
-        let interitemSpacing: CGFloat = 10
-        let minimumLineSpacing: CGFloat = 8
-        let sectionInset: CGFloat = 4
-        let headerSize: CGFloat = 30
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical // Change this to vertical
-        layout.minimumLineSpacing = minimumLineSpacing // Spacing here is not necessary, but adds a better inset for horizontal scrolling. Gives you a tiny peek of the background.
-        layout.minimumInteritemSpacing = interitemSpacing
-        layout.sectionInset = UIEdgeInsets(top: 0, left: sectionInset, bottom: 0, right: sectionInset)
-        layout.sectionHeadersPinToVisibleBounds = true
-        layout.headerReferenceSize = CGSize(width: categoriesCollectionView.contentSize.width, height: headerSize)
-        categoriesCollectionView.setCollectionViewLayout(layout, animated: false)
     }
 }

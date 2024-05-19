@@ -5,14 +5,16 @@
 //  Created by Marcel Mravec on 13.05.2024.
 //
 
+import os
+import SwiftUI
 import UIKit
 
-class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
+class HorizontalScrollingImageCell: UICollectionViewCell {
     // MARK: - Properties
-    // swiftlint:disable implicitly_unwrapped_optional
-    private var collectionView: UICollectionView!
-    // swiftlint:enable implicitly_unwrapped_optional
-    var images: [UIImage?] = []
+    
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    var data: [Joke] = []
+    private lazy var logger = Logger()
     
     // MARK: - Initialization
     
@@ -37,17 +39,23 @@ class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
     }
     
     func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        collectionView.register(UICollectionViewCell.self)
         
-        self.collectionView = UICollectionView(frame: contentView.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        collectionView.isPagingEnabled = true
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(ImageCollectionViewCell.self)
+        collectionView.backgroundColor = .bg
+        collectionView.isPagingEnabled = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
         
-        layout.itemSize = CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+        setupCollectionViewLayout()
+    }
+    
+    func setupCollectionViewLayout() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: UIConstants.sectionInset, bottom: 0, right: UIConstants.sectionInset)
+        collectionView.setCollectionViewLayout(layout, animated: false)
     }
     
     func addSubviews() {
@@ -55,8 +63,7 @@ class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
     }
     
     func setupConstraints() {
-        let border: CGFloat = 0
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        let border: CGFloat = 5
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: border),
@@ -67,17 +74,44 @@ class HorizontalScrollingImageCell: UICollectionViewCell, ReusableIdentifier {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+extension HorizontalScrollingImageCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        CGSize(width: collectionView.bounds.width - UIConstants.cellSpacing, height: collectionView.bounds.height)
+    }
+}
+
 extension HorizontalScrollingImageCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        images.count
+        data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath) as ImageCollectionViewCell
-        cell.imageView.image = images[indexPath.item]
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        cell.contentConfiguration = UIHostingConfiguration {
+            Image(uiImage: data[indexPath.row].image ?? UIImage())
+                .resizableBordered(cornerRadius: 10)
+        }
         return cell
     }
 }
 
 extension HorizontalScrollingImageCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        logger.info("Horizontal scrolling did select item \(indexPath)")
+    }
 }
+
+// MARK: - Public methods
+extension HorizontalScrollingImageCell {
+    func setData(_ data: [Joke]) {
+        self.data = data
+        collectionView.reloadData()
+    }
+}
+
+extension UICollectionViewCell: ReusableIdentifier {}

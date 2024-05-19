@@ -27,7 +27,7 @@ struct CourseAppApp: App {
         WindowGroup {
             MainTabView()
                 .onAppear {
-                    logger.info("🦈 HomeView has appeared.")
+                    logger.info("🦈 MainTabView has appeared.")
                 }
         }
     }

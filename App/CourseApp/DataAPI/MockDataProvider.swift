@@ -33,7 +33,7 @@ final class MockDataProvider: ObservableObject {
         SectionData(title: "Celebrations", jokes: [
             Joke(text: "Chuck Norris can make hamburger out of ham."),
             Joke(text: "All your base are belong to Chuck Norris"),
-            Joke(text: "Chuck Norris can hit a barn door with a broad's side.")
+            Joke(text: "What is an astronaut’s favorite part on a computer?\nThe space bar.")
         ])
     ]
 
