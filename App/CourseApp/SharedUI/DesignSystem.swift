@@ -28,18 +28,18 @@ enum TextType {
     var font: Font {
         switch self {
         case .h1Title:
-                .bold(with: .size36)
+            .bold(with: .size36)
         default:
-                .regular(with: .size20)
+            .regular(with: .size20)
         }
     }
     
     var color: Color {
         switch self {
         case .h1Title:
-                .white
+            .white
         default:
-                .gray
+            .gray
         }
     }
 }
@@ -50,7 +50,6 @@ struct TextTypeModifier: ViewModifier {
         content
             .font(textType.font)
             .foregroundColor(textType.color)
-        
     }
 }
 

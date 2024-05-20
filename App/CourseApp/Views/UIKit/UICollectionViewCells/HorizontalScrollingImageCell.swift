@@ -94,7 +94,7 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.contentConfiguration = UIHostingConfiguration {
             Image(uiImage: data[indexPath.row].image ?? UIImage())
-                .resizableBordered(cornerRadius: 10)
+                .resizableBordered(cornerRadius: UIConstants.normalImageRadius)
         }
         return cell
     }
