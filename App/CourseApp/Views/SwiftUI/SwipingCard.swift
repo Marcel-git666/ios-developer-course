@@ -32,7 +32,7 @@ struct SwipingCard: View {
     
     // MARK: UI constant {
     
-    
+    // swiftlint:disable no_magic_numbers
     // MARK: Private variables
     private let swipingAction: Action<SwipeState>
     private let configuration: Configuration
@@ -106,7 +106,7 @@ private extension SwipingCard {
         if -500...(-200) ~= translation.width {
             offset = CGSize(width: -500, height: 0)
             swipingAction(.finished(direction: .left))
-        } else if 200...500 ~= translation.width  { // swipe right
+        } else if 200...500 ~= translation.width { // swipe right
             offset = CGSize(width: 500, height: 0)
             swipingAction(.finished(direction: .right))
         } else {
@@ -148,4 +148,5 @@ struct Card_Previews: PreviewProvider {
         .previewLayout(.sizeThatFits)
         .frame(width: 220, height: 340)
     }
+    // swiftlint:enable no_magic_numbers
 }
