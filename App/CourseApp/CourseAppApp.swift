@@ -29,6 +29,7 @@ struct CourseAppApp: App {
                 .onAppear {
                     logger.info("🦈 MainTabView has appeared.")
                 }
+                .ignoresSafeArea(.all)
         }
     }
 }
