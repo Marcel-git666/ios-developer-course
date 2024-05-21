@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0C19752BFCCAF200F720BE /* FlipEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C19742BFCCAF200F720BE /* FlipEffect.swift */; };
 		1F1CC4D82BEE78AC00037CE0 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC382BEE3B22007BCDC4 /* Poppins-Bold.ttf */; };
 		1F1CC4D92BEE78AF00037CE0 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC3A2BEE3B22007BCDC4 /* Poppins-MediumItalic.ttf */; };
 		1F1CC4DA2BEE78B200037CE0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC392BEE3B22007BCDC4 /* Poppins-Regular.ttf */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F0C19742BFCCAF200F720BE /* FlipEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipEffect.swift; sourceTree = "<group>"; };
 		1F1CC4E12BEEA76700037CE0 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 		1F1CC4E32BEEA84B00037CE0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1F1CC4E62BEEA8F000037CE0 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F0C19732BFCCAE500F720BE /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				1F0C19742BFCCAF200F720BE /* FlipEffect.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		1F1CC4DB2BEEA68200037CE0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +238,7 @@
 		1FEF4A182BF687BA00FBA218 /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
+				1F0C19732BFCCAE500F720BE /* Animations */,
 				1FEF4A192BF687C500FBA218 /* Styles */,
 				1FB653512BF78F3A00923AD7 /* UIConstants.swift */,
 				1FEF4A1A2BF687CC00FBA218 /* ViewModifiers */,
@@ -403,6 +414,7 @@
 				1FB6535A2BF7C19900923AD7 /* DesignSystem.swift in Sources */,
 				1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */,
 				1FEF4A172BF686F100FBA218 /* HomeViewSwiftUI.swift in Sources */,
+				1F0C19752BFCCAF200F720BE /* FlipEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

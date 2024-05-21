@@ -56,6 +56,14 @@ class MainTabBarController: UITabBarController {
         
         swipingNavigationController.tabBarItem = UITabBarItem(title: "Random", image: UIImage(systemName: "switch.2"), tag: 1)
         
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .systemBrown
+        appearance.shadowImage = UIImage()
+        
+        swipingNavigationController.navigationBar.standardAppearance = appearance
+        swipingNavigationController.navigationBar.compactAppearance = appearance
+        swipingNavigationController.navigationBar.scrollEdgeAppearance = appearance
+        
         return swipingNavigationController
     }
 }
