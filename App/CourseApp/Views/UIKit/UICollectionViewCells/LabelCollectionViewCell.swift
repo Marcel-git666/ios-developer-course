@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LabelCollectionViewCell: UICollectionViewCell, ReusableIdentifier {
+final class LabelCollectionViewCell: UICollectionViewCell {
     lazy var nameLabel = UILabel()
     
     // MARK: Lifecycle

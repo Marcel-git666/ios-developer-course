@@ -9,7 +9,7 @@ import os
 import SwiftUI
 
 struct ContentView: View {
-    private let jokesBaseURL = Configuration.default.apiJokesBaseURL
+    private let jokesBaseURL = BuildConfiguration.default.apiJokesBaseURL
     var logger = Logger()
     let fontSize: CGFloat = 36
     var body: some View {
