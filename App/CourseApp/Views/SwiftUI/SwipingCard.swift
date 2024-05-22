@@ -93,7 +93,6 @@ struct SwipingCard: View {
         Text(configuration.title)
             .textTypeModifier(textType: .h1Title)
             .padding(10)
-            .background(Color.black.opacity(0.5))
             .cornerRadius(UIConstants.normalImageRadius)
             .padding()
     }

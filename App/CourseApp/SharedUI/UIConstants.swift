@@ -18,5 +18,6 @@ enum UIConstants {
     static let collectionViewPadding: CGFloat = 5
     static let sectionInset: CGFloat = 4
     static let sectionScale: CGFloat = 3
-    static let headerHeight: CGFloat = 30
+    static let headerHeight: CGFloat = 44
+    static let headerFontSize: CGFloat = 36
 }

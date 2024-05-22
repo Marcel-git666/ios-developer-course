@@ -34,7 +34,7 @@ struct SwipingView: View {
                                         SwipingCard(
                                             configuration: SwipingCard.Configuration(
                                                 image: Image(uiImage: joke.image ?? UIImage()),
-                                                title: "Category",
+                                                title: dataProvider.data.first?.title ?? "Unknown",
                                                 description: joke.text
                                             ),
                                             swipeStateAction: { action in
