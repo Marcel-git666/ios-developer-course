@@ -22,7 +22,7 @@
 		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
 		1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653572BF7C05700923AD7 /* ScratchView.swift */; };
-		1FB6535A2BF7C19900923AD7 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653592BF7C19800923AD7 /* DesignSystem.swift */; };
+		1FB6535A2BF7C19900923AD7 /* TextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653592BF7C19800923AD7 /* TextType.swift */; };
 		1FB6535C2BF7D7F200923AD7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6535B2BF7D7F200923AD7 /* MainTabBarController.swift */; };
 		1FBDCB342BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB362BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -39,6 +39,7 @@
 		1FD32B572BDACCE1006472B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD32B562BDACCE1006472B3 /* ContentView.swift */; };
 		1FD32B592BDACCE3006472B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD32B582BDACCE3006472B3 /* Images.xcassets */; };
 		1FD32B5C2BDACCE3006472B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD32B5B2BDACCE3006472B3 /* Preview Assets.xcassets */; };
+		1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */; };
 		1FEF4A172BF686F100FBA218 /* HomeViewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF4A162BF686F100FBA218 /* HomeViewSwiftUI.swift */; };
 		1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF4A1B2BF6883C00FBA218 /* BorderedModifier.swift */; };
 		1FEF4A1E2BF6887900FBA218 /* Image+ResizableBordered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF4A1D2BF6887900FBA218 /* Image+ResizableBordered.swift */; };
@@ -59,7 +60,7 @@
 		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
 		1FB653572BF7C05700923AD7 /* ScratchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
-		1FB653592BF7C19800923AD7 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		1FB653592BF7C19800923AD7 /* TextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextType.swift; sourceTree = "<group>"; };
 		1FB6535B2BF7D7F200923AD7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1FBDCB2C2BEB64FB00F14095 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		1FBDCB2D2BEB651000F14095 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		1FD32B562BDACCE1006472B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1FD32B582BDACCE3006472B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1FD32B5B2BDACCE3006472B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		1FEF4A162BF686F100FBA218 /* HomeViewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSwiftUI.swift; sourceTree = "<group>"; };
 		1FEF4A1B2BF6883C00FBA218 /* BorderedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedModifier.swift; sourceTree = "<group>"; };
 		1FEF4A1D2BF6887900FBA218 /* Image+ResizableBordered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+ResizableBordered.swift"; sourceTree = "<group>"; };
@@ -242,7 +244,8 @@
 				1FEF4A192BF687C500FBA218 /* Styles */,
 				1FB653512BF78F3A00923AD7 /* UIConstants.swift */,
 				1FEF4A1A2BF687CC00FBA218 /* ViewModifiers */,
-				1FB653592BF7C19800923AD7 /* DesignSystem.swift */,
+				1FB653592BF7C19800923AD7 /* TextType.swift */,
+				1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */,
 			);
 			path = SharedUI;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Ext.swift in Sources */,
 				1F1CC4E22BEEA76700037CE0 /* MockDataProvider.swift in Sources */,
 				1FC7EC372BEE35AE007BCDC4 /* BuildConfiguration.swift in Sources */,
 				1FB6535C2BF7D7F200923AD7 /* MainTabBarController.swift in Sources */,
@@ -411,7 +415,7 @@
 				1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */,
 				1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */,
 				1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */,
-				1FB6535A2BF7C19900923AD7 /* DesignSystem.swift in Sources */,
+				1FB6535A2BF7C19900923AD7 /* TextType.swift in Sources */,
 				1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */,
 				1FEF4A172BF686F100FBA218 /* HomeViewSwiftUI.swift in Sources */,
 				1F0C19752BFCCAF200F720BE /* FlipEffect.swift in Sources */,

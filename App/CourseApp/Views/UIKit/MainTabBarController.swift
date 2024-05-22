@@ -39,31 +39,26 @@ class MainTabBarController: UITabBarController {
             image: UIImage(systemName: "list.bullet.rectangle.portrait"),
             tag: 0
         )
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .systemBrown
-        appearance.shadowImage = UIImage()
-        
-        categoriesNavigationController.navigationBar.standardAppearance = appearance
-        categoriesNavigationController.navigationBar.compactAppearance = appearance
-        categoriesNavigationController.navigationBar.scrollEdgeAppearance = appearance
+        setupAppearance(navigationController: categoriesNavigationController)
         
         return categoriesNavigationController
     }
     
     func setupSwipingCardView() -> UIViewController {
         let swipingNavigationController = UINavigationController(rootViewController: UIHostingController(rootView: SwipingView()))
-        
         swipingNavigationController.tabBarItem = UITabBarItem(title: "Random", image: UIImage(systemName: "switch.2"), tag: 1)
+        setupAppearance(navigationController: swipingNavigationController)
         
+        return swipingNavigationController
+    }
+    
+    func setupAppearance(navigationController: UINavigationController) {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .systemBrown
         appearance.shadowImage = UIImage()
         
-        swipingNavigationController.navigationBar.standardAppearance = appearance
-        swipingNavigationController.navigationBar.compactAppearance = appearance
-        swipingNavigationController.navigationBar.scrollEdgeAppearance = appearance
-        
-        return swipingNavigationController
+        navigationController.navigationBar.standardAppearance = appearance
+        navigationController.navigationBar.compactAppearance = appearance
+        navigationController.navigationBar.scrollEdgeAppearance = appearance
     }
 }
