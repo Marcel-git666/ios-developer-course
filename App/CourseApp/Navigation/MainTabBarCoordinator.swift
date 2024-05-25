@@ -29,9 +29,9 @@ private extension MainTabBarCoordinator {
         UITabBar.appearance().tintColor = .white
         UITabBarItem.appearance().setTitleTextAttributes(
             [
-                NSAttributedString.Key.font : TextType.caption.font
-            ],
-            for: .normal)
+                NSAttributedString.Key.font: TextType.caption.uiFont
+            ], for: .normal
+        )
         UINavigationBar.appearance().tintColor = .white
     }
     
