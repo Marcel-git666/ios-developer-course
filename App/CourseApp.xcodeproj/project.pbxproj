@@ -40,6 +40,10 @@
 		1FD32B592BDACCE3006472B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD32B582BDACCE3006472B3 /* Images.xcassets */; };
 		1FD32B5C2BDACCE3006472B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD32B5B2BDACCE3006472B3 /* Preview Assets.xcassets */; };
 		1FD3C94A2C00C74400B9135E /* EmbedInScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3C9492C00C74400B9135E /* EmbedInScrollView.swift */; };
+		1FD3C94D2C00CD4A00B9135E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3C94C2C00CD4A00B9135E /* Coordinator.swift */; };
+		1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3C94E2C00CF8C00B9135E /* ViewControllerCoordinator.swift */; };
+		1FD3C9512C00D1B300B9135E /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3C9502C00D1B300B9135E /* MainTabBarCoordinator.swift */; };
+		1FD3C9552C00F64C00B9135E /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3C9542C00F64C00B9135E /* CoordinatorView.swift */; };
 		1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */; };
 		1FEF4A172BF686F100FBA218 /* HomeViewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF4A162BF686F100FBA218 /* HomeViewSwiftUI.swift */; };
 		1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF4A1B2BF6883C00FBA218 /* BorderedModifier.swift */; };
@@ -77,6 +81,10 @@
 		1FD32B582BDACCE3006472B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1FD32B5B2BDACCE3006472B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1FD3C9492C00C74400B9135E /* EmbedInScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedInScrollView.swift; sourceTree = "<group>"; };
+		1FD3C94C2C00CD4A00B9135E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		1FD3C94E2C00CF8C00B9135E /* ViewControllerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCoordinator.swift; sourceTree = "<group>"; };
+		1FD3C9502C00D1B300B9135E /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
+		1FD3C9542C00F64C00B9135E /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		1FEF4A162BF686F100FBA218 /* HomeViewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSwiftUI.swift; sourceTree = "<group>"; };
 		1FEF4A1B2BF6883C00FBA218 /* BorderedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedModifier.swift; sourceTree = "<group>"; };
@@ -217,6 +225,7 @@
 		1FD32B532BDACCE1006472B3 /* CourseApp */ = {
 			isa = PBXGroup;
 			children = (
+				1FD3C94B2C00CD2B00B9135E /* Navigation */,
 				1FC7EC362BEE35AE007BCDC4 /* BuildConfiguration.swift */,
 				1F1CC4E52BEEA8DA00037CE0 /* Common */,
 				1FD32B542BDACCE1006472B3 /* CourseAppApp.swift */,
@@ -237,6 +246,17 @@
 				1FD32B5B2BDACCE3006472B3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1FD3C94B2C00CD2B00B9135E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1FD3C94C2C00CD4A00B9135E /* Coordinator.swift */,
+				1FD3C94E2C00CF8C00B9135E /* ViewControllerCoordinator.swift */,
+				1FD3C9502C00D1B300B9135E /* MainTabBarCoordinator.swift */,
+				1FD3C9542C00F64C00B9135E /* CoordinatorView.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		1FEF4A182BF687BA00FBA218 /* SharedUI */ = {
@@ -410,14 +430,18 @@
 				1FD32B552BDACCE1006472B3 /* CourseAppApp.swift in Sources */,
 				1F1CC4E92BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift in Sources */,
 				1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */,
+				1FD3C9552C00F64C00B9135E /* CoordinatorView.swift in Sources */,
 				1FD2A47F2BF26FEF005D6D7F /* HorizontalScrollingImageCell.swift in Sources */,
+				1FD3C9512C00D1B300B9135E /* MainTabBarCoordinator.swift in Sources */,
 				1FEF4A202BF688AB00FBA218 /* SelectableButtonStyle.swift in Sources */,
 				1FB653522BF78F3A00923AD7 /* UIConstants.swift in Sources */,
 				1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */,
+				1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */,
 				1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */,
 				1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */,
 				1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */,
 				1FD3C94A2C00C74400B9135E /* EmbedInScrollView.swift in Sources */,
+				1FD3C94D2C00CD4A00B9135E /* Coordinator.swift in Sources */,
 				1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */,
 				1FB6535A2BF7C19900923AD7 /* TextType.swift in Sources */,
 				1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */,

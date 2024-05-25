@@ -23,9 +23,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct CourseAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     private let logger = Logger()
+    private let tabBarCoordinator = MainTabBarCoordinator()
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            CoordinatorView(coordinator: tabBarCoordinator)
                 .onAppear {
                     logger.info("🦈 MainTabView has appeared.")
                 }

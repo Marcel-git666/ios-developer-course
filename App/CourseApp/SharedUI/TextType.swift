@@ -33,11 +33,14 @@ struct TextTypeModifier: ViewModifier {
 enum TextType {
     case h1Title
     case h2Title
+    case caption
     
     var font: Font {
         switch self {
         case .h1Title:
             .bold(with: .size36)
+        case .caption:
+                .regular(with: .size12)
         default:
             .regular(with: .size20)
         }
