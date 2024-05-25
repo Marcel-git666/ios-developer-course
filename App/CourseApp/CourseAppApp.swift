@@ -23,7 +23,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct CourseAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     private let logger = Logger()
-    private let tabBarCoordinator = MainTabBarCoordinator()
+    private let tabBarCoordinator = {
+        let coordinator = MainTabBarCoordinator()
+        coordinator.start()
+        return coordinator
+    }()
     var body: some Scene {
         WindowGroup {
             CoordinatorView(coordinator: tabBarCoordinator)
