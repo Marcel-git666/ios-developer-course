@@ -28,6 +28,7 @@ struct CourseAppApp: App {
         coordinator.start()
         return coordinator
     }()
+    
     var body: some Scene {
         WindowGroup {
             CoordinatorView(coordinator: tabBarCoordinator)

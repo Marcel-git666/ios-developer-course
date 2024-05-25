@@ -8,34 +8,34 @@
 import SwiftUI
 import UIKit
 
-struct MainTabView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> MainTabBarController {
-        MainTabBarController()
-    }
-    
-    func updateUIViewController(_ uiViewController: MainTabBarController, context: Context) {}
-}
+//struct MainTabView: UIViewControllerRepresentable {
+//    func makeUIViewController(context: Context) -> MainTabBarController {
+//        MainTabBarController()
+//    }
+//    
+//    func updateUIViewController(_ uiViewController: MainTabBarController, context: Context) {}
+//}
 
-class MainTabBarController: UITabBarController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupGlobalTabBarUI()
-    }
-    
-    func setupGlobalTabBarUI() {
-        UITabBar.appearance().backgroundColor = .brown
-        UITabBar.appearance().tintColor = .white
-    }
-    
-    func setupAppearance() {
-               
-        UITabBar.appearance().backgroundColor = .systemBrown
-        UITabBar.appearance().tintColor = .white
-        UITabBarItem.appearance().setTitleTextAttributes(
-            [
-                NSAttributedString.Key.font : TextType.caption.font
-            ],
-            for: .normal)
-        UINavigationBar.appearance().tintColor = .white
-    }
-}
+//class MainTabBarController: UITabBarController {
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        setupGlobalTabBarUI()
+//    }
+//    
+//    func setupGlobalTabBarUI() {
+//        UITabBar.appearance().backgroundColor = .systemBrown
+//        UITabBar.appearance().tintColor = .white
+//    }
+//    
+//    func setupAppearance() {
+//               
+//        UITabBar.appearance().backgroundColor = .systemBrown
+//        UITabBar.appearance().tintColor = .white
+//        UITabBarItem.appearance().setTitleTextAttributes(
+//            [
+//                NSAttributedString.Key.font : TextType.caption.font
+//            ],
+//            for: .normal)
+//        UINavigationBar.appearance().tintColor = .white
+//    }
+//}

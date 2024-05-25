@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F002E572C01C3EA007B44E0 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E562C01C3EA007B44E0 /* UINavigationController+Ext.swift */; };
+		1F002E5A2C01C491007B44E0 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E592C01C491007B44E0 /* FontType.swift */; };
+		1F002E5C2C01C4EB007B44E0 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E5B2C01C4EB007B44E0 /* FontSize.swift */; };
+		1F002E5E2C02056C007B44E0 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E5D2C02056C007B44E0 /* CustomNavigationController.swift */; };
+		1F002E602C0205BA007B44E0 /* TextTypeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E5F2C0205BA007B44E0 /* TextTypeModifier.swift */; };
 		1F0C19752BFCCAF200F720BE /* FlipEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C19742BFCCAF200F720BE /* FlipEffect.swift */; };
 		1F1CC4D82BEE78AC00037CE0 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC382BEE3B22007BCDC4 /* Poppins-Bold.ttf */; };
 		1F1CC4D92BEE78AF00037CE0 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC3A2BEE3B22007BCDC4 /* Poppins-MediumItalic.ttf */; };
@@ -53,6 +58,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F002E562C01C3EA007B44E0 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
+		1F002E592C01C491007B44E0 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
+		1F002E5B2C01C4EB007B44E0 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
+		1F002E5D2C02056C007B44E0 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		1F002E5F2C0205BA007B44E0 /* TextTypeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTypeModifier.swift; sourceTree = "<group>"; };
 		1F0C19742BFCCAF200F720BE /* FlipEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipEffect.swift; sourceTree = "<group>"; };
 		1F1CC4E12BEEA76700037CE0 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 		1F1CC4E32BEEA84B00037CE0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -119,6 +129,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F002E552C01C3C4007B44E0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */,
+				1F002E562C01C3EA007B44E0 /* UINavigationController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1F002E582C01C45D007B44E0 /* Design System */ = {
+			isa = PBXGroup;
+			children = (
+				1F002E5B2C01C4EB007B44E0 /* FontSize.swift */,
+				1F002E592C01C491007B44E0 /* FontType.swift */,
+				1FB653592BF7C19800923AD7 /* TextType.swift */,
+				1FB653512BF78F3A00923AD7 /* UIConstants.swift */,
+			);
+			path = "Design System";
+			sourceTree = "<group>";
+		};
 		1F0C19732BFCCAE500F720BE /* Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +205,7 @@
 				1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */,
 				1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */,
 				1FB6535B2BF7D7F200923AD7 /* MainTabBarController.swift */,
+				1F002E5D2C02056C007B44E0 /* CustomNavigationController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -263,11 +294,10 @@
 			isa = PBXGroup;
 			children = (
 				1F0C19732BFCCAE500F720BE /* Animations */,
+				1F002E582C01C45D007B44E0 /* Design System */,
+				1F002E552C01C3C4007B44E0 /* Extensions */,
 				1FEF4A192BF687C500FBA218 /* Styles */,
-				1FB653512BF78F3A00923AD7 /* UIConstants.swift */,
 				1FEF4A1A2BF687CC00FBA218 /* ViewModifiers */,
-				1FB653592BF7C19800923AD7 /* TextType.swift */,
-				1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */,
 			);
 			path = SharedUI;
 			sourceTree = "<group>";
@@ -286,6 +316,7 @@
 				1FEF4A1B2BF6883C00FBA218 /* BorderedModifier.swift */,
 				1FEF4A1D2BF6887900FBA218 /* Image+ResizableBordered.swift */,
 				1FD3C9492C00C74400B9135E /* EmbedInScrollView.swift */,
+				1F002E5F2C0205BA007B44E0 /* TextTypeModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -423,8 +454,11 @@
 			files = (
 				1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Ext.swift in Sources */,
 				1F1CC4E22BEEA76700037CE0 /* MockDataProvider.swift in Sources */,
+				1F002E572C01C3EA007B44E0 /* UINavigationController+Ext.swift in Sources */,
 				1FC7EC372BEE35AE007BCDC4 /* BuildConfiguration.swift in Sources */,
 				1FB6535C2BF7D7F200923AD7 /* MainTabBarController.swift in Sources */,
+				1F002E5C2C01C4EB007B44E0 /* FontSize.swift in Sources */,
+				1F002E5E2C02056C007B44E0 /* CustomNavigationController.swift in Sources */,
 				1FD32B572BDACCE1006472B3 /* ContentView.swift in Sources */,
 				1FEF4A1E2BF6887900FBA218 /* Image+ResizableBordered.swift in Sources */,
 				1FD32B552BDACCE1006472B3 /* CourseAppApp.swift in Sources */,
@@ -439,9 +473,11 @@
 				1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */,
 				1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */,
 				1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */,
+				1F002E602C0205BA007B44E0 /* TextTypeModifier.swift in Sources */,
 				1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */,
 				1FD3C94A2C00C74400B9135E /* EmbedInScrollView.swift in Sources */,
 				1FD3C94D2C00CD4A00B9135E /* Coordinator.swift in Sources */,
+				1F002E5A2C01C491007B44E0 /* FontType.swift in Sources */,
 				1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */,
 				1FB6535A2BF7C19900923AD7 /* TextType.swift in Sources */,
 				1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */,
