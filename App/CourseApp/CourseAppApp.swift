@@ -10,6 +10,12 @@ import os
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    let appCoordinator: some AppCoordinating = {
+        let coordinator = AppCoordinator()
+        coordinator.start()
+        return coordinator
+    }()
+    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
@@ -23,15 +29,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct CourseAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     private let logger = Logger()
-    private let tabBarCoordinator = {
-        let coordinator = MainTabBarCoordinator()
-        coordinator.start()
-        return coordinator
-    }()
     
     var body: some Scene {
         WindowGroup {
-            CoordinatorView(coordinator: tabBarCoordinator)
+            CoordinatorView(coordinator: delegate.appCoordinator )
                 .onAppear {
                     logger.info("🦈 MainTabView has appeared.")
                 }

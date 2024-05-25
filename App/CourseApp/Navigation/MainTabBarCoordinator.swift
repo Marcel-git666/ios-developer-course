@@ -15,7 +15,6 @@ final class MainTabBarCoordinator: NSObject, TabBarControllerCoordinator {
 
 extension MainTabBarCoordinator {
     func start() {
-        setupAppearance()
         tabBarController.viewControllers = [
             setupCategoriesView(),
             setupSwipingCardView()
@@ -24,17 +23,6 @@ extension MainTabBarCoordinator {
 }
 
 private extension MainTabBarCoordinator {
-    func setupAppearance() {
-        UITabBar.appearance().backgroundColor = .systemBrown
-        UITabBar.appearance().tintColor = .white
-        UITabBarItem.appearance().setTitleTextAttributes(
-            [
-                NSAttributedString.Key.font: TextType.caption.uiFont
-            ], for: .normal
-        )
-        UINavigationBar.appearance().tintColor = .white
-    }
-    
     func makeTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
         tabBarController.delegate = self
