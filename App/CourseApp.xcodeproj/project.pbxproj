@@ -29,7 +29,6 @@
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
 		1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653572BF7C05700923AD7 /* ScratchView.swift */; };
 		1FB6535A2BF7C19900923AD7 /* TextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653592BF7C19800923AD7 /* TextType.swift */; };
-		1FB6535C2BF7D7F200923AD7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6535B2BF7D7F200923AD7 /* MainTabBarController.swift */; };
 		1FBDCB342BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB362BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB382BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -51,6 +50,8 @@
 		1FD3C9512C00D1B300B9135E /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3C9502C00D1B300B9135E /* MainTabBarCoordinator.swift */; };
 		1FD3C9552C00F64C00B9135E /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3C9542C00F64C00B9135E /* CoordinatorView.swift */; };
 		1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */; };
+		1FECA55D2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECA55C2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift */; };
+		1FECA55F2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECA55E2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift */; };
 		1FEF4A172BF686F100FBA218 /* HomeViewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF4A162BF686F100FBA218 /* HomeViewSwiftUI.swift */; };
 		1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF4A1B2BF6883C00FBA218 /* BorderedModifier.swift */; };
 		1FEF4A1E2BF6887900FBA218 /* Image+ResizableBordered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF4A1D2BF6887900FBA218 /* Image+ResizableBordered.swift */; };
@@ -78,10 +79,9 @@
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
 		1FB653572BF7C05700923AD7 /* ScratchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
 		1FB653592BF7C19800923AD7 /* TextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextType.swift; sourceTree = "<group>"; };
-		1FB6535B2BF7D7F200923AD7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1FBDCB2C2BEB64FB00F14095 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		1FBDCB2D2BEB651000F14095 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
-		1FC7EC352BEE333E007BCDC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1FC7EC352BEE333E007BCDC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FC7EC362BEE35AE007BCDC4 /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
 		1FC7EC382BEE3B22007BCDC4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		1FC7EC392BEE3B22007BCDC4 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -98,6 +98,8 @@
 		1FD3C9502C00D1B300B9135E /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
 		1FD3C9542C00F64C00B9135E /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		1FECA55C2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerCoordinator.swift; sourceTree = "<group>"; };
+		1FECA55E2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerCoordinator.swift; sourceTree = "<group>"; };
 		1FEF4A162BF686F100FBA218 /* HomeViewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSwiftUI.swift; sourceTree = "<group>"; };
 		1FEF4A1B2BF6883C00FBA218 /* BorderedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedModifier.swift; sourceTree = "<group>"; };
 		1FEF4A1D2BF6887900FBA218 /* Image+ResizableBordered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+ResizableBordered.swift"; sourceTree = "<group>"; };
@@ -206,7 +208,6 @@
 				1F65879F2BF154B70006025B /* UICollectionViewCells */,
 				1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */,
 				1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */,
-				1FB6535B2BF7D7F200923AD7 /* MainTabBarController.swift */,
 				1F002E5D2C02056C007B44E0 /* CustomNavigationController.swift */,
 			);
 			path = UIKit;
@@ -223,8 +224,9 @@
 		1F1CC4E52BEEA8DA00037CE0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				1F1CC4E62BEEA8F000037CE0 /* ReusableIdentifier.swift */,
-				1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */,
+				1FECA5642C036E1900CB12E2 /* Extensions */,
+				1FECA5632C036E0F00CB12E2 /* Protocols */,
+				1FECA5622C036E0A00CB12E2 /* Types */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -258,15 +260,14 @@
 		1FD32B532BDACCE1006472B3 /* CourseApp */ = {
 			isa = PBXGroup;
 			children = (
-				1FD3C94B2C00CD2B00B9135E /* Navigation */,
+				1FECA5612C036DC300CB12E2 /* App */,
 				1FC7EC362BEE35AE007BCDC4 /* BuildConfiguration.swift */,
-				1F1CC4E52BEEA8DA00037CE0 /* Common */,
 				1FD32B542BDACCE1006472B3 /* CourseAppApp.swift */,
-				1F1CC4E02BEEA74500037CE0 /* DataAPI */,
 				1FF3DEEA2BED0170008817F4 /* GoogleService-Info.plist */,
 				1FC7EC352BEE333E007BCDC4 /* Info.plist */,
+				1F1CC4E52BEEA8DA00037CE0 /* Common */,
+				1F1CC4E02BEEA74500037CE0 /* DataAPI */,
 				1FD32B5A2BDACCE3006472B3 /* Preview Content */,
-				1F1CC4DD2BEEA6E000037CE0 /* Resources */,
 				1FEF4A182BF687BA00FBA218 /* SharedUI */,
 				1F1CC4DB2BEEA68200037CE0 /* Views */,
 			);
@@ -286,11 +287,45 @@
 			children = (
 				1FD3C94C2C00CD4A00B9135E /* Coordinator.swift */,
 				1FD3C94E2C00CF8C00B9135E /* ViewControllerCoordinator.swift */,
+				1FECA55E2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift */,
+				1FECA55C2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift */,
 				1FD3C9502C00D1B300B9135E /* MainTabBarCoordinator.swift */,
 				1FD3C9542C00F64C00B9135E /* CoordinatorView.swift */,
 				1F002E612C025DD9007B44E0 /* AppCoordinator.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1FECA5612C036DC300CB12E2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1F1CC4DD2BEEA6E000037CE0 /* Resources */,
+				1FD3C94B2C00CD2B00B9135E /* Navigation */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1FECA5622C036E0A00CB12E2 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		1FECA5632C036E0F00CB12E2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1F1CC4E62BEEA8F000037CE0 /* ReusableIdentifier.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1FECA5642C036E1900CB12E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1FEF4A182BF687BA00FBA218 /* SharedUI */ = {
@@ -384,7 +419,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					1FD1A4142BF3B92B000E73FC = {
 						CreatedOnToolsVersion = 15.3;
@@ -459,7 +494,6 @@
 				1F1CC4E22BEEA76700037CE0 /* MockDataProvider.swift in Sources */,
 				1F002E572C01C3EA007B44E0 /* UINavigationController+Ext.swift in Sources */,
 				1FC7EC372BEE35AE007BCDC4 /* BuildConfiguration.swift in Sources */,
-				1FB6535C2BF7D7F200923AD7 /* MainTabBarController.swift in Sources */,
 				1F002E5C2C01C4EB007B44E0 /* FontSize.swift in Sources */,
 				1F002E5E2C02056C007B44E0 /* CustomNavigationController.swift in Sources */,
 				1FD32B572BDACCE1006472B3 /* ContentView.swift in Sources */,
@@ -482,6 +516,8 @@
 				1FD3C94A2C00C74400B9135E /* EmbedInScrollView.swift in Sources */,
 				1FD3C94D2C00CD4A00B9135E /* Coordinator.swift in Sources */,
 				1F002E5A2C01C491007B44E0 /* FontType.swift in Sources */,
+				1FECA55D2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift in Sources */,
+				1FECA55F2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift in Sources */,
 				1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */,
 				1FB6535A2BF7C19900923AD7 /* TextType.swift in Sources */,
 				1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */,
@@ -536,6 +572,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = P3K32DW2KW;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -608,6 +645,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = P3K32DW2KW;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -672,6 +710,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = P3K32DW2KW;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -736,6 +775,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = P3K32DW2KW;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -874,6 +914,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -887,6 +928,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
@@ -1113,6 +1155,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = "Production - Release";

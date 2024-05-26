@@ -9,7 +9,6 @@ import SwiftUI
 import UIKit
 
 struct CoordinatorView<T: ViewControllerCoordinator>: UIViewControllerRepresentable {
-     
     let coordinator: T
     
     func makeUIViewController(context: Context) -> UIViewController {

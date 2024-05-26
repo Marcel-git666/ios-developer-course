@@ -16,7 +16,7 @@ extension UIFont {
         UIFont(name: FontType.bold.rawValue, size: size.rawValue)!
     }
     static func mediumItalic(with size: FontSize) -> UIFont {
-            UIFont(name: FontType.mediumItalic.rawValue, size: size.rawValue)!
+        UIFont(name: FontType.mediumItalic.rawValue, size: size.rawValue)!
     }
 }
 
@@ -28,7 +28,7 @@ extension Font {
         Font.custom(FontType.bold.rawValue, size: size.rawValue)
     }
     static func mediumItalic(with size: FontSize) -> Font {
-            Font.custom(FontType.mediumItalic.rawValue, size: size.rawValue)
+        Font.custom(FontType.mediumItalic.rawValue, size: size.rawValue)
     }
 }
 // swiftlint:enable force_unwrapping

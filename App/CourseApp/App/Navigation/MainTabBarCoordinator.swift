@@ -50,9 +50,8 @@ private extension MainTabBarCoordinator {
 
 extension MainTabBarCoordinator: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        print("VC \(viewController.description) was selected.")
         if viewController === tabBarController.viewControllers?.last {
-//            rootViewController.showInfoAlert(title: "Last view controller alert.")
+            // rootViewController.showInfoAlert(title: "Last view controller alert.")
         }
     }
 }
