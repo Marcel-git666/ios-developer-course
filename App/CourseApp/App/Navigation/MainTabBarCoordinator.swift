@@ -5,12 +5,14 @@
 //  Created by Marcel Mravec on 24.05.2024.
 //
 
+import Combine
 import SwiftUI
 import UIKit
 
 final class MainTabBarCoordinator: NSObject, TabBarControllerCoordinator {
     var childCoordinators = [Coordinator]()
     private(set) lazy var tabBarController = makeTabBarController()
+    private lazy var cancellables = Set<AnyCancellable>()
 }
 
 extension MainTabBarCoordinator {
@@ -20,9 +22,38 @@ extension MainTabBarCoordinator {
             setupSwipingCardView()
         ]
     }
+    
+    func handleDeeplink(deeplink: Deeplink) {
+        switch deeplink {
+        case let .onboarding(page):
+            let coordinator = makeOnboardingFlow(page: page)
+            startChildCoordinator(coordinator)
+            tabBarController.present(coordinator.rootViewController, animated: true)
+        default:
+            break
+        }
+        childCoordinators.forEach { $0.handleDeeplink(deeplink: deeplink) }
+    }
 }
 
 private extension MainTabBarCoordinator {
+    func makeOnboardingFlow(page: Int) -> ViewControllerCoordinator {
+        let coordinator = OnboardingNavigationCoordinator(currentPage: page)
+        coordinator.eventPublisher
+            .sink { [weak self] event in
+                self?.handleEvent(event)
+            }
+            .store(in: &cancellables)
+        return coordinator
+    }
+    
+    func handleEvent(_ event: OnboardingNavigationEvent) {
+        switch event {
+        case let .dismiss(coordinator):
+            release(coordinator: coordinator)
+        }
+    }
+    
     func makeTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
         tabBarController.delegate = self
@@ -41,10 +72,11 @@ private extension MainTabBarCoordinator {
     }
     
     func setupSwipingCardView() -> UIViewController {
-        let swipingNavigationController = CustomNavigationController(rootViewController: UIHostingController(rootView: SwipingView()))
-        swipingNavigationController.tabBarItem = UITabBarItem(title: "Random", image: UIImage(systemName: "switch.2"), tag: 1)
+        let swipingCoordinator = SwipingNavigationCoordinator()
+        startChildCoordinator(swipingCoordinator)
+        swipingCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Random", image: UIImage(systemName: "switch.2"), tag: 1)
         
-        return swipingNavigationController
+        return swipingCoordinator.rootViewController
     }
 }
 

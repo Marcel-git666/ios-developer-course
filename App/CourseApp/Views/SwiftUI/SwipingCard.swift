@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-typealias Action<T> = (T) -> Void
-
 struct SwipingCard: View {
     // MARK: - SwipeDirection
     enum SwipeDirection {

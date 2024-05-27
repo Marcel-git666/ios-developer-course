@@ -9,6 +9,12 @@ import FirebaseCore
 import os
 import SwiftUI
 
+enum Deeplink {
+    case onboarding(page: Int)
+    case closeOnboarding
+    case signIn
+}
+
 class AppDelegate: NSObject, UIApplicationDelegate {
     let appCoordinator: some AppCoordinating = {
         let coordinator = AppCoordinator()
@@ -21,7 +27,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         FirebaseApp.configure()
+        deeplinkFromService()
         return true
+    }
+    
+    func deeplinkFromService() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+            self?.appCoordinator.handleDeeplink(deeplink: .onboarding(page: 0))
+        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) { [weak self] in
+//            self?.appCoordinator.handleDeeplink(deeplink: .closeOnboarding)
+//        }
     }
 }
 
