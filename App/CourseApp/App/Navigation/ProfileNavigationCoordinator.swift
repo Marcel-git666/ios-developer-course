@@ -1,5 +1,5 @@
 //
-//  ProfileCoordinator.swift
+//  ProfileNavigationCoordinator.swift
 //  CourseApp
 //
 //  Created by Marcel Mravec on 27.05.2024.
@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-final class ProfileCoordinator: NSObject, NavigationControllerCoordinator {
+final class ProfileNavigationCoordinator: NSObject, NavigationControllerCoordinator {
     private(set) var navigationController: UINavigationController = CustomNavigationController()
     
     var childCoordinators = [Coordinator]()
@@ -19,7 +19,7 @@ final class ProfileCoordinator: NSObject, NavigationControllerCoordinator {
 }
 
 // MARK: - Factories
-private extension ProfileCoordinator {
+private extension ProfileNavigationCoordinator {
     func makeProfile() -> UIViewController {
         UIHostingController(rootView: ProfileView())
     }

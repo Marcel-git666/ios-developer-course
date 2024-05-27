@@ -62,14 +62,15 @@ private extension MainTabBarCoordinator {
     }
     
     func setupCategoriesView() -> UIViewController {
-        let categoriesNavigationController = CustomNavigationController(rootViewController: HomeViewController())
-        categoriesNavigationController.tabBarItem = UITabBarItem(
+        let categoriesCoordinator = CategoriesNavigationCoordinator()
+        startChildCoordinator(categoriesCoordinator)
+        categoriesCoordinator.rootViewController.tabBarItem = UITabBarItem(
             title: "Categories",
             image: UIImage(systemName: "list.bullet.rectangle.portrait"),
             tag: 0
         )
         
-        return categoriesNavigationController
+        return categoriesCoordinator.rootViewController
     }
     
     func setupSwipingCardView() -> UIViewController {
@@ -81,7 +82,7 @@ private extension MainTabBarCoordinator {
     }
     
     func setupProfileView() -> UIViewController {
-        let profileCoordinator = ProfileCoordinator()
+        let profileCoordinator = ProfileNavigationCoordinator()
         startChildCoordinator(profileCoordinator)
         profileCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 2)
         

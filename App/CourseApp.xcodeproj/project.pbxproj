@@ -53,8 +53,9 @@
 		1FE64BB92C04D03A0089A2B4 /* OnboardingNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BB82C04D03A0089A2B4 /* OnboardingNextView.swift */; };
 		1FE64BBB2C04D0440089A2B4 /* OnboardingLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BBA2C04D0440089A2B4 /* OnboardingLastView.swift */; };
 		1FE64BBD2C04D1660089A2B4 /* OnboardingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BBC2C04D1660089A2B4 /* OnboardingButtonStyle.swift */; };
-		1FE64BBF2C0502ED0089A2B4 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BBE2C0502ED0089A2B4 /* ProfileCoordinator.swift */; };
+		1FE64BBF2C0502ED0089A2B4 /* ProfileNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BBE2C0502ED0089A2B4 /* ProfileNavigationCoordinator.swift */; };
 		1FE64BC12C0503460089A2B4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BC02C0503460089A2B4 /* ProfileView.swift */; };
+		1FE64BC32C0506AD0089A2B4 /* CategoriesNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BC22C0506AD0089A2B4 /* CategoriesNavigationCoordinator.swift */; };
 		1FECA55D2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECA55C2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift */; };
 		1FECA55F2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECA55E2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift */; };
 		1FECA5662C038A8400CB12E2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECA5652C038A8400CB12E2 /* OnboardingView.swift */; };
@@ -109,8 +110,9 @@
 		1FE64BB82C04D03A0089A2B4 /* OnboardingNextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextView.swift; sourceTree = "<group>"; };
 		1FE64BBA2C04D0440089A2B4 /* OnboardingLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLastView.swift; sourceTree = "<group>"; };
 		1FE64BBC2C04D1660089A2B4 /* OnboardingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButtonStyle.swift; sourceTree = "<group>"; };
-		1FE64BBE2C0502ED0089A2B4 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		1FE64BBE2C0502ED0089A2B4 /* ProfileNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationCoordinator.swift; sourceTree = "<group>"; };
 		1FE64BC02C0503460089A2B4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1FE64BC22C0506AD0089A2B4 /* CategoriesNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesNavigationCoordinator.swift; sourceTree = "<group>"; };
 		1FECA55C2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerCoordinator.swift; sourceTree = "<group>"; };
 		1FECA55E2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerCoordinator.swift; sourceTree = "<group>"; };
 		1FECA5652C038A8400CB12E2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -311,7 +313,8 @@
 				1FD3C9542C00F64C00B9135E /* CoordinatorView.swift */,
 				1FECA5692C038C1F00CB12E2 /* OnboardingNavigationCoordinator.swift */,
 				1FECA56B2C038C4E00CB12E2 /* SwipingNavigationCoordinator.swift */,
-				1FE64BBE2C0502ED0089A2B4 /* ProfileCoordinator.swift */,
+				1FE64BBE2C0502ED0089A2B4 /* ProfileNavigationCoordinator.swift */,
+				1FE64BC22C0506AD0089A2B4 /* CategoriesNavigationCoordinator.swift */,
 				1F002E612C025DD9007B44E0 /* AppCoordinator.swift */,
 				1FE64BB62C0491010089A2B4 /* EventEmitter.swift */,
 			);
@@ -522,7 +525,7 @@
 				1FC7EC372BEE35AE007BCDC4 /* BuildConfiguration.swift in Sources */,
 				1F002E5C2C01C4EB007B44E0 /* FontSize.swift in Sources */,
 				1F002E5E2C02056C007B44E0 /* CustomNavigationController.swift in Sources */,
-				1FE64BBF2C0502ED0089A2B4 /* ProfileCoordinator.swift in Sources */,
+				1FE64BBF2C0502ED0089A2B4 /* ProfileNavigationCoordinator.swift in Sources */,
 				1FEF4A1E2BF6887900FBA218 /* Image+ResizableBordered.swift in Sources */,
 				1FD32B552BDACCE1006472B3 /* CourseAppApp.swift in Sources */,
 				1F1CC4E92BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift in Sources */,
@@ -534,6 +537,7 @@
 				1FD3C9512C00D1B300B9135E /* MainTabBarCoordinator.swift in Sources */,
 				1FEF4A202BF688AB00FBA218 /* SelectableButtonStyle.swift in Sources */,
 				1FECA5662C038A8400CB12E2 /* OnboardingView.swift in Sources */,
+				1FE64BC32C0506AD0089A2B4 /* CategoriesNavigationCoordinator.swift in Sources */,
 				1FB653522BF78F3A00923AD7 /* UIConstants.swift in Sources */,
 				1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */,
 				1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */,
