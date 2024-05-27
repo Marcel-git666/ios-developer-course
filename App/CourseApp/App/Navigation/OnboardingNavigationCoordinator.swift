@@ -6,6 +6,7 @@
 //
 
 import Combine
+import os
 import SwiftUI
 import UIKit
 
@@ -17,13 +18,13 @@ enum OnboardingNavigationEvent {
 
 final class OnboardingNavigationCoordinator: OnboardingCoordinating {
     var currentPage: Int
-    
+    let logger = Logger()
     init(currentPage: Int) {
         self.currentPage = currentPage
     }
     
     deinit {
-        print("Deinit of Onboarding Navigation Coordinator")
+        logger.info("❌ Deinit of Onboarding Navigation Coordinator")
     }
     
     private(set) lazy var navigationController: UINavigationController = makeNavigationController()
@@ -37,10 +38,12 @@ extension OnboardingNavigationCoordinator {
     func handleDeeplink(deeplink: Deeplink) {
         switch deeplink {
         case .closeOnboarding:
+            logger.info("❌ closing onboarding....")
             rootViewController.dismiss(animated: true)
         case let .onboarding(page):
             switchToOnboardingPage(page)
-        default: break
+        default: 
+            break
         }
     }
     
@@ -64,13 +67,13 @@ extension OnboardingNavigationCoordinator {
         let viewController: UIViewController
         switch page {
         case 0:
-            print("Page 0, number of vc is \(navigationController.viewControllers.count)")
+            logger.info("0️⃣ Page 0, number of vc is \(self.navigationController.viewControllers.count)")
             viewController = makeOnboardingView()
         case 1:
-            print("Page 1, number of vc is \(navigationController.viewControllers.count)")
+            logger.info("1️⃣ Page 1, number of vc is \(self.navigationController.viewControllers.count)")
             viewController = makeNextOnboardingView()
         case 2:
-            print("Page 2, number of vc is \(navigationController.viewControllers.count)")
+            logger.info("2️⃣ Page 2, number of vc is \(self.navigationController.viewControllers.count)")
             viewController = makeLastOnboardingView()
         default:
             return

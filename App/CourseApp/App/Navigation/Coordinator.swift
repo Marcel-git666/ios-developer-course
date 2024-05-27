@@ -15,7 +15,9 @@ protocol Coordinator: AnyObject {
 
 extension Coordinator {
     func release(coordinator: Coordinator) {
-        childCoordinators.removeAll { $0 === coordinator }
+        childCoordinators.removeAll {
+            $0 === coordinator
+        }
     }
     
     func startChildCoordinator(_ childCoordinator: Coordinator) {

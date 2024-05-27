@@ -32,12 +32,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     func deeplinkFromService() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             self?.appCoordinator.handleDeeplink(deeplink: .onboarding(page: 0))
         }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) { [weak self] in
-//            self?.appCoordinator.handleDeeplink(deeplink: .closeOnboarding)
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
+            self?.appCoordinator.handleDeeplink(deeplink: .closeOnboarding)
+        }
     }
 }
 
