@@ -29,6 +29,7 @@ class HorizontalScrollingImageCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var didTapCallBack: Action<Joke>?
     
     // MARK: - Setup
     
@@ -103,11 +104,18 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
 extension HorizontalScrollingImageCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         logger.info("Horizontal scrolling did select item \(indexPath)")
+        didTapCallBack?(data[indexPath.row])
     }
 }
 
 // MARK: - Public methods
 extension HorizontalScrollingImageCell {
+    func configure(_ data: [Joke], callback: Action<Joke>? = nil) {
+        self.data = data
+        collectionView.reloadData()
+        self.didTapCallBack = callback
+    }
+    
     func setData(_ data: [Joke]) {
         self.data = data
         collectionView.reloadData()
