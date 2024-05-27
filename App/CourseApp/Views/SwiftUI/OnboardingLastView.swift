@@ -29,6 +29,6 @@ struct OnboardingLastView: View {
     }
 }
 
-#Preview {
+#Preview { // swiftlint:disable:next no_magic_numbers
     OnboardingLastView(coordinator: OnboardingNavigationCoordinator(currentPage: 2))
 }

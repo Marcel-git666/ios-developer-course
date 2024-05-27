@@ -1,5 +1,5 @@
 //
-//  EventEmitter.swift
+//  EventEmitting.swift
 //  CourseApp
 //
 //  Created by Marcel Mravec on 27.05.2024.

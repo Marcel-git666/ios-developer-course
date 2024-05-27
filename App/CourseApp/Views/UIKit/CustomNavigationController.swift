@@ -6,9 +6,11 @@
 //
 
 import Combine
+import os
 import UIKit
 
 class CustomNavigationController: UINavigationController {
+    let logger = Logger()
     enum CustomNavigationControllerEvent {
         case dismiss
         case swipeback
@@ -26,8 +28,8 @@ class CustomNavigationController: UINavigationController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print(isBeingDismissed)
-        print(isMovingFromParent)
+        logger.info("\(self.isBeingDismissed)")
+        logger.info("\(self.isMovingFromParent)")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -46,17 +48,17 @@ extension CustomNavigationController: EventEmitting {
 
 extension CustomNavigationController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        print(gestureRecognizer)
+        logger.info("Gesture recognizer: \(gestureRecognizer)")
         return true
     }
 }
 
 extension CustomNavigationController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        print(viewController)
+        logger.info("Will show: \(viewController)")
     }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        print(viewController)
+        logger.info("Did show: \(viewController)")
     }
 }

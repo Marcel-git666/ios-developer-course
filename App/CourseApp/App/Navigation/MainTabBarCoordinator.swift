@@ -83,7 +83,7 @@ private extension MainTabBarCoordinator {
     
     func setupProfileView() -> UIViewController {
         let profileCoordinator = ProfileNavigationCoordinator()
-        startChildCoordinator(profileCoordinator)
+        startChildCoordinator(profileCoordinator) // swiftlint:disable:next no_magic_numbers
         profileCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 2)
         
         return profileCoordinator.rootViewController

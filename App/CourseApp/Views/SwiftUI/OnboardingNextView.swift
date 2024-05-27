@@ -13,7 +13,7 @@ struct OnboardingNextView: View {
     var body: some View {
         VStack {
             Text("Onboarding page 1")
-            Button {
+            Button { // swiftlint:disable:next no_magic_numbers
                 coordinator.handleDeeplink(deeplink: .onboarding(page: 2))
             } label: {
                 Text("Move to last screen")

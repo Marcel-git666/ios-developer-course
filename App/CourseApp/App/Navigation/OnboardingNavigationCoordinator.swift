@@ -42,14 +42,14 @@ extension OnboardingNavigationCoordinator {
             rootViewController.dismiss(animated: true)
         case let .onboarding(page):
             switchToOnboardingPage(page)
-        default: 
+        default:
             break
         }
     }
     
     func makeNavigationController() -> UINavigationController {
         let navigationController = CustomNavigationController()
-        navigationController.eventPublisher.sink { [weak self] event in
+        navigationController.eventPublisher.sink { [weak self] _ in // swiftlint:disable:next conditional_returns_on_newline
             guard let self else { return }
             self.eventSubject.send(.dismiss(self))
         }
@@ -61,7 +61,7 @@ extension OnboardingNavigationCoordinator {
         switchToOnboardingPage(currentPage)
     }
     
-    private func switchToOnboardingPage(_ page: Int) {
+    private func switchToOnboardingPage(_ page: Int) { // swiftlint:disable:next conditional_returns_on_newline
         guard page != currentPage || navigationController.viewControllers.isEmpty else { return }
         currentPage = page
         let viewController: UIViewController
@@ -71,7 +71,7 @@ extension OnboardingNavigationCoordinator {
             viewController = makeOnboardingView()
         case 1:
             logger.info("1️⃣ Page 1, number of vc is \(self.navigationController.viewControllers.count)")
-            viewController = makeNextOnboardingView()
+            viewController = makeNextOnboardingView() // swiftlint:disable:next no_magic_numbers
         case 2:
             logger.info("2️⃣ Page 2, number of vc is \(self.navigationController.viewControllers.count)")
             viewController = makeLastOnboardingView()
