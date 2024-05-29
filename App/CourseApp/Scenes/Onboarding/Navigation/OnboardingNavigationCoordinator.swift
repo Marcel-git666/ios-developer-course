@@ -59,24 +59,24 @@ extension OnboardingNavigationCoordinator {
 
 extension OnboardingNavigationCoordinator {
     private func makeOnboardingView(page: Page) -> UIViewController {
-            switch page {
-            case .welcome:
-                return createHostingController(for: OnboardingView(), page: page)
-            case .services:
-                return createHostingController(for: OnboardingNextView(), page: page)
-            case .letstart:
-                return createHostingController(for: OnboardingLastView(), page: page)
-            }
+        switch page {
+        case .welcome:
+            return createHostingController(for: OnboardingView(), page: page)
+        case .services:
+            return createHostingController(for: OnboardingNextView(), page: page)
+        case .letstart:
+            return createHostingController(for: OnboardingLastView(), page: page)
         }
-
-        private func createHostingController<T: EventEmittingView>(for view: T, page: Page) -> UIHostingController<T> {
-            view.eventPublisher.sink { [weak self] event in // swiftlint:disable:next conditional_returns_on_newline
-                guard let self = self else { return } // swiftlint:disable:next force_cast
-                self.handleEvent(from: page, event: event as! OnboardingViewEvent)
-            }
-            .store(in: &cancellables)
-            return UIHostingController(rootView: view)
+    }
+    
+    private func createHostingController<T: EventEmittingView>(for view: T, page: Page) -> UIHostingController<T> {
+        view.eventPublisher.sink { [weak self] event in // swiftlint:disable:next conditional_returns_on_newline
+            guard let self = self else { return } // swiftlint:disable:next force_cast
+            self.handleEvent(from: page, event: event as! OnboardingViewEvent)
         }
+        .store(in: &cancellables)
+        return UIHostingController(rootView: view)
+    }
     
     private func handleEvent(from page: Page, event: OnboardingViewEvent) {
         switch event {
@@ -85,12 +85,16 @@ extension OnboardingNavigationCoordinator {
         case let .nextPage(from):
             let newPage: Page
             if from < Page.allCases.count - 1 {
-                newPage = Page(rawValue: from + 1)!
+                newPage = Page(rawValue: from + 1) ?? Page.letstart
             } else {
                 newPage = Page.welcome
             }
             let viewController = makeOnboardingView(page: newPage)
-            navigationController.pushViewController(viewController, animated: true)
+            if newPage == Page.welcome {
+                navigationController.setViewControllers([viewController], animated: true)
+            } else {
+                navigationController.pushViewController(viewController, animated: true)
+            }
         }
     }
 }

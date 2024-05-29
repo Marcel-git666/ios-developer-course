@@ -22,6 +22,12 @@ struct OnboardingView: EventEmittingView {
                 Text("Move to next screen")
             }
             .buttonStyle(OnboardingButtonStyle(color: .purple))
+            Button {
+                eventSubject.send(.close)
+            } label: {
+                Text("Dismiss onboarding")
+            }
+            .buttonStyle(OnboardingButtonStyle(color: .purple))
         }
     }
 }

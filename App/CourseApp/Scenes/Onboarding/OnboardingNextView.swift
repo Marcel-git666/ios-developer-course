@@ -15,10 +15,16 @@ struct OnboardingNextView: EventEmittingView {
     var body: some View {
         VStack {
             Text("Onboarding page 1")
-            Button { // swiftlint:disable:next no_magic_numbers
+            Button {
                 eventSubject.send(.nextPage(from: 1))
             } label: {
                 Text("Move to last screen")
+            }
+            .buttonStyle(OnboardingButtonStyle(color: .purple))
+            Button {
+                eventSubject.send(.close)
+            } label: {
+                Text("Dismiss onboarding")
             }
             .buttonStyle(OnboardingButtonStyle(color: .purple))
         }

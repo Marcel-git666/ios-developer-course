@@ -16,7 +16,7 @@ struct OnboardingLastView: EventEmittingView {
     var body: some View {
         VStack {
             Text("Onboarding page 2")
-            Button {
+            Button { // swiftlint:disable:next no_magic_numbers
                 eventSubject.send(.nextPage(from: 2))
             } label: {
                 Text("Back to first page")
@@ -38,6 +38,6 @@ extension OnboardingLastView {
     }
 }
 
-#Preview { // swiftlint:disable:next no_magic_numbers
+#Preview {
     OnboardingLastView()
 }
