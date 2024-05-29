@@ -5,22 +5,25 @@
 //  Created by Marcel Mravec on 27.05.2024.
 //
 
+import Combine
 import SwiftUI
 
-struct OnboardingLastView: View {
-    let coordinator: OnboardingNavigationCoordinator
+struct OnboardingLastView: EventEmittingView {
+    typealias Event = OnboardingViewEvent
+    
+    private let eventSubject = PassthroughSubject<OnboardingViewEvent, Never>()
     
     var body: some View {
         VStack {
             Text("Onboarding page 2")
             Button {
-                coordinator.handleDeeplink(deeplink: .onboarding(page: 0))
+                eventSubject.send(.nextPage(from: 2))
             } label: {
                 Text("Back to first page")
             }
             .buttonStyle(OnboardingButtonStyle(color: .purple))
             Button {
-                coordinator.handleDeeplink(deeplink: .closeOnboarding)
+                eventSubject.send(.close)
             } label: {
                 Text("Dismiss onboarding")
             }
@@ -29,6 +32,12 @@ struct OnboardingLastView: View {
     }
 }
 
+extension OnboardingLastView {
+    var eventPublisher: AnyPublisher<Event, Never> {
+        eventSubject.eraseToAnyPublisher()
+    }
+}
+
 #Preview { // swiftlint:disable:next no_magic_numbers
-    OnboardingLastView(coordinator: OnboardingNavigationCoordinator(currentPage: 2))
+    OnboardingLastView()
 }

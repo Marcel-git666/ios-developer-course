@@ -35,10 +35,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             self?.appCoordinator.handleDeeplink(deeplink: .onboarding(page: 0))
         }
-        // swiftlint:disable:next no_magic_numbers
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
-            self?.appCoordinator.handleDeeplink(deeplink: .closeOnboarding)
-        }
+        // ?wiftlint:disable:next no_magic_numbers
+//         }
     }
 }
 

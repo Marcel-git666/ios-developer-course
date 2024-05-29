@@ -11,10 +11,6 @@ import UIKit
 
 class CustomNavigationController: UINavigationController {
     let logger = Logger()
-    enum CustomNavigationControllerEvent {
-        case dismiss
-        case swipeback
-    }
     
     private let eventSubject = PassthroughSubject<CustomNavigationControllerEvent, Never>()
     
