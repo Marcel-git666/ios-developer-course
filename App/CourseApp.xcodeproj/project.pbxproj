@@ -24,6 +24,7 @@
 		1F1CC4EC2BEEA96C00037CE0 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */; };
 		1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */; };
 		1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */; };
+		1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */; };
 		1FB653522BF78F3A00923AD7 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653512BF78F3A00923AD7 /* UIConstants.swift */; };
 		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
@@ -88,6 +89,7 @@
 		1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewEvent.swift; sourceTree = "<group>"; };
 		1FB653512BF78F3A00923AD7 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				1FE64BBE2C0502ED0089A2B4 /* ProfileNavigationCoordinator.swift */,
+				1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				1F002E622C025DD9007B44E0 /* AppCoordinator.swift in Sources */,
 				1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */,
 				1FECA56C2C038C4E00CB12E2 /* SwipingNavigationCoordinator.swift in Sources */,
+				1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */,
 				1FE64BBD2C04D1660089A2B4 /* OnboardingButtonStyle.swift in Sources */,
 				1FE64BBB2C04D0440089A2B4 /* OnboardingLastView.swift in Sources */,
 				1F002E602C0205BA007B44E0 /* TextTypeModifier.swift in Sources */,
