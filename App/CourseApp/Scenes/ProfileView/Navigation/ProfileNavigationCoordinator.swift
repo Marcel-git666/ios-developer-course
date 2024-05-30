@@ -10,7 +10,9 @@ import os
 import SwiftUI
 import UIKit
 
-final class ProfileNavigationCoordinator: NSObject, NavigationControllerCoordinator {
+protocol ProfileCoordinating: NavigationControllerCoordinator {}
+
+final class ProfileNavigationCoordinator: NSObject, ProfileCoordinating {
     private(set) var navigationController: UINavigationController = CustomNavigationController()
     private lazy var cancellables = Set<AnyCancellable>()
     private let eventSubject = PassthroughSubject<ProfileViewEvent, Never>()
@@ -56,6 +58,7 @@ private extension ProfileNavigationCoordinator {
 extension ProfileNavigationCoordinator {
     func makeOnboardingFlow() -> ViewControllerCoordinator {
         let coordinator = OnboardingNavigationCoordinator()
+        startChildCoordinator(coordinator)
         coordinator.eventPublisher
             .sink { [weak self] event in
                 self?.handle(event)
