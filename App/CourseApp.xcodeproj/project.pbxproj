@@ -26,6 +26,11 @@
 		1F3EA9862C08769A00FB1100 /* CourseApp_Unit_DevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9852C08769A00FB1100 /* CourseApp_Unit_DevTests.swift */; };
 		1F3EA9952C0876A300FB1100 /* CourseApp_UI_DevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9942C0876A300FB1100 /* CourseApp_UI_DevTests.swift */; };
 		1F3EA9972C0876A300FB1100 /* CourseApp_UI_DevTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9962C0876A300FB1100 /* CourseApp_UI_DevTestsLaunchTests.swift */; };
+		1F3EA9A02C08890A00FB1100 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA99F2C08890A00FB1100 /* CustomTextField.swift */; };
+		1F3EA9A22C088AC700FB1100 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9A12C088AC700FB1100 /* LoginView.swift */; };
+		1F3EA9A62C08C0E700FB1100 /* CustomSecretTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9A52C08C0E700FB1100 /* CustomSecretTextField.swift */; };
+		1F3EA9A92C08C38700FB1100 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9A82C08C38700FB1100 /* LoginButton.swift */; };
+		1F3EA9AB2C08C4B500FB1100 /* CustomTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9AA2C08C4B500FB1100 /* CustomTextLabel.swift */; };
 		1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */; };
 		1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */; };
 		1FB653522BF78F3A00923AD7 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653512BF78F3A00923AD7 /* UIConstants.swift */; };
@@ -112,6 +117,11 @@
 		1F3EA9922C0876A300FB1100 /* CourseApp UI DevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CourseApp UI DevTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3EA9942C0876A300FB1100 /* CourseApp_UI_DevTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseApp_UI_DevTests.swift; sourceTree = "<group>"; };
 		1F3EA9962C0876A300FB1100 /* CourseApp_UI_DevTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseApp_UI_DevTestsLaunchTests.swift; sourceTree = "<group>"; };
+		1F3EA99F2C08890A00FB1100 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		1F3EA9A12C088AC700FB1100 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		1F3EA9A52C08C0E700FB1100 /* CustomSecretTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecretTextField.swift; sourceTree = "<group>"; };
+		1F3EA9A82C08C38700FB1100 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		1F3EA9AA2C08C4B500FB1100 /* CustomTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextLabel.swift; sourceTree = "<group>"; };
 		1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewEvent.swift; sourceTree = "<group>"; };
 		1FB653512BF78F3A00923AD7 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
@@ -254,8 +264,12 @@
 		1F1CC4DE2BEEA70D00037CE0 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				1F3EA9A72C08C33100FB1100 /* Buttons */,
+				1F3EA9A42C08C0D000FB1100 /* Labels */,
 				1FB653572BF7C05700923AD7 /* ScratchView.swift */,
 				1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */,
+				1F3EA9A32C08C0C300FB1100 /* TextFields */,
+				1F3EA9A12C088AC700FB1100 /* LoginView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -304,6 +318,31 @@
 				1F3EA9962C0876A300FB1100 /* CourseApp_UI_DevTestsLaunchTests.swift */,
 			);
 			path = "CourseApp UI DevTests";
+			sourceTree = "<group>";
+		};
+		1F3EA9A32C08C0C300FB1100 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				1F3EA99F2C08890A00FB1100 /* CustomTextField.swift */,
+				1F3EA9A52C08C0E700FB1100 /* CustomSecretTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		1F3EA9A42C08C0D000FB1100 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				1F3EA9AA2C08C4B500FB1100 /* CustomTextLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		1F3EA9A72C08C33100FB1100 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				1F3EA9A82C08C38700FB1100 /* LoginButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		1F65879F2BF154B70006025B /* UICollectionViewCells */ = {
@@ -750,8 +789,10 @@
 				1FECA5662C038A8400CB12E2 /* OnboardingView.swift in Sources */,
 				1FE64BC32C0506AD0089A2B4 /* CategoriesNavigationCoordinator.swift in Sources */,
 				1FB653522BF78F3A00923AD7 /* UIConstants.swift in Sources */,
+				1F3EA9A92C08C38700FB1100 /* LoginButton.swift in Sources */,
 				1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */,
 				1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */,
+				1F3EA9AB2C08C4B500FB1100 /* CustomTextLabel.swift in Sources */,
 				1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */,
 				1F002E622C025DD9007B44E0 /* AppCoordinator.swift in Sources */,
 				1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */,
@@ -760,13 +801,16 @@
 				1FE64BBD2C04D1660089A2B4 /* OnboardingButtonStyle.swift in Sources */,
 				1FE64BBB2C04D0440089A2B4 /* OnboardingLastView.swift in Sources */,
 				1F002E602C0205BA007B44E0 /* TextTypeModifier.swift in Sources */,
+				1F3EA9A02C08890A00FB1100 /* CustomTextField.swift in Sources */,
 				1FE64BB72C0491010089A2B4 /* EventEmitting.swift in Sources */,
 				1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */,
+				1F3EA9A22C088AC700FB1100 /* LoginView.swift in Sources */,
 				1FD3C94A2C00C74400B9135E /* EmbedInScrollView.swift in Sources */,
 				1FD3C94D2C00CD4A00B9135E /* Coordinator.swift in Sources */,
 				1FF870EE2C07493200CA175B /* EventEmittingView.swift in Sources */,
 				1F002E5A2C01C491007B44E0 /* FontType.swift in Sources */,
 				1FF870E82C07354000CA175B /* CustomNavigationControllerEvent.swift in Sources */,
+				1F3EA9A62C08C0E700FB1100 /* CustomSecretTextField.swift in Sources */,
 				1FECA55D2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift in Sources */,
 				1FECA55F2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift in Sources */,
 				1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */,
