@@ -29,11 +29,7 @@ struct CustomSecretTextField: View {
             RoundedRectangle(
                 cornerRadius: UIConstants.normalImageRadius
             )
-            .stroke(LinearGradient(gradient: Gradient(
-                colors: [
-                .red, .orange, .yellow, .green, .blue, .indigo, .purple
-            ]),
-                startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: UIConstants.thinLine)
+            .stroke(UIConstants.frameGradient, lineWidth: UIConstants.thinLine)
             )
     }
 }
@@ -45,6 +41,15 @@ private extension CustomSecretTextField {
         static let normalImageRadius: CGFloat = 10
         static let cellSpacing: CGFloat = 8
         static let systemImageSize: CGFloat = 20
+        static let frameGradient = LinearGradient(
+            gradient: Gradient(
+            colors: [
+            .red, .orange, .yellow, .green, .blue, .indigo, .purple
+            ]
+            ),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
     }
 }
 

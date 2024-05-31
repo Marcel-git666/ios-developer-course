@@ -5,11 +5,13 @@
 //  Created by Marcel Mravec on 30.05.2024.
 //
 
+import os
 import SwiftUI
 
 struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    let logger = Logger()
     
     var body: some View {
         ZStack {
@@ -24,7 +26,7 @@ struct LoginView: View {
                 CustomSecretTextField(placeHolder: "Password", imageName: "key", imageOpacity: 1, imageColor: .white, value: $email)
                 Spacer()
                 LoginButton(buttonText: "Login", buttonTextColor: .white, buttonBackground: .indigo) {
-                    print("Login is pressed")
+                    logger.info("🔑 Login is pressed")
                 }
                 Spacer()
             }
