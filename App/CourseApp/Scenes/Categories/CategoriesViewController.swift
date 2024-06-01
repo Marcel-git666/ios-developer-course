@@ -65,8 +65,7 @@ private extension CategoriesViewController {
     }
     
     func setupCollectionView() {
-        categoriesCollectionView.register(HorizontalScrollingImageCell.self)
-        categoriesCollectionView.register(LabelCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
+        categoriesCollectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
         
         categoriesCollectionView.backgroundColor = .bg
         categoriesCollectionView.isPagingEnabled = true
@@ -110,10 +109,12 @@ private extension CategoriesViewController {
     }
     
     func makeDataSource() -> DataSource {
-        let dataSource = DataSource(collectionView: categoriesCollectionView) { collectionView, indexPath, joke in
-            let horizontalCell: HorizontalScrollingImageCell = collectionView.dequeueReusableCell(for: indexPath)
-            horizontalCell.setData(joke)
-            return horizontalCell
+        let cellRegistration = UICollectionView.CellRegistration<HorizontalScrollingImageCell, [Joke]> { cell, _, item in
+            cell.setData(item)
+        }
+        
+        let dataSource = DataSource(collectionView: categoriesCollectionView) { collectionView, indexPath, item in
+            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         }
         
         dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
@@ -122,9 +123,14 @@ private extension CategoriesViewController {
             }
             
             let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
-            let labelCell: LabelCollectionViewCell = collectionView.dequeueSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
-            labelCell.nameLabel.text = section.title
-            labelCell.nameLabel.font = UIFont(name: "Poppins-Bold", size: UIConstants.headerFontSize)
+            let labelCell: UICollectionViewCell = collectionView.dequeueSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                for: indexPath
+            )
+            labelCell.contentConfiguration = UIHostingConfiguration {
+                Text(section.title)
+                    .textTypeModifier(textType: .sectionTitle)
+            }
             return labelCell
         }
         return dataSource

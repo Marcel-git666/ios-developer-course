@@ -32,7 +32,6 @@
 		1F3EA9A62C08C0E700FB1100 /* CustomSecretTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9A52C08C0E700FB1100 /* CustomSecretTextField.swift */; };
 		1F3EA9A92C08C38700FB1100 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9A82C08C38700FB1100 /* LoginButton.swift */; };
 		1F3EA9AB2C08C4B500FB1100 /* CustomTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9AA2C08C4B500FB1100 /* CustomTextLabel.swift */; };
-		1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */; };
 		1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */; };
 		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
@@ -123,7 +122,6 @@
 		1F3EA9A52C08C0E700FB1100 /* CustomSecretTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecretTextField.swift; sourceTree = "<group>"; };
 		1F3EA9A82C08C38700FB1100 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		1F3EA9AA2C08C4B500FB1100 /* CustomTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextLabel.swift; sourceTree = "<group>"; };
-		1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewEvent.swift; sourceTree = "<group>"; };
 		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
@@ -348,7 +346,6 @@
 		1F65879F2BF154B70006025B /* UICollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */,
 				1FD2A47E2BF26FEF005D6D7F /* HorizontalScrollingImageCell.swift */,
 			);
 			path = UICollectionViewCells;
@@ -815,7 +812,6 @@
 				1FECA55F2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift in Sources */,
 				1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */,
 				1FB6535A2BF7C19900923AD7 /* TextType.swift in Sources */,
-				1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */,
 				1F0C19752BFCCAF200F720BE /* FlipEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

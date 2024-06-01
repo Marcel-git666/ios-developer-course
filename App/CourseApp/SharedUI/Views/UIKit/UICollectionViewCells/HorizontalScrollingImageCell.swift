@@ -29,7 +29,7 @@ class HorizontalScrollingImageCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var didTapCallBack: Action<Joke>?
+//    private var didTapCallBack: Action<Joke>?
     
     // MARK: - Setup
     
