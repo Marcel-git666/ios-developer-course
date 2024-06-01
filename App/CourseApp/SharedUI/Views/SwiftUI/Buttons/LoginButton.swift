@@ -18,16 +18,16 @@ struct LoginButton: View {
             Text(buttonText)
                 .fontWeight(.medium)
                 .foregroundColor(buttonTextColor)
-                .frame(height: UIConstants.buttonHeight)
+                .frame(height: UIConst.buttonHeight)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .background(buttonBackground)
-                .cornerRadius(UIConstants.largeImageRadius)
+                .cornerRadius(UIConst.largeImageRadius)
         })
     }
 }
 
 private extension LoginButton {
-    enum UIConstants {
+    enum UIConst {
         static let largeImageRadius: CGFloat = 15
         static let buttonHeight: CGFloat = 50
     }

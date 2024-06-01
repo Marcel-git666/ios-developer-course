@@ -55,7 +55,7 @@ class HorizontalScrollingImageCell: UICollectionViewCell {
     func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: UIConstants.sectionInset, bottom: 0, right: UIConstants.sectionInset)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: UIConst.sectionInset, bottom: 0, right: UIConst.sectionInset)
         collectionView.setCollectionViewLayout(layout, animated: false)
     }
     
@@ -82,7 +82,7 @@ extension HorizontalScrollingImageCell: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        CGSize(width: collectionView.bounds.width - UIConstants.cellSpacing, height: collectionView.bounds.height)
+        CGSize(width: collectionView.bounds.width - UIConst.cellSpacing, height: collectionView.bounds.height)
     }
 }
 
@@ -95,7 +95,7 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.contentConfiguration = UIHostingConfiguration {
             Image(uiImage: data[indexPath.row].image ?? UIImage())
-                .resizableBordered(cornerRadius: UIConstants.normalImageRadius)
+                .resizableBordered(cornerRadius: UIConst.normalImageRadius)
         }
         return cell
     }
@@ -119,6 +119,14 @@ extension HorizontalScrollingImageCell {
     func setData(_ data: [Joke]) {
         self.data = data
         collectionView.reloadData()
+    }
+}
+
+extension HorizontalScrollingImageCell {
+    enum UIConst {
+        static let normalImageRadius: CGFloat = 10
+        static let cellSpacing: CGFloat = 8
+        static let sectionInset: CGFloat = 4
     }
 }
 

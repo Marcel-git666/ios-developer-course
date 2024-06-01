@@ -13,6 +13,7 @@
 		1F002E5E2C02056C007B44E0 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E5D2C02056C007B44E0 /* CustomNavigationController.swift */; };
 		1F002E602C0205BA007B44E0 /* TextTypeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E5F2C0205BA007B44E0 /* TextTypeModifier.swift */; };
 		1F002E622C025DD9007B44E0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E612C025DD9007B44E0 /* AppCoordinator.swift */; };
+		1F094FA02C0A4EE4001372BC /* Font+Appfonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F094F9F2C0A4EE4001372BC /* Font+Appfonts.swift */; };
 		1F0C19752BFCCAF200F720BE /* FlipEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C19742BFCCAF200F720BE /* FlipEffect.swift */; };
 		1F1CC4D82BEE78AC00037CE0 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC382BEE3B22007BCDC4 /* Poppins-Bold.ttf */; };
 		1F1CC4D92BEE78AF00037CE0 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC3A2BEE3B22007BCDC4 /* Poppins-MediumItalic.ttf */; };
@@ -56,7 +57,7 @@
 		1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3C94E2C00CF8C00B9135E /* ViewControllerCoordinator.swift */; };
 		1FD3C9512C00D1B300B9135E /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3C9502C00D1B300B9135E /* MainTabBarCoordinator.swift */; };
 		1FD3C9552C00F64C00B9135E /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3C9542C00F64C00B9135E /* CoordinatorView.swift */; };
-		1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */; };
+		1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift */; };
 		1FE64BB72C0491010089A2B4 /* EventEmitting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BB62C0491010089A2B4 /* EventEmitting.swift */; };
 		1FE64BB92C04D03A0089A2B4 /* OnboardingNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BB82C04D03A0089A2B4 /* OnboardingNextView.swift */; };
 		1FE64BBB2C04D0440089A2B4 /* OnboardingLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BBA2C04D0440089A2B4 /* OnboardingLastView.swift */; };
@@ -105,6 +106,7 @@
 		1F002E5D2C02056C007B44E0 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		1F002E5F2C0205BA007B44E0 /* TextTypeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTypeModifier.swift; sourceTree = "<group>"; };
 		1F002E612C025DD9007B44E0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1F094F9F2C0A4EE4001372BC /* Font+Appfonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Appfonts.swift"; sourceTree = "<group>"; };
 		1F0C19742BFCCAF200F720BE /* FlipEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipEffect.swift; sourceTree = "<group>"; };
 		1F1CC4E12BEEA76700037CE0 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 		1F1CC4E32BEEA84B00037CE0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -146,7 +148,7 @@
 		1FD3C94E2C00CF8C00B9135E /* ViewControllerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCoordinator.swift; sourceTree = "<group>"; };
 		1FD3C9502C00D1B300B9135E /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
 		1FD3C9542C00F64C00B9135E /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
-		1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Appfonts.swift"; sourceTree = "<group>"; };
 		1FE64BB62C0491010089A2B4 /* EventEmitting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEmitting.swift; sourceTree = "<group>"; };
 		1FE64BB82C04D03A0089A2B4 /* OnboardingNextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextView.swift; sourceTree = "<group>"; };
 		1FE64BBA2C04D0440089A2B4 /* OnboardingLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLastView.swift; sourceTree = "<group>"; };
@@ -207,7 +209,8 @@
 		1F002E552C01C3C4007B44E0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Ext.swift */,
+				1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift */,
+				1F094F9F2C0A4EE4001372BC /* Font+Appfonts.swift */,
 				1F002E562C01C3EA007B44E0 /* UINavigationController+Ext.swift */,
 			);
 			path = Extensions;
@@ -764,7 +767,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Ext.swift in Sources */,
+				1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift in Sources */,
 				1FF870E62C0734B900CA175B /* UIViewController+Ext.swift in Sources */,
 				1FECA56A2C038C1F00CB12E2 /* OnboardingNavigationCoordinator.swift in Sources */,
 				1FECA5682C038B1D00CB12E2 /* Action.swift in Sources */,
@@ -799,6 +802,7 @@
 				1FECA56C2C038C4E00CB12E2 /* SwipingNavigationCoordinator.swift in Sources */,
 				1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */,
 				1FE64BBD2C04D1660089A2B4 /* OnboardingButtonStyle.swift in Sources */,
+				1F094FA02C0A4EE4001372BC /* Font+Appfonts.swift in Sources */,
 				1FE64BBB2C04D0440089A2B4 /* OnboardingLastView.swift in Sources */,
 				1F002E602C0205BA007B44E0 /* TextTypeModifier.swift in Sources */,
 				1F3EA9A02C08890A00FB1100 /* CustomTextField.swift in Sources */,

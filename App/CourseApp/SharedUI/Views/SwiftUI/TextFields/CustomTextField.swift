@@ -17,21 +17,21 @@ struct CustomTextField: View {
     var body: some View {
         HStack {
             Image(systemName: imageName)
-                .frame(width: UIConstants.systemImageSize, height: UIConstants.systemImageSize)
-                .padding(.leading, UIConstants.cellSpacing)
+                .frame(width: UIConst.systemImageSize, height: UIConst.systemImageSize)
+                .padding(.leading, UIConst.cellSpacing)
                 .foregroundColor(imageColor.opacity(imageOpacity))
             TextField(placeHolder, text: $value)
-                .padding(UIConstants.normalPadding)
+                .padding(UIConst.normalPadding)
         }
         .overlay(
-            RoundedRectangle(cornerRadius: UIConstants.normalImageRadius)
-                .stroke(UIConstants.frameGradient, lineWidth: UIConstants.thinLine)
+            RoundedRectangle(cornerRadius: UIConst.normalImageRadius)
+                .stroke(UIConst.frameGradient, lineWidth: UIConst.thinLine)
             )
     }
 }
 
 private extension CustomTextField {
-    enum UIConstants {
+    enum UIConst {
         static let normalPadding: CGFloat = 10
         static let thinLine: CGFloat = 3
         static let normalImageRadius: CGFloat = 10

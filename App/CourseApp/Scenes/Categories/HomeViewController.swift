@@ -14,6 +14,13 @@ final class HomeViewController: UIViewController {
     // swiftlint:disable:next prohibited_interface_builder
     @IBOutlet private var categoriesCollectionView: UICollectionView!
     
+    private enum LocalUIConstants {
+        static let cellSpacing: CGFloat = 8
+        static let sectionInset: CGFloat = 4
+        static let sectionScale: CGFloat = 3
+        static let headerHeight: CGFloat = 44
+        static let headerFontSize: CGFloat = 36
+    }
     // MARK: - DataSource
     private let dataProvider = MockDataProvider()
     typealias DataSource = UICollectionViewDiffableDataSource<SectionData, [Joke]>
@@ -33,8 +40,8 @@ final class HomeViewController: UIViewController {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width - UIConstants.cellSpacing
-        let height: CGFloat = collectionView.bounds.height / UIConstants.sectionScale
+        let width = collectionView.bounds.width - LocalUIConstants.cellSpacing
+        let height: CGFloat = collectionView.bounds.height / LocalUIConstants.sectionScale
         return CGSize(width: width, height: height)
     }
 }
@@ -72,11 +79,11 @@ private extension HomeViewController {
     func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = UIConstants.cellSpacing
-        layout.minimumInteritemSpacing = UIConstants.cellSpacing
-        layout.sectionInset = UIEdgeInsets(top: 0, left: UIConstants.sectionInset, bottom: 0, right: UIConstants.sectionInset)
+        layout.minimumLineSpacing = LocalUIConstants.cellSpacing
+        layout.minimumInteritemSpacing = LocalUIConstants.cellSpacing
+        layout.sectionInset = UIEdgeInsets(top: 0, left: LocalUIConstants.sectionInset, bottom: 0, right: LocalUIConstants.sectionInset)
         layout.sectionHeadersPinToVisibleBounds = true
-        layout.headerReferenceSize = CGSize(width: categoriesCollectionView.contentSize.width, height: UIConstants.headerHeight)
+        layout.headerReferenceSize = CGSize(width: categoriesCollectionView.contentSize.width, height: LocalUIConstants.headerHeight)
         categoriesCollectionView.setCollectionViewLayout(layout, animated: false)
     }
 }
@@ -117,7 +124,7 @@ private extension HomeViewController {
             let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
             let labelCell: LabelCollectionViewCell = collectionView.dequeueSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
             labelCell.nameLabel.text = section.title
-            labelCell.nameLabel.font = UIFont(name: "Poppins-Bold", size: UIConstants.headerFontSize)
+            labelCell.nameLabel.font = UIFont(name: "Poppins-Bold", size: LocalUIConstants.headerFontSize)
             return labelCell
         }
         return dataSource

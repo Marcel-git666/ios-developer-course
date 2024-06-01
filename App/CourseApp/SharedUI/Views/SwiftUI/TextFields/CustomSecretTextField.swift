@@ -17,25 +17,25 @@ struct CustomSecretTextField: View {
     var body: some View {
         HStack {
             Image(systemName: imageName)
-                .frame(width: UIConstants.systemImageSize, height: UIConstants.systemImageSize)
-                .padding(.leading, UIConstants.cellSpacing)
+                .frame(width: UIConst.systemImageSize, height: UIConst.systemImageSize)
+                .padding(.leading, UIConst.cellSpacing)
                 .foregroundColor(.primary.opacity(imageOpacity))
             SecureField(placeHolder, text: $value)
                 .autocapitalization(.none)
                 .autocorrectionDisabled()
-                .padding(UIConstants.normalPadding)
+                .padding(UIConst.normalPadding)
         }
         .overlay(
             RoundedRectangle(
-                cornerRadius: UIConstants.normalImageRadius
+                cornerRadius: UIConst.normalImageRadius
             )
-            .stroke(UIConstants.frameGradient, lineWidth: UIConstants.thinLine)
+            .stroke(UIConst.frameGradient, lineWidth: UIConst.thinLine)
             )
     }
 }
 
 private extension CustomSecretTextField {
-    enum UIConstants {
+    enum UIConst {
         static let normalPadding: CGFloat = 10
         static let thinLine: CGFloat = 3
         static let normalImageRadius: CGFloat = 10

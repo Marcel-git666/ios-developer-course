@@ -22,7 +22,7 @@ struct ScratchView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            let aspectRatio = UIConstants.aspectRatio
+            let aspectRatio = UIConst.aspectRatio
             let imageWidth = geometry.size.width
             let imageHeight = imageWidth / aspectRatio
             
@@ -31,9 +31,9 @@ struct ScratchView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: imageWidth, height: imageHeight)
-                    .bordered(cornerRadius: UIConstants.normalImageRadius)
+                    .bordered(cornerRadius: UIConst.normalImageRadius)
 
-                RoundedRectangle(cornerRadius: UIConstants.normalImageRadius)
+                RoundedRectangle(cornerRadius: UIConst.normalImageRadius)
                     .fill(.bg)
                     .frame(width: imageWidth, height: imageHeight)
                     .overlay {
@@ -58,7 +58,7 @@ struct ScratchView: View {
                                 )
                             }
                         }
-                            .frame(width: imageWidth - UIConstants.normalImageRadius, height: imageHeight - UIConstants.normalImageRadius)
+                            .frame(width: imageWidth - UIConst.normalImageRadius, height: imageHeight - UIConst.normalImageRadius)
                     )
                     .gesture(dragGesture)
             }
@@ -74,6 +74,13 @@ struct ScratchView: View {
                 currentLine.points.append(newPoint)
                 lines.append(currentLine)
             }
+    }
+}
+
+private extension ScratchView {
+    enum UIConst {
+        static let normalImageRadius: CGFloat = 10
+        static let aspectRatio: CGFloat = 1.5
     }
 }
 
