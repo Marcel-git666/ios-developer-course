@@ -8,11 +8,15 @@
 import os
 import SwiftUI
 
+struct SwipingViewConfiguration {
+    var flipped: Bool = false
+    var animate3d: Bool = false
+    var rotate: Bool = false
+}
+
 struct SwipingView: View {
     private let dataProvider = MockDataProvider()
-    @State private var flipped = false
-    @State private var animate3d = false
-    @State private var rotate = false
+    @State private var config = SwipingViewConfiguration()
     let logger = Logger()
     
     // swiftlint:disable no_magic_numbers
@@ -26,7 +30,7 @@ struct SwipingView: View {
                         ZStack {
                             ForEach(jokes, id: \.self) { joke in
                                 ZStack {
-                                    if flipped {
+                                    if config.flipped {
                                         Image("back")
                                             .resizable()
                                             .frame(width: geometry.size.width / 1.2, height: (geometry.size.width / 1.2) * 1.5)
@@ -53,14 +57,14 @@ struct SwipingView: View {
                             }
                             .padding(.top, geometry.size.height / 20)
                             .frame(width: geometry.size.width / 1.2, height: (geometry.size.width / 1.2) * 1.5)
-                            .modifier(FlipEffect(flipped: $flipped, angle: animate3d ? 360 : 0, axis: (x: 1, y: 5)))
-                            .rotationEffect(Angle(degrees: rotate ? 0 : 360))
+                            .modifier(FlipEffect(flipped: $config.flipped, angle: config.animate3d ? 360 : 0, axis: (x: 1, y: 5)))
+                            .rotationEffect(Angle(degrees: config.rotate ? 0 : 360))
                             .onAppear {
                                 withAnimation(Animation.linear(duration: 3.0)) {
-                                    self.animate3d = true
+                                    self.config.animate3d = true
                                 }
                                 withAnimation(Animation.linear(duration: 2.0)) {
-                                    self.rotate = true
+                                    self.config.rotate = true
                                 }
                             }
                         }
