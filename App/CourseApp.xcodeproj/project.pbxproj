@@ -34,7 +34,6 @@
 		1F3EA9AB2C08C4B500FB1100 /* CustomTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9AA2C08C4B500FB1100 /* CustomTextLabel.swift */; };
 		1F6587A12BF154EE0006025B /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */; };
 		1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */; };
-		1FB653522BF78F3A00923AD7 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653512BF78F3A00923AD7 /* UIConstants.swift */; };
 		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
 		1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653572BF7C05700923AD7 /* ScratchView.swift */; };
@@ -126,7 +125,6 @@
 		1F3EA9AA2C08C4B500FB1100 /* CustomTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextLabel.swift; sourceTree = "<group>"; };
 		1F6587A02BF154EE0006025B /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewEvent.swift; sourceTree = "<group>"; };
-		1FB653512BF78F3A00923AD7 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
 		1FB653572BF7C05700923AD7 /* ScratchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 				1F002E5B2C01C4EB007B44E0 /* FontSize.swift */,
 				1F002E592C01C491007B44E0 /* FontType.swift */,
 				1FB653592BF7C19800923AD7 /* TextType.swift */,
-				1FB653512BF78F3A00923AD7 /* UIConstants.swift */,
 			);
 			path = "Design System";
 			sourceTree = "<group>";
@@ -791,7 +788,6 @@
 				1FEF4A202BF688AB00FBA218 /* SelectableButtonStyle.swift in Sources */,
 				1FECA5662C038A8400CB12E2 /* OnboardingView.swift in Sources */,
 				1FE64BC32C0506AD0089A2B4 /* CategoriesNavigationCoordinator.swift in Sources */,
-				1FB653522BF78F3A00923AD7 /* UIConstants.swift in Sources */,
 				1F3EA9A92C08C38700FB1100 /* LoginButton.swift in Sources */,
 				1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */,
 				1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */,

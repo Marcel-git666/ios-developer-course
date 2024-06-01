@@ -9,9 +9,9 @@ import os
 import SwiftUI
 
 struct SwipingViewConfiguration {
-    var flipped: Bool = false
-    var animate3d: Bool = false
-    var rotate: Bool = false
+    var flipped = false
+    var animate3d = false
+    var rotate = false
 }
 
 struct SwipingView: View {
