@@ -22,8 +22,8 @@
 		1F1CC4E42BEEA84B00037CE0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CC4E32BEEA84B00037CE0 /* Colors.xcassets */; };
 		1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4E62BEEA8F000037CE0 /* ReusableIdentifier.swift */; };
 		1F1CC4E92BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */; };
-		1F1CC4EC2BEEA96C00037CE0 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */; };
-		1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */; };
+		1F1CC4EC2BEEA96C00037CE0 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EB2BEEA96C00037CE0 /* CategoriesViewController.xib */; };
+		1F1CC4ED2BEEA96C00037CE0 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EA2BEEA96C00037CE0 /* CategoriesViewController.swift */; };
 		1F3EA9862C08769A00FB1100 /* CourseApp_Unit_DevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9852C08769A00FB1100 /* CourseApp_Unit_DevTests.swift */; };
 		1F3EA9952C0876A300FB1100 /* CourseApp_UI_DevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9942C0876A300FB1100 /* CourseApp_UI_DevTests.swift */; };
 		1F3EA9972C0876A300FB1100 /* CourseApp_UI_DevTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9962C0876A300FB1100 /* CourseApp_UI_DevTestsLaunchTests.swift */; };
@@ -111,8 +111,8 @@
 		1F1CC4E32BEEA84B00037CE0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1F1CC4E62BEEA8F000037CE0 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
 		1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReusableIdenfifier.swift"; sourceTree = "<group>"; };
-		1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		1F1CC4EA2BEEA96C00037CE0 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		1F1CC4EB2BEEA96C00037CE0 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
 		1F3EA9832C08769A00FB1100 /* CourseApp Unit DevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CourseApp Unit DevTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3EA9852C08769A00FB1100 /* CourseApp_Unit_DevTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseApp_Unit_DevTests.swift; sourceTree = "<group>"; };
 		1F3EA9922C0876A300FB1100 /* CourseApp UI DevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CourseApp UI DevTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -490,11 +490,11 @@
 		1FF870D92C072F2C00CA175B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				1FF870DE2C072FB200CA175B /* ProfileView */,
-				1FF870DD2C072FA200CA175B /* MainTabBarController */,
-				1FF870DC2C072F8000CA175B /* SwipingView */,
 				1FF870DB2C072F4E00CA175B /* Categories */,
+				1FF870DD2C072FA200CA175B /* MainTabBarController */,
 				1FF870DA2C072F4500CA175B /* Onboarding */,
+				1FF870DE2C072FB200CA175B /* ProfileView */,
+				1FF870DC2C072F8000CA175B /* SwipingView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -515,8 +515,8 @@
 			isa = PBXGroup;
 			children = (
 				1FF870E02C0731B300CA175B /* Navigation */,
-				1F1CC4EA2BEEA96C00037CE0 /* HomeViewController.swift */,
-				1F1CC4EB2BEEA96C00037CE0 /* HomeViewController.xib */,
+				1F1CC4EA2BEEA96C00037CE0 /* CategoriesViewController.swift */,
+				1F1CC4EB2BEEA96C00037CE0 /* CategoriesViewController.xib */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -736,7 +736,7 @@
 				1F1CC4D82BEE78AC00037CE0 /* Poppins-Bold.ttf in Resources */,
 				1F1CC4D92BEE78AF00037CE0 /* Poppins-MediumItalic.ttf in Resources */,
 				1F1CC4E42BEEA84B00037CE0 /* Colors.xcassets in Resources */,
-				1F1CC4EC2BEEA96C00037CE0 /* HomeViewController.xib in Resources */,
+				1F1CC4EC2BEEA96C00037CE0 /* CategoriesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,7 +789,7 @@
 				1FECA5662C038A8400CB12E2 /* OnboardingView.swift in Sources */,
 				1FE64BC32C0506AD0089A2B4 /* CategoriesNavigationCoordinator.swift in Sources */,
 				1F3EA9A92C08C38700FB1100 /* LoginButton.swift in Sources */,
-				1F1CC4ED2BEEA96C00037CE0 /* HomeViewController.swift in Sources */,
+				1F1CC4ED2BEEA96C00037CE0 /* CategoriesViewController.swift in Sources */,
 				1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */,
 				1F3EA9AB2C08C4B500FB1100 /* CustomTextLabel.swift in Sources */,
 				1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */,

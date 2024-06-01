@@ -14,6 +14,6 @@ final class CategoriesNavigationCoordinator: NSObject, NavigationControllerCoord
     var childCoordinators = [Coordinator]()
     
     func start() {
-        navigationController.setViewControllers([HomeViewController()], animated: true)
+        navigationController.setViewControllers([CategoriesViewController()], animated: true)
     }
 }

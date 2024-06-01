@@ -10,11 +10,11 @@ import os
 import SwiftUI
 import UIKit
 
-final class HomeViewController: UIViewController {
+final class CategoriesViewController: UIViewController {
     // swiftlint:disable:next prohibited_interface_builder
     @IBOutlet private var categoriesCollectionView: UICollectionView!
     
-    private enum LocalUIConstants {
+    private enum UIConstants {
         static let cellSpacing: CGFloat = 8
         static let sectionInset: CGFloat = 4
         static let sectionScale: CGFloat = 3
@@ -38,16 +38,16 @@ final class HomeViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width - LocalUIConstants.cellSpacing
-        let height: CGFloat = collectionView.bounds.height / LocalUIConstants.sectionScale
+        let width = collectionView.bounds.width - UIConstants.cellSpacing
+        let height: CGFloat = collectionView.bounds.height / UIConstants.sectionScale
         return CGSize(width: width, height: height)
     }
 }
 
 // MARK: - UICollectionViewDelegate
-extension HomeViewController: UICollectionViewDelegate {
+extension CategoriesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.logger.info("Home collection view did select item at \(indexPath)")
     }
@@ -58,7 +58,7 @@ extension HomeViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UISetup
-private extension HomeViewController {
+private extension CategoriesViewController {
     func setup() {
         setupCollectionView()
         readData()
@@ -79,17 +79,17 @@ private extension HomeViewController {
     func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = LocalUIConstants.cellSpacing
-        layout.minimumInteritemSpacing = LocalUIConstants.cellSpacing
-        layout.sectionInset = UIEdgeInsets(top: 0, left: LocalUIConstants.sectionInset, bottom: 0, right: LocalUIConstants.sectionInset)
+        layout.minimumLineSpacing = UIConstants.cellSpacing
+        layout.minimumInteritemSpacing = UIConstants.cellSpacing
+        layout.sectionInset = UIEdgeInsets(top: 0, left: UIConstants.sectionInset, bottom: 0, right: UIConstants.sectionInset)
         layout.sectionHeadersPinToVisibleBounds = true
-        layout.headerReferenceSize = CGSize(width: categoriesCollectionView.contentSize.width, height: LocalUIConstants.headerHeight)
+        layout.headerReferenceSize = CGSize(width: categoriesCollectionView.contentSize.width, height: UIConstants.headerHeight)
         categoriesCollectionView.setCollectionViewLayout(layout, animated: false)
     }
 }
 
 // MARK: - UICollectionViewDataSource
-private extension HomeViewController {
+private extension CategoriesViewController {
     func readData() {
         dataProvider.$data.sink { [weak self] data in
             self?.logger.log(level: .info, "The value is \(data)")
@@ -124,7 +124,7 @@ private extension HomeViewController {
             let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
             let labelCell: LabelCollectionViewCell = collectionView.dequeueSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
             labelCell.nameLabel.text = section.title
-            labelCell.nameLabel.font = UIFont(name: "Poppins-Bold", size: LocalUIConstants.headerFontSize)
+            labelCell.nameLabel.font = UIFont(name: "Poppins-Bold", size: UIConstants.headerFontSize)
             return labelCell
         }
         return dataSource

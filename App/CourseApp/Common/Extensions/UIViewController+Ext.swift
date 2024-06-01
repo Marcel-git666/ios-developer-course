@@ -7,6 +7,8 @@
 
 import UIKit
 
+extension UICollectionViewCell: ReusableIdentifier {}
+
 extension UIViewController {
     func showInfoAlert(title: String, message: String? = nil, handler: (() -> Void)? = nil) {
         guard presentedViewController == nil else {
