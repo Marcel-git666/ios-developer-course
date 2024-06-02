@@ -21,6 +21,7 @@ struct CustomTextField: View {
                 .padding(.leading, UIConst.cellSpacing)
                 .foregroundColor(imageColor.opacity(imageOpacity))
             TextField(placeHolder, text: $value)
+                .foregroundColor(imageColor)
                 .padding(UIConst.normalPadding)
         }
         .overlay(

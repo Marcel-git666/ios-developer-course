@@ -7,10 +7,10 @@
 
 import Foundation
 
-protocol Coordinator: AnyObject {
+protocol Coordinator: AnyObject, DeeplinkHandling {
     var childCoordinators: [Coordinator] { get set }
     func start()
-    func handleDeeplink(deeplink: Deeplink)
+    func handleDeeplink(_ deeplink: Deeplink)
 }
 
 extension Coordinator {
@@ -25,5 +25,7 @@ extension Coordinator {
         childCoordinator.start()
     }
     
-    func handleDeeplink(deeplink: Deeplink) {}
+    func handleDeeplink(_ deeplink: Deeplink) {
+        childCoordinators.forEach { $0.handleDeeplink(deeplink) }
+    }
 }

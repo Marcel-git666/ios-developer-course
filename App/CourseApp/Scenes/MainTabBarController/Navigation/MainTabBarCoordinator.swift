@@ -12,19 +12,20 @@ import UIKit
 final class MainTabBarCoordinator: NSObject, TabBarControllerCoordinator {
     var childCoordinators = [Coordinator]()
     private(set) lazy var tabBarController = makeTabBarController()
+    private let eventSubject = PassthroughSubject<MainTabBarEvent, Never>()
     private lazy var cancellables = Set<AnyCancellable>()
 }
 
 extension MainTabBarCoordinator {
     func start() {
         tabBarController.viewControllers = [
-            setupCategoriesView(),
-            setupSwipingCardView(),
-            setupProfileView()
+            setupCategoriesView().rootViewController,
+            setupSwipingCardView().rootViewController,
+            setupProfileView().rootViewController
         ]
     }
     
-    func handleDeeplink(deeplink: Deeplink) {
+    func handleDeeplink(_ deeplink: Deeplink) {
         switch deeplink {
         case let .onboarding(page):
             let coordinator = makeOnboardingFlow(page: page)
@@ -33,7 +34,7 @@ extension MainTabBarCoordinator {
         default:
             break
         }
-        childCoordinators.forEach { $0.handleDeeplink(deeplink: deeplink) }
+        childCoordinators.forEach { $0.handleDeeplink(deeplink) }
     }
 }
 
@@ -61,7 +62,7 @@ private extension MainTabBarCoordinator {
         return tabBarController
     }
     
-    func setupCategoriesView() -> UIViewController {
+    func setupCategoriesView() -> ViewControllerCoordinator {
         let categoriesCoordinator = CategoriesNavigationCoordinator()
         startChildCoordinator(categoriesCoordinator)
         categoriesCoordinator.rootViewController.tabBarItem = UITabBarItem(
@@ -70,23 +71,23 @@ private extension MainTabBarCoordinator {
             tag: 0
         )
         
-        return categoriesCoordinator.rootViewController
+        return categoriesCoordinator
     }
     
-    func setupSwipingCardView() -> UIViewController {
+    func setupSwipingCardView() -> ViewControllerCoordinator {
         let swipingCoordinator = SwipingNavigationCoordinator()
         startChildCoordinator(swipingCoordinator)
         swipingCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Random", image: UIImage(systemName: "switch.2"), tag: 1)
         
-        return swipingCoordinator.rootViewController
+        return swipingCoordinator
     }
     
-    func setupProfileView() -> UIViewController {
+    func setupProfileView() -> ViewControllerCoordinator {
         let profileCoordinator = ProfileNavigationCoordinator()
         startChildCoordinator(profileCoordinator) // swiftlint:disable:next no_magic_numbers
         profileCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 2)
         
-        return profileCoordinator.rootViewController
+        return profileCoordinator
     }
 }
 
@@ -95,5 +96,11 @@ extension MainTabBarCoordinator: UITabBarControllerDelegate {
         if viewController === tabBarController.viewControllers?.last {
             // rootViewController.showInfoAlert(title: "Last view controller alert.")
         }
+    }
+}
+
+extension MainTabBarCoordinator: EventEmitting {
+    var eventPublisher: AnyPublisher<MainTabBarEvent, Never> {
+        eventSubject.eraseToAnyPublisher()
     }
 }

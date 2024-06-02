@@ -9,18 +9,9 @@ import FirebaseCore
 import os
 import SwiftUI
 
-enum Deeplink {
-    case onboarding(page: Int)
-    case closeOnboarding
-    case signIn
-}
-
 class AppDelegate: NSObject, UIApplicationDelegate {
-    let appCoordinator: some AppCoordinating = {
-        let coordinator = AppCoordinator()
-        coordinator.start()
-        return coordinator
-    }()
+    // Delegate pattern
+    weak var deeplinkHandler: DeeplinkHandling?
     
     func application(
         _ application: UIApplication,
@@ -33,23 +24,27 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     func deeplinkFromService() { // swiftlint:disable:next no_magic_numbers
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            self?.appCoordinator.handleDeeplink(deeplink: .onboarding(page: 0))
+            self?.deeplinkHandler?.handleDeeplink(.onboarding(page: 0))
         }
-        // ?wiftlint:disable:next no_magic_numbers
-//         }
     }
 }
 
 @main
 struct CourseAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @ObservedObject private var appCoordinator = AppCoordinator()
     private let logger = Logger()
     
+    init() {
+        appCoordinator.start()
+        delegate.deeplinkHandler = appCoordinator
+    }
     var body: some Scene {
         WindowGroup {
-            CoordinatorView(coordinator: delegate.appCoordinator )
+            CoordinatorView(coordinator: appCoordinator )
+                .id(appCoordinator.isAuthorized)
                 .onAppear {
-                    logger.info("🦈 MainTabView has appeared.")
+                    logger.info("🦈 AppCoordinator has appeared.")
                 }
                 .ignoresSafeArea(.all)
         }
