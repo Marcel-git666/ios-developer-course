@@ -63,7 +63,7 @@ struct SwipingCard: View {
             Spacer()
         }
         .background(color)
-        .cornerRadius(UIConstants.largeImageRadius)
+        .cornerRadius(UIConst.largeImageRadius)
         .offset(x: offset.width, y: offset.height * 0.5)
         .rotationEffect(.degrees(Double(offset.width / 40)))
         .gesture(dragGesture)
@@ -91,7 +91,7 @@ struct SwipingCard: View {
         Text(configuration.title)
             .textTypeModifier(textType: .sectionTitle)
             .padding(10)
-            .cornerRadius(UIConstants.normalImageRadius)
+            .cornerRadius(UIConst.normalImageRadius)
             .padding()
     }
 }
@@ -129,6 +129,13 @@ private extension SwipingCard {
             color = .bg.opacity(0.7)
             swipingAction(.cancelled)
         }
+    }
+}
+
+private extension SwipingCard {
+    enum UIConst {
+        static let normalImageRadius: CGFloat = 10
+        static let largeImageRadius: CGFloat = 10
     }
 }
 

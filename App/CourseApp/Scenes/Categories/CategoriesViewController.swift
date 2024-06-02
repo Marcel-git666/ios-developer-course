@@ -10,20 +10,17 @@ import os
 import SwiftUI
 import UIKit
 
-// MARK: - UIViewControllerRepresentable
-struct HomeView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> HomeViewController {
-        HomeViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: HomeViewController, context: Context) {
-    }
-}
-
-final class HomeViewController: UIViewController {
+final class CategoriesViewController: UIViewController {
     // swiftlint:disable:next prohibited_interface_builder
     @IBOutlet private var categoriesCollectionView: UICollectionView!
     
+    private enum UIConstants {
+        static let cellSpacing: CGFloat = 8
+        static let sectionInset: CGFloat = 4
+        static let sectionScale: CGFloat = 3
+        static let headerHeight: CGFloat = 44
+        static let headerFontSize: CGFloat = 36
+    }
     // MARK: - DataSource
     private let dataProvider = MockDataProvider()
     typealias DataSource = UICollectionViewDiffableDataSource<SectionData, [Joke]>
@@ -41,7 +38,7 @@ final class HomeViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width - UIConstants.cellSpacing
         let height: CGFloat = collectionView.bounds.height / UIConstants.sectionScale
@@ -50,7 +47,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - UICollectionViewDelegate
-extension HomeViewController: UICollectionViewDelegate {
+extension CategoriesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.logger.info("Home collection view did select item at \(indexPath)")
     }
@@ -61,15 +58,14 @@ extension HomeViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UISetup
-private extension HomeViewController {
+private extension CategoriesViewController {
     func setup() {
         setupCollectionView()
         readData()
     }
     
     func setupCollectionView() {
-        categoriesCollectionView.register(HorizontalScrollingImageCell.self)
-        categoriesCollectionView.register(LabelCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
+        categoriesCollectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
         
         categoriesCollectionView.backgroundColor = .bg
         categoriesCollectionView.isPagingEnabled = true
@@ -92,7 +88,7 @@ private extension HomeViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-private extension HomeViewController {
+private extension CategoriesViewController {
     func readData() {
         dataProvider.$data.sink { [weak self] data in
             self?.logger.log(level: .info, "The value is \(data)")
@@ -113,10 +109,12 @@ private extension HomeViewController {
     }
     
     func makeDataSource() -> DataSource {
-        let dataSource = DataSource(collectionView: categoriesCollectionView) { collectionView, indexPath, joke in
-            let horizontalCell: HorizontalScrollingImageCell = collectionView.dequeueReusableCell(for: indexPath)
-            horizontalCell.setData(joke)
-            return horizontalCell
+        let cellRegistration = UICollectionView.CellRegistration<HorizontalScrollingImageCell, [Joke]> { cell, _, item in
+            cell.setData(item)
+        }
+        
+        let dataSource = DataSource(collectionView: categoriesCollectionView) { collectionView, indexPath, item in
+            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         }
         
         dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
@@ -125,9 +123,14 @@ private extension HomeViewController {
             }
             
             let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
-            let labelCell: LabelCollectionViewCell = collectionView.dequeueSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
-            labelCell.nameLabel.text = section.title
-            labelCell.nameLabel.font = UIFont(name: "Poppins-Bold", size: UIConstants.headerFontSize)
+            let labelCell: UICollectionViewCell = collectionView.dequeueSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                for: indexPath
+            )
+            labelCell.contentConfiguration = UIHostingConfiguration {
+                Text(section.title)
+                    .textTypeModifier(textType: .sectionTitle)
+            }
             return labelCell
         }
         return dataSource

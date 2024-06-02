@@ -24,10 +24,17 @@ struct BorderedModifier: ViewModifier {
                             startPoint: .leading,
                             endPoint: .trailing
                         ),
-                        lineWidth: UIConstants.thinLine
+                        lineWidth: UIConst.thinLine
                     )
             )
-            .shadow(radius: UIConstants.shadowRadius)
+            .shadow(radius: UIConst.shadowRadius)
+    }
+}
+
+private extension BorderedModifier {
+    enum UIConst {
+        static let thinLine: CGFloat = 3
+        static let shadowRadius: CGFloat = 2
     }
 }
 
