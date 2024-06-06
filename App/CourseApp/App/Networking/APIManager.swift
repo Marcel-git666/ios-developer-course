@@ -25,6 +25,7 @@ final class APIManager: APIManaging {
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         return decoder
     }()
+
     
     func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T {
         let data = try await request(endpoint)
@@ -59,7 +60,11 @@ final class APIManager: APIManaging {
     }
     
     func checkStatusCode(_ urlResponse: HTTPURLResponse) throws {
-        guard 200..<300 ~= urlResponse.statusCode else {
+        guard let statusCode = urlResponse.status else {
+            throw NetworkingError.unacceptableStatusCode
+        }
+        
+        guard statusCode.responseType == .success else {
             throw NetworkingError.unacceptableStatusCode
         }
     }

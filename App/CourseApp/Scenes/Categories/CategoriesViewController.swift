@@ -38,9 +38,11 @@ final class CategoriesViewController: UIViewController {
             let apiManager = APIManager()
             do {
                 let joke: JokeResponse = try await apiManager.request(JokesRouter.getRandomJoke)
-                print("🤣 \(joke) 🤣")
+                logger.info("🤣 \(joke.value) 🤣")
+            } catch let error as NetworkingError {
+                showInfoAlert(title: "Networking error: \(error)")
             } catch {
-                showInfoAlert(title: "Error: \(error)")
+                showInfoAlert(title: "Unknown error.")
             }
         }
     }

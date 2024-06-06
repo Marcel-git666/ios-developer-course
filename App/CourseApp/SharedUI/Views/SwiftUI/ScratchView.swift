@@ -32,7 +32,6 @@ struct ScratchView: View {
                         image
                             .resizableBordered()
                             .scaledToFit()
-                        
                     } placeholder: {
                         ProgressView()
                     }

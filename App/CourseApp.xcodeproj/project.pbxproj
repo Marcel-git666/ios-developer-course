@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F000B062C11BF1F002A0126 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F000B052C11BF1F002A0126 /* HTTPStatusCode.swift */; };
 		1F002E572C01C3EA007B44E0 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E562C01C3EA007B44E0 /* UINavigationController+Ext.swift */; };
 		1F002E5A2C01C491007B44E0 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E592C01C491007B44E0 /* FontType.swift */; };
 		1F002E5C2C01C4EB007B44E0 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E5B2C01C4EB007B44E0 /* FontSize.swift */; };
@@ -74,7 +75,7 @@
 		1FE1B3E62C0CC54D00878252 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B3E52C0CC54D00878252 /* KeychainManager.swift */; };
 		1FE1B3E92C0CC65700878252 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE1B3E82C0CC65700878252 /* KeychainAccess */; };
 		1FE1B3EB2C0CC77500878252 /* KeychainManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B3EA2C0CC77500878252 /* KeychainManaging.swift */; };
-		1FE1B3ED2C0CC7B800878252 /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B3EC2C0CC7B800878252 /* KeychainError.swift */; };
+		1FE1B3ED2C0CC7B800878252 /* KeychainManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B3EC2C0CC7B800878252 /* KeychainManagerError.swift */; };
 		1FE64BB72C0491010089A2B4 /* EventEmitting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BB62C0491010089A2B4 /* EventEmitting.swift */; };
 		1FE64BB92C04D03A0089A2B4 /* OnboardingNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BB82C04D03A0089A2B4 /* OnboardingNextView.swift */; };
 		1FE64BBB2C04D0440089A2B4 /* OnboardingLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE64BBA2C04D0440089A2B4 /* OnboardingLastView.swift */; };
@@ -117,6 +118,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F000B052C11BF1F002A0126 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		1F002E562C01C3EA007B44E0 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
 		1F002E592C01C491007B44E0 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		1F002E5B2C01C4EB007B44E0 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
@@ -181,7 +183,7 @@
 		1FE1B3E22C0CBAA300878252 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		1FE1B3E52C0CC54D00878252 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		1FE1B3EA2C0CC77500878252 /* KeychainManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManaging.swift; sourceTree = "<group>"; };
-		1FE1B3EC2C0CC7B800878252 /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
+		1FE1B3EC2C0CC7B800878252 /* KeychainManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerError.swift; sourceTree = "<group>"; };
 		1FE64BB62C0491010089A2B4 /* EventEmitting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEmitting.swift; sourceTree = "<group>"; };
 		1FE64BB82C04D03A0089A2B4 /* OnboardingNextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextView.swift; sourceTree = "<group>"; };
 		1FE64BBA2C04D0440089A2B4 /* OnboardingLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLastView.swift; sourceTree = "<group>"; };
@@ -480,7 +482,7 @@
 			children = (
 				1FE1B3E52C0CC54D00878252 /* KeychainManager.swift */,
 				1FE1B3EA2C0CC77500878252 /* KeychainManaging.swift */,
-				1FE1B3EC2C0CC7B800878252 /* KeychainError.swift */,
+				1FE1B3EC2C0CC7B800878252 /* KeychainManagerError.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -504,6 +506,7 @@
 				1FE1B3E22C0CBAA300878252 /* CustomError.swift */,
 				1FB8036F2C10AF2D005E75CA /* HTTPMethod.swift */,
 				1FB803712C10AF49005E75CA /* HTTPHeader.swift */,
+				1F000B052C11BF1F002A0126 /* HTTPStatusCode.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -875,7 +878,7 @@
 				1FD3C9552C00F64C00B9135E /* CoordinatorView.swift in Sources */,
 				1FE64BB92C04D03A0089A2B4 /* OnboardingNextView.swift in Sources */,
 				1FD2A47F2BF26FEF005D6D7F /* HorizontalScrollingImageCell.swift in Sources */,
-				1FE1B3ED2C0CC7B800878252 /* KeychainError.swift in Sources */,
+				1FE1B3ED2C0CC7B800878252 /* KeychainManagerError.swift in Sources */,
 				1FD3C9512C00D1B300B9135E /* MainTabBarCoordinator.swift in Sources */,
 				1FEF4A202BF688AB00FBA218 /* SelectableButtonStyle.swift in Sources */,
 				1FECA5662C038A8400CB12E2 /* OnboardingView.swift in Sources */,
@@ -888,6 +891,7 @@
 				1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */,
 				1FB8036A2C109DFF005E75CA /* NetworkingError.swift in Sources */,
 				1F3EA9AB2C08C4B500FB1100 /* CustomTextLabel.swift in Sources */,
+				1F000B062C11BF1F002A0126 /* HTTPStatusCode.swift in Sources */,
 				1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */,
 				1FB803742C10F1A7005E75CA /* JokeResponse.swift in Sources */,
 				1F002E622C025DD9007B44E0 /* AppCoordinator.swift in Sources */,
