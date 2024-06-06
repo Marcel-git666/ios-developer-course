@@ -18,7 +18,7 @@ final class CategoriesViewController: UIViewController {
         static let cellSpacing: CGFloat = 8
         static let sectionInset: CGFloat = 4
         static let sectionScale: CGFloat = 3
-        static let headerHeight: CGFloat = 44
+        static let headerHeight: CGFloat = 104
         static let headerFontSize: CGFloat = 36
     }
     // MARK: - DataSource
@@ -33,7 +33,16 @@ final class CategoriesViewController: UIViewController {
         super.viewDidLoad()
         setup()
         title = "Categories"
-        // Do any additional setup after loading the view.
+        
+        Task {
+            let apiManager = APIManager()
+            do {
+                let joke: JokeResponse = try await apiManager.request(JokesRouter.getRandomJoke)
+                print("🤣 \(joke) 🤣")
+            } catch {
+                showInfoAlert(title: "Error: \(error)")
+            }
+        }
     }
 }
 
@@ -134,5 +143,13 @@ private extension CategoriesViewController {
             return labelCell
         }
         return dataSource
+    }
+}
+
+private extension CategoriesViewController {
+    func fetchData() {
+        Task {
+            //
+        }
     }
 }

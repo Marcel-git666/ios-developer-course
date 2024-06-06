@@ -54,7 +54,6 @@ struct SwipingCard: View {
                 // scratch view
                 
                 ScratchView(
-                    image: configuration.image,
                     text: configuration.description
                 )
                 Spacer()

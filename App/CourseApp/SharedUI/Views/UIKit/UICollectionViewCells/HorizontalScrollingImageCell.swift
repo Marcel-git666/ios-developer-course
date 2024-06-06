@@ -29,7 +29,7 @@ class HorizontalScrollingImageCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    private var didTapCallBack: Action<Joke>?
+    //    private var didTapCallBack: Action<Joke>?
     
     // MARK: - Setup
     
@@ -94,8 +94,17 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.contentConfiguration = UIHostingConfiguration {
-            Image(uiImage: data[indexPath.row].image ?? UIImage())
-                .resizableBordered(cornerRadius: UIConst.normalImageRadius)
+            if let url = try? ImagesRouter.size300x200.asURLRequest().url {
+                AsyncImage(url: url) { image in
+                    image
+                        .resizableBordered()
+                        .scaledToFit()
+                } placeholder: {
+                    ProgressView()
+                }
+            } else {
+                Text("Error")
+            }
         }
         return cell
     }
@@ -104,7 +113,7 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
 extension HorizontalScrollingImageCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         logger.info("Horizontal scrolling did select item \(indexPath)")
-//        didTapCallBack?(data[indexPath.row])
+        //        didTapCallBack?(data[indexPath.row])
     }
 }
 

@@ -37,6 +37,14 @@
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
 		1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653572BF7C05700923AD7 /* ScratchView.swift */; };
 		1FB6535A2BF7C19900923AD7 /* TextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653592BF7C19800923AD7 /* TextType.swift */; };
+		1FB803682C109A71005E75CA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB803672C109A71005E75CA /* Endpoint.swift */; };
+		1FB8036A2C109DFF005E75CA /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB803692C109DFF005E75CA /* NetworkingError.swift */; };
+		1FB8036C2C10A327005E75CA /* ImagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8036B2C10A327005E75CA /* ImagesRouter.swift */; };
+		1FB8036E2C10AED9005E75CA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8036D2C10AED9005E75CA /* APIManager.swift */; };
+		1FB803702C10AF2D005E75CA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8036F2C10AF2D005E75CA /* HTTPMethod.swift */; };
+		1FB803722C10AF49005E75CA /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB803712C10AF49005E75CA /* HTTPHeader.swift */; };
+		1FB803742C10F1A7005E75CA /* JokeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB803732C10F1A7005E75CA /* JokeResponse.swift */; };
+		1FB803762C10F28B005E75CA /* JokesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB803752C10F28B005E75CA /* JokesRouter.swift */; };
 		1FBDCB342BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB362BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1FBDCB382BEC0C7400F14095 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -138,6 +146,14 @@
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
 		1FB653572BF7C05700923AD7 /* ScratchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
 		1FB653592BF7C19800923AD7 /* TextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextType.swift; sourceTree = "<group>"; };
+		1FB803672C109A71005E75CA /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		1FB803692C109DFF005E75CA /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		1FB8036B2C10A327005E75CA /* ImagesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRouter.swift; sourceTree = "<group>"; };
+		1FB8036D2C10AED9005E75CA /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		1FB8036F2C10AF2D005E75CA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		1FB803712C10AF49005E75CA /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
+		1FB803732C10F1A7005E75CA /* JokeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeResponse.swift; sourceTree = "<group>"; };
+		1FB803752C10F28B005E75CA /* JokesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesRouter.swift; sourceTree = "<group>"; };
 		1FBDCB2C2BEB64FB00F14095 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		1FBDCB2D2BEB651000F14095 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		1FC7EC352BEE333E007BCDC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -373,10 +389,25 @@
 			path = UICollectionViewCells;
 			sourceTree = "<group>";
 		};
+		1FB803662C109A51005E75CA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1FB803672C109A71005E75CA /* Endpoint.swift */,
+				1FB8036B2C10A327005E75CA /* ImagesRouter.swift */,
+				1FB803692C109DFF005E75CA /* NetworkingError.swift */,
+				1FB8036D2C10AED9005E75CA /* APIManager.swift */,
+				1FB803732C10F1A7005E75CA /* JokeResponse.swift */,
+				1FB803752C10F28B005E75CA /* JokesRouter.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		1FD2BC422C0B5D5200D1723B /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				1FD2BC432C0B5D5D00D1723B /* Navigation */,
+				1F3EA9A12C088AC700FB1100 /* LoginView.swift */,
+				1FD2BC482C0B62E400D1723B /* LoginViewEvent.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -457,6 +488,7 @@
 		1FECA5612C036DC300CB12E2 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				1FB803662C109A51005E75CA /* Networking */,
 				1FD3C94B2C00CD2B00B9135E /* Navigation */,
 				1F1CC4DD2BEEA6E000037CE0 /* Resources */,
 			);
@@ -470,6 +502,8 @@
 				1FECA5672C038B1D00CB12E2 /* Action.swift */,
 				1FE1B3E02C0C921D00878252 /* Deeplink.swift */,
 				1FE1B3E22C0CBAA300878252 /* CustomError.swift */,
+				1FB8036F2C10AF2D005E75CA /* HTTPMethod.swift */,
+				1FB803712C10AF49005E75CA /* HTTPHeader.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -540,8 +574,6 @@
 			children = (
 				1FF870DB2C072F4E00CA175B /* Categories */,
 				1FD2BC422C0B5D5200D1723B /* Login */,
-				1F3EA9A12C088AC700FB1100 /* LoginView.swift */,
-				1FD2BC482C0B62E400D1723B /* LoginViewEvent.swift */,
 				1FF870DD2C072FA200CA175B /* MainTabBarController */,
 				1FF870DA2C072F4500CA175B /* Onboarding */,
 				1FF870DE2C072FB200CA175B /* ProfileView */,
@@ -847,28 +879,36 @@
 				1FD3C9512C00D1B300B9135E /* MainTabBarCoordinator.swift in Sources */,
 				1FEF4A202BF688AB00FBA218 /* SelectableButtonStyle.swift in Sources */,
 				1FECA5662C038A8400CB12E2 /* OnboardingView.swift in Sources */,
+				1FB803722C10AF49005E75CA /* HTTPHeader.swift in Sources */,
+				1FB803682C109A71005E75CA /* Endpoint.swift in Sources */,
 				1FE64BC32C0506AD0089A2B4 /* CategoriesNavigationCoordinator.swift in Sources */,
 				1FD2BC472C0B62A500D1723B /* MainTabBarEvent.swift in Sources */,
 				1F3EA9A92C08C38700FB1100 /* LoginButton.swift in Sources */,
 				1F1CC4ED2BEEA96C00037CE0 /* CategoriesViewController.swift in Sources */,
 				1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */,
+				1FB8036A2C109DFF005E75CA /* NetworkingError.swift in Sources */,
 				1F3EA9AB2C08C4B500FB1100 /* CustomTextLabel.swift in Sources */,
 				1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */,
+				1FB803742C10F1A7005E75CA /* JokeResponse.swift in Sources */,
 				1F002E622C025DD9007B44E0 /* AppCoordinator.swift in Sources */,
 				1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */,
 				1FECA56C2C038C4E00CB12E2 /* SwipingNavigationCoordinator.swift in Sources */,
 				1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */,
+				1FB8036C2C10A327005E75CA /* ImagesRouter.swift in Sources */,
 				1FE64BBD2C04D1660089A2B4 /* OnboardingButtonStyle.swift in Sources */,
 				1F094FA02C0A4EE4001372BC /* Font+Appfonts.swift in Sources */,
 				1FE64BBB2C04D0440089A2B4 /* OnboardingLastView.swift in Sources */,
 				1F002E602C0205BA007B44E0 /* TextTypeModifier.swift in Sources */,
 				1F3EA9A02C08890A00FB1100 /* CustomTextField.swift in Sources */,
 				1FE64BB72C0491010089A2B4 /* EventEmitting.swift in Sources */,
+				1FB8036E2C10AED9005E75CA /* APIManager.swift in Sources */,
 				1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */,
 				1F3EA9A22C088AC700FB1100 /* LoginView.swift in Sources */,
 				1FE1B3E32C0CBAA300878252 /* CustomError.swift in Sources */,
 				1FD3C94A2C00C74400B9135E /* EmbedInScrollView.swift in Sources */,
+				1FB803762C10F28B005E75CA /* JokesRouter.swift in Sources */,
 				1FD3C94D2C00CD4A00B9135E /* Coordinator.swift in Sources */,
+				1FB803702C10AF2D005E75CA /* HTTPMethod.swift in Sources */,
 				1FF870EE2C07493200CA175B /* EventEmittingView.swift in Sources */,
 				1FD2BC4D2C0B735D00D1723B /* DeeplinkHandling.swift in Sources */,
 				1FE1B3EB2C0CC77500878252 /* KeychainManaging.swift in Sources */,
