@@ -15,7 +15,7 @@ struct SwipingViewConfiguration {
 }
 
 struct SwipingView: View {
-    private let dataProvider = MockDataProvider()
+    private let dataProvider = JokeService(apiManager: APIManager())
     @State private var config = SwipingViewConfiguration()
     let logger = Logger()
     
@@ -26,7 +26,7 @@ struct SwipingView: View {
                 Spacer()
                 
                 VStack {
-                    if let jokes = dataProvider.data.first?.jokes {
+                    if let jokes = dataProvider.fetchRandomJoke() data.first?.jokes {
                         ZStack {
                             ForEach(jokes, id: \.self) { joke in
                                 ZStack {

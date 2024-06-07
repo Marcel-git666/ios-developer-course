@@ -8,10 +8,6 @@
 import Foundation
 import os
 
-protocol APIManaging {
-    func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T
-}
-
 final class APIManager: APIManaging {
     private let logger = Logger()
     private lazy var dateFormatter: DateFormatter = {
@@ -25,7 +21,7 @@ final class APIManager: APIManaging {
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         return decoder
     }()
-
+    
     
     func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T {
         let data = try await request(endpoint)

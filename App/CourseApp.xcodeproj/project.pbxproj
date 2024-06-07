@@ -25,6 +25,8 @@
 		1F1CC4E92BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */; };
 		1F1CC4EC2BEEA96C00037CE0 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EB2BEEA96C00037CE0 /* CategoriesViewController.xib */; };
 		1F1CC4ED2BEEA96C00037CE0 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EA2BEEA96C00037CE0 /* CategoriesViewController.swift */; };
+		1F313CED2C136F7100825B46 /* APIManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F313CEC2C136F7100825B46 /* APIManaging.swift */; };
+		1F313CEF2C136FDE00825B46 /* JokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F313CEE2C136FDE00825B46 /* JokeService.swift */; };
 		1F3EA9862C08769A00FB1100 /* CourseApp_Unit_DevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9852C08769A00FB1100 /* CourseApp_Unit_DevTests.swift */; };
 		1F3EA9952C0876A300FB1100 /* CourseApp_UI_DevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9942C0876A300FB1100 /* CourseApp_UI_DevTests.swift */; };
 		1F3EA9972C0876A300FB1100 /* CourseApp_UI_DevTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9962C0876A300FB1100 /* CourseApp_UI_DevTestsLaunchTests.swift */; };
@@ -133,6 +135,8 @@
 		1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReusableIdenfifier.swift"; sourceTree = "<group>"; };
 		1F1CC4EA2BEEA96C00037CE0 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		1F1CC4EB2BEEA96C00037CE0 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
+		1F313CEC2C136F7100825B46 /* APIManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManaging.swift; sourceTree = "<group>"; };
+		1F313CEE2C136FDE00825B46 /* JokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeService.swift; sourceTree = "<group>"; };
 		1F3EA9832C08769A00FB1100 /* CourseApp Unit DevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CourseApp Unit DevTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3EA9852C08769A00FB1100 /* CourseApp_Unit_DevTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseApp_Unit_DevTests.swift; sourceTree = "<group>"; };
 		1F3EA9922C0876A300FB1100 /* CourseApp UI DevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CourseApp UI DevTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,6 +345,23 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		1F313CEA2C136D6A00825B46 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				1FB8036B2C10A327005E75CA /* ImagesRouter.swift */,
+				1FB803752C10F28B005E75CA /* JokesRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		1F313CEB2C136D9D00825B46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FB803732C10F1A7005E75CA /* JokeResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1F3EA9842C08769A00FB1100 /* CourseApp Unit DevTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,12 +415,13 @@
 		1FB803662C109A51005E75CA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				1F313CEB2C136D9D00825B46 /* Models */,
+				1F313CEA2C136D6A00825B46 /* Routers */,
 				1FB803672C109A71005E75CA /* Endpoint.swift */,
-				1FB8036B2C10A327005E75CA /* ImagesRouter.swift */,
 				1FB803692C109DFF005E75CA /* NetworkingError.swift */,
 				1FB8036D2C10AED9005E75CA /* APIManager.swift */,
-				1FB803732C10F1A7005E75CA /* JokeResponse.swift */,
-				1FB803752C10F28B005E75CA /* JokesRouter.swift */,
+				1F313CEE2C136FDE00825B46 /* JokeService.swift */,
+				1F313CEC2C136F7100825B46 /* APIManaging.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -863,6 +885,7 @@
 				1F002E572C01C3EA007B44E0 /* UINavigationController+Ext.swift in Sources */,
 				1FC7EC372BEE35AE007BCDC4 /* BuildConfiguration.swift in Sources */,
 				1F002E5C2C01C4EB007B44E0 /* FontSize.swift in Sources */,
+				1F313CEF2C136FDE00825B46 /* JokeService.swift in Sources */,
 				1F002E5E2C02056C007B44E0 /* CustomNavigationController.swift in Sources */,
 				1FE64BBF2C0502ED0089A2B4 /* ProfileNavigationCoordinator.swift in Sources */,
 				1FE1B3E12C0C921D00878252 /* Deeplink.swift in Sources */,
@@ -910,6 +933,7 @@
 				1F3EA9A22C088AC700FB1100 /* LoginView.swift in Sources */,
 				1FE1B3E32C0CBAA300878252 /* CustomError.swift in Sources */,
 				1FD3C94A2C00C74400B9135E /* EmbedInScrollView.swift in Sources */,
+				1F313CED2C136F7100825B46 /* APIManaging.swift in Sources */,
 				1FB803762C10F28B005E75CA /* JokesRouter.swift in Sources */,
 				1FD3C94D2C00CD4A00B9135E /* Coordinator.swift in Sources */,
 				1FB803702C10AF2D005E75CA /* HTTPMethod.swift in Sources */,

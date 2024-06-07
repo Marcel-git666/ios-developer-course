@@ -10,6 +10,30 @@ import os
 import SwiftUI
 import UIKit
 
+struct SectionData: Identifiable, Hashable {
+    let id = UUID()
+    let title: String
+    var jokes: [Joke]
+    
+    init(title: String, jokes: [JokeResponse]) {
+        self.title = title
+        self.jokes = jokes.map { Joke(jokeResponse: $0) }
+    }
+}
+
+struct Joke: Identifiable, Hashable {
+    let id: String
+    let text: String
+    let categories: [String]
+    
+    init(jokeResponse: JokeResponse) {
+        self.id = jokeResponse.id
+        self.text = jokeResponse.value
+        self.categories = jokeResponse.categories
+    }
+}
+
+
 final class CategoriesViewController: UIViewController {
     // swiftlint:disable:next prohibited_interface_builder
     @IBOutlet private var categoriesCollectionView: UICollectionView!
@@ -22,10 +46,11 @@ final class CategoriesViewController: UIViewController {
         static let headerFontSize: CGFloat = 36
     }
     // MARK: - DataSource
-    private let dataProvider = MockDataProvider()
+    private let jokeService: JokeServicing = JokeService(apiManager: APIManager())
     typealias DataSource = UICollectionViewDiffableDataSource<SectionData, [Joke]>
     typealias Snapshot = NSDiffableDataSourceSnapshot<SectionData, [Joke]>
     private lazy var dataSource = makeDataSource()
+    @Published private var data = [SectionData]()
     private lazy var cancellables = Set<AnyCancellable>()
     private let logger = Logger()
     
@@ -33,18 +58,7 @@ final class CategoriesViewController: UIViewController {
         super.viewDidLoad()
         setup()
         title = "Categories"
-        
-        Task {
-            let apiManager = APIManager()
-            do {
-                let joke: JokeResponse = try await apiManager.request(JokesRouter.getRandomJoke)
-                logger.info("🤣 \(joke.value) 🤣")
-            } catch let error as NetworkingError {
-                showInfoAlert(title: "Networking error: \(error)")
-            } catch {
-                showInfoAlert(title: "Unknown error.")
-            }
-        }
+        fetchData()
     }
 }
 
@@ -101,8 +115,8 @@ private extension CategoriesViewController {
 // MARK: - UICollectionViewDataSource
 private extension CategoriesViewController {
     func readData() {
-        dataProvider.$data.sink { [weak self] data in
-            self?.logger.log(level: .info, "The value is \(data)")
+        $data.sink { [weak self] data in
+            self?.logger.info("SINK - The value is \(data)")
             self?.applySnapshot(data: data, animatingDifferences: true)
         }
         .store(in: &cancellables)
@@ -148,10 +162,36 @@ private extension CategoriesViewController {
     }
 }
 
-private extension CategoriesViewController {
+// MARK: - Data fetching
+extension CategoriesViewController {
     func fetchData() {
         Task {
-            //
+            do {
+                let categories = try await jokeService.fetchCategories()
+                try await withThrowingTaskGroup(of: JokeResponse.self) { [weak self] group in
+                    guard let self else { return }
+                    for category in categories {
+                        for _ in 1...5 {
+                            group.addTask {
+                                try await self.jokeService.fetchJokeForCategory(category)
+                            }
+                        }
+                    }
+                    var jokeResponses = [JokeResponse]()
+                    
+                    for try await jokeResponse in group {
+                        jokeResponses.append(jokeResponse)
+                    }
+                    let dataDictionary = Dictionary(grouping: jokeResponses) { $0.categories.first ?? "" }
+                    for key in dataDictionary.keys {
+                        data.append(SectionData(title: key, jokes: dataDictionary[key] ?? []))
+                    }
+                }
+            } catch let error as NetworkingError {
+                showInfoAlert(title: "Networking error: \(error)")
+            } catch {
+                showInfoAlert(title: "Unknown error.")
+            }
         }
     }
 }
