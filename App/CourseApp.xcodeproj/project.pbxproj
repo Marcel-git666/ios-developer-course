@@ -25,7 +25,6 @@
 		1F1CC4E92BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */; };
 		1F1CC4EC2BEEA96C00037CE0 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EB2BEEA96C00037CE0 /* CategoriesViewController.xib */; };
 		1F1CC4ED2BEEA96C00037CE0 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EA2BEEA96C00037CE0 /* CategoriesViewController.swift */; };
-		1F25628C2C1739310043A165 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25628B2C1739310043A165 /* ImageLoader.swift */; };
 		1F313CED2C136F7100825B46 /* APIManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F313CEC2C136F7100825B46 /* APIManaging.swift */; };
 		1F313CEF2C136FDE00825B46 /* JokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F313CEE2C136FDE00825B46 /* JokeService.swift */; };
 		1F3EA9862C08769A00FB1100 /* CourseApp_Unit_DevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9852C08769A00FB1100 /* CourseApp_Unit_DevTests.swift */; };
@@ -141,7 +140,6 @@
 		1F1CC4E82BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReusableIdenfifier.swift"; sourceTree = "<group>"; };
 		1F1CC4EA2BEEA96C00037CE0 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		1F1CC4EB2BEEA96C00037CE0 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
-		1F25628B2C1739310043A165 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		1F313CEC2C136F7100825B46 /* APIManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManaging.swift; sourceTree = "<group>"; };
 		1F313CEE2C136FDE00825B46 /* JokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeService.swift; sourceTree = "<group>"; };
 		1F3EA9832C08769A00FB1100 /* CourseApp Unit DevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CourseApp Unit DevTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -362,7 +360,6 @@
 		1F25628A2C17391A0043A165 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F25628B2C1739310043A165 /* ImageLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -966,7 +963,6 @@
 				1FE64BB72C0491010089A2B4 /* EventEmitting.swift in Sources */,
 				1FB8036E2C10AED9005E75CA /* APIManager.swift in Sources */,
 				1FD6BF912C171B3400AB9BA9 /* Joke.swift in Sources */,
-				1F25628C2C1739310043A165 /* ImageLoader.swift in Sources */,
 				1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */,
 				1F3EA9A22C088AC700FB1100 /* LoginView.swift in Sources */,
 				1FE1B3E32C0CBAA300878252 /* CustomError.swift in Sources */,
