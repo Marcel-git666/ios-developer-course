@@ -23,7 +23,6 @@ struct SwipingCard: View {
     
     // MARK: - Configuration
     struct Configuration: Equatable {
-        let image: Image
         let title: String
         let description: String
     }
@@ -54,7 +53,6 @@ struct SwipingCard: View {
                 // scratch view
                 
                 ScratchView(
-                    image: configuration.image,
                     text: configuration.description
                 )
                 Spacer()
@@ -143,7 +141,6 @@ struct Card_Previews: PreviewProvider {
     static var previews: some View {
         SwipingCard(
             configuration: SwipingCard.Configuration(
-                image: Image("nature"),
                 title: "Card Title",
                 description: "This is a short description. This is a short description. This is a short description. This is a short description. This is a short description."
             ),

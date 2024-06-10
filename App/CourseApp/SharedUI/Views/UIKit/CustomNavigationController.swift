@@ -10,9 +10,9 @@ import os
 import UIKit
 
 class CustomNavigationController: UINavigationController {
-    let logger = Logger()
-    
+    private let logger = Logger()
     private let eventSubject = PassthroughSubject<CustomNavigationControllerEvent, Never>()
+    private var isSwipingBack = false
     
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -20,12 +20,6 @@ class CustomNavigationController: UINavigationController {
         setupNavigationBarAppearance()
         delegate = self
         interactivePopGestureRecognizer?.delegate = self
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        logger.info("\(self.isBeingDismissed)")
-        logger.info("\(self.isMovingFromParent)")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -36,25 +30,33 @@ class CustomNavigationController: UINavigationController {
     }
 }
 
+// MARK: - EventEmitting
 extension CustomNavigationController: EventEmitting {
     var eventPublisher: AnyPublisher<CustomNavigationControllerEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
 }
 
+// MARK: - UIGestureRecognizerDelegate
 extension CustomNavigationController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         logger.info("Gesture recognizer: \(gestureRecognizer)")
+        isSwipingBack = gestureRecognizer == interactivePopGestureRecognizer
         return true
     }
 }
 
+// MARK: - UINavigationControllerDelegate
 extension CustomNavigationController: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        logger.info("Will show: \(viewController)")
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        logger.info("Did show: \(viewController)")
+    func navigationController(
+        _ navigationController: UINavigationController,
+        didShow viewController: UIViewController,
+        animated _: Bool
+    ) {
+        if isSwipingBack {
+            logger.info("Swiped back to \(viewController)")
+            eventSubject.send(.swipeback)
+            isSwipingBack.toggle()
+        }
     }
 }

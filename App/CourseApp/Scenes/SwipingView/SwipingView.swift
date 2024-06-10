@@ -15,67 +15,101 @@ struct SwipingViewConfiguration {
 }
 
 struct SwipingView: View {
-    private let dataProvider = MockDataProvider()
     @State private var config = SwipingViewConfiguration()
     let logger = Logger()
+    private let jokesService = JokeService(apiManager: APIManager())
+    private let category: String?
+    @State private var jokes: [Joke] = []
     
+    init(joke: Joke? = nil) {
+        self.category = joke?.categories.first
+        if let joke {
+            self.jokes.append(joke)
+        }
+    }
     // swiftlint:disable no_magic_numbers
     var body: some View {
         GeometryReader { geometry in
-            HStack {
-                Spacer()
-                
-                VStack {
-                    if let jokes = dataProvider.data.first?.jokes {
-                        ZStack {
-                            ForEach(jokes, id: \.self) { joke in
-                                ZStack {
-                                    if config.flipped {
-                                        Image("back")
-                                            .resizable()
-                                            .frame(width: geometry.size.width / 1.2, height: (geometry.size.width / 1.2) * 1.5)
-                                    } else {
-                                        SwipingCard(
-                                            configuration: SwipingCard.Configuration(
-                                                image: Image(uiImage: joke.image ?? UIImage()),
-                                                title: dataProvider.data.first?.title ?? "Unknown",
-                                                description: joke.text
-                                            ),
-                                            swipeStateAction: { action in
-                                                switch action {
-                                                case .finished:
-                                                    logger.info("swipe action: finished")
-                                                case .swiping:
-                                                    logger.info("swipe action: swiping")
-                                                case .cancelled:
-                                                    logger.info("swipe action: cancelled")
+            NavigationStack {
+                HStack {
+                    Spacer()
+                    
+                    VStack {
+                        if !jokes.isEmpty {
+                            ZStack {
+                                ForEach(jokes, id: \.self) { joke in
+                                    ZStack {
+                                        if config.flipped {
+                                            Image("back")
+                                                .resizable()
+                                                .frame(width: geometry.size.width / 1.2, height: (geometry.size.width / 1.2) * 1.5)
+                                        } else {
+                                            SwipingCard(
+                                                configuration: SwipingCard.Configuration(
+                                                    title: joke.categories.first ?? "Unknown category",
+                                                    description: joke.text
+                                                ),
+                                                swipeStateAction: { action in
+                                                    switch action {
+                                                    case .finished:
+                                                        logger.info("swipe action: finished")
+                                                    case .swiping:
+                                                        logger.info("swipe action: swiping")
+                                                    case .cancelled:
+                                                        logger.info("swipe action: cancelled")
+                                                    }
                                                 }
-                                            }
-                                        )
+                                            )
+                                        }
+                                    }
+                                }
+                                .padding(.top, geometry.size.height / 20)
+                                .frame(width: geometry.size.width / 1.2, height: (geometry.size.width / 1.2) * 1.5)
+                                .modifier(FlipEffect(flipped: $config.flipped, angle: config.animate3d ? 360 : 0, axis: (x: 1, y: 5)))
+                                .rotationEffect(Angle(degrees: config.rotate ? 0 : 360))
+                                .onAppear {
+                                    withAnimation(Animation.linear(duration: 3.0)) {
+                                        self.config.animate3d = true
+                                    }
+                                    withAnimation(Animation.linear(duration: 2.0)) {
+                                        self.config.rotate = true
                                     }
                                 }
                             }
-                            .padding(.top, geometry.size.height / 20)
-                            .frame(width: geometry.size.width / 1.2, height: (geometry.size.width / 1.2) * 1.5)
-                            .modifier(FlipEffect(flipped: $config.flipped, angle: config.animate3d ? 360 : 0, axis: (x: 1, y: 5)))
-                            .rotationEffect(Angle(degrees: config.rotate ? 0 : 360))
-                            .onAppear {
-                                withAnimation(Animation.linear(duration: 3.0)) {
-                                    self.config.animate3d = true
-                                }
-                                withAnimation(Animation.linear(duration: 2.0)) {
-                                    self.config.rotate = true
-                                }
-                            }
+                        } else {
+                            Text("Empty data!")
                         }
-                    } else {
-                        Text("Empty data!")
+                        Spacer()
                     }
                     Spacer()
                 }
-                Spacer()
             }
-            .navigationTitle("Random")
+        }
+        .onFirstAppear {
+            fetchRandomJokes()
+        }
+        .navigationTitle("Random Jokes")
+        .embedInScrollViewIfNeeded()
+    }
+    
+    
+    func fetchRandomJokes() {
+        Task {
+            try await withThrowingTaskGroup(of: JokeResponse.self) { group in
+                for _ in 1...5 {
+                    group.addTask {
+                        if let category {
+                            try await jokesService.fetchJokeForCategory(category)
+                        } else {
+                            try await jokesService.fetchRandomJoke()
+                        }
+                    }
+                    
+                    for try await jokeResponse in group {
+                        jokes.append(Joke(jokeResponse: jokeResponse))
+                    }
+                }
+            }
         }
     }
 } // swiftlint:enable no_magic_numbers

@@ -11,4 +11,4 @@
 APP_BUNDLE_NAME = CourseApp Dev
 APP_BUNDLE_IDENTIFIER = com.marcel.CourseApp.Development
 API_JOKES_BASE_URL = https:/$()/api.chucknorris.io
-API_IMAGES_BASE_URL = https:/$()/
+API_IMAGES_BASE_URL = https:/$()/picsum.photos

@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-final class SwipingNavigationCoordinator: NSObject, NavigationControllerCoordinator {
+final class SwipingNavigationCoordinator: NSObject, NavigationControllerCoordinator, SwipingViewFactory {
     private(set) var navigationController: UINavigationController = CustomNavigationController()
     
     var childCoordinators = [Coordinator]()
@@ -19,7 +19,12 @@ final class SwipingNavigationCoordinator: NSObject, NavigationControllerCoordina
 }
 
 // MARK: - Factories
-private extension SwipingNavigationCoordinator {
+
+protocol SwipingViewFactory {
+    func makeSwipingCard() -> UIViewController
+}
+
+extension SwipingViewFactory {
     func makeSwipingCard() -> UIViewController {
         UIHostingController(rootView: SwipingView())
     }

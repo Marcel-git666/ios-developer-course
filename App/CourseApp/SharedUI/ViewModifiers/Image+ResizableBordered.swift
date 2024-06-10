@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Image {
-    func resizableBordered(cornerRadius: CGFloat) -> some View {
+    func resizableBordered(cornerRadius: CGFloat = 10) -> some View {
         self
             .resizable()
             .scaledToFill()
