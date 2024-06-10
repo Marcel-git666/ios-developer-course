@@ -15,6 +15,7 @@ class HorizontalScrollingImageCell: UICollectionViewCell {
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     var data: [Joke] = []
     private lazy var logger = Logger()
+    private var didTapCallback: Action<Joke>?
     
     // MARK: - Initialization
     
@@ -29,13 +30,12 @@ class HorizontalScrollingImageCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //    private var didTapCallBack: Action<Joke>?
     
     // MARK: - Setup
     
     func setup() {
-        setupCollectionView()
         addSubviews()
+        setupCollectionView()
         setupConstraints()
     }
     
@@ -48,6 +48,7 @@ class HorizontalScrollingImageCell: UICollectionViewCell {
         collectionView.isPagingEnabled = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
         
         setupCollectionViewLayout()
     }
@@ -55,23 +56,33 @@ class HorizontalScrollingImageCell: UICollectionViewCell {
     func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = UIConst.cellSpacing
         layout.sectionInset = UIEdgeInsets(top: 0, left: UIConst.sectionInset, bottom: 0, right: UIConst.sectionInset)
         collectionView.setCollectionViewLayout(layout, animated: false)
     }
     
     func addSubviews() {
-        contentView.addSubview(collectionView)
+        addSubview(collectionView)
     }
     
     func setupConstraints() {
         let border: CGFloat = 5
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: border),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -border),
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: border),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -border)
+            collectionView.topAnchor.constraint(equalTo: topAnchor, constant: border),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -border),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: border),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -border)
         ])
+    }
+}
+
+// MARK: - Public methods
+extension HorizontalScrollingImageCell {
+    func configure(_ data: [Joke], callback: Action<Joke>? = nil) {
+        self.data = data
+        collectionView.reloadData()
+        self.didTapCallback = callback
     }
 }
 
@@ -100,7 +111,7 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
                         .resizableBordered()
                         .scaledToFit()
                 } placeholder: {
-                    ProgressView()
+                    Color.gray
                 }
             } else {
                 Text("Error")
@@ -113,7 +124,7 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
 extension HorizontalScrollingImageCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         logger.info("Horizontal scrolling did select item \(indexPath)")
-        //        didTapCallBack?(data[indexPath.row])
+        didTapCallback?(data[indexPath.row])
     }
 }
 

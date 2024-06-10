@@ -10,31 +10,8 @@ import os
 import SwiftUI
 import UIKit
 
-struct SectionData: Identifiable, Hashable {
-    let id = UUID()
-    let title: String
-    var jokes: [Joke]
-    
-    init(title: String, jokes: [JokeResponse]) {
-        self.title = title
-        self.jokes = jokes.map { Joke(jokeResponse: $0) }
-    }
-}
-
-struct Joke: Identifiable, Hashable {
-    let id: String
-    let text: String
-    let categories: [String]
-    
-    init(jokeResponse: JokeResponse) {
-        self.id = jokeResponse.id
-        self.text = jokeResponse.value
-        self.categories = jokeResponse.categories
-    }
-}
-
-
 final class CategoriesViewController: UIViewController {
+    // MARK: - IBOutlets
     // swiftlint:disable:next prohibited_interface_builder
     @IBOutlet private var categoriesCollectionView: UICollectionView!
     
@@ -42,23 +19,33 @@ final class CategoriesViewController: UIViewController {
         static let cellSpacing: CGFloat = 8
         static let sectionInset: CGFloat = 4
         static let sectionScale: CGFloat = 3
-        static let headerHeight: CGFloat = 104
-        static let headerFontSize: CGFloat = 36
+        static let headerHeight: CGFloat = 40
     }
     // MARK: - DataSource
-    private let jokeService: JokeServicing = JokeService(apiManager: APIManager())
     typealias DataSource = UICollectionViewDiffableDataSource<SectionData, [Joke]>
     typealias Snapshot = NSDiffableDataSourceSnapshot<SectionData, [Joke]>
+
+    // MARK: - Private variables
     private lazy var dataSource = makeDataSource()
+    private let jokeService: JokeServicing = JokeService(apiManager: APIManager())
     @Published private var data = [SectionData]()
     private lazy var cancellables = Set<AnyCancellable>()
+    private let eventSubject = PassthroughSubject<CategoriesViewEvent, Never>()
     private let logger = Logger()
     
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         title = "Categories"
         fetchData()
+    }
+}
+
+// MARK: - EventEmitting
+extension CategoriesViewController: EventEmitting {
+    var eventPublisher: AnyPublisher<CategoriesViewEvent, Never> {
+        eventSubject.eraseToAnyPublisher()
     }
 }
 
@@ -68,17 +55,6 @@ extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.bounds.width - UIConstants.cellSpacing
         let height: CGFloat = collectionView.bounds.height / UIConstants.sectionScale
         return CGSize(width: width, height: height)
-    }
-}
-
-// MARK: - UICollectionViewDelegate
-extension CategoriesViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.logger.info("Home collection view did select item at \(indexPath)")
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.logger.info("Home collection view cell will display \(indexPath)")
     }
 }
 
@@ -135,7 +111,9 @@ private extension CategoriesViewController {
     
     func makeDataSource() -> DataSource {
         let cellRegistration = UICollectionView.CellRegistration<HorizontalScrollingImageCell, [Joke]> { cell, _, item in
-            cell.setData(item)
+            cell.configure(item) { [weak self] item in
+                self?.eventSubject.send(.itemTapped(item))
+            }
         }
         
         let dataSource = DataSource(collectionView: categoriesCollectionView) { collectionView, indexPath, item in
