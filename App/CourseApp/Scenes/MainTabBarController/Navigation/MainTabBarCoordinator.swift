@@ -23,15 +23,6 @@ extension MainTabBarCoordinator {
             setupSwipingCardView().rootViewController,
             setupProfileView().rootViewController
         ]
-        
-        UITabBar.appearance().backgroundColor = .brown
-        UITabBar.appearance().tintColor = .white
-        UITabBarItem.appearance().setTitleTextAttributes(
-            [
-                NSAttributedString.Key.font: TextType.caption.uiFont
-            ],
-            for: .normal
-        )
     }
     
     func handleDeeplink(_ deeplink: Deeplink) {

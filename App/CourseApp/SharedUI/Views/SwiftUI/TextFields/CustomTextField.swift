@@ -22,6 +22,7 @@ struct CustomTextField: View {
                 .foregroundColor(imageColor.opacity(imageOpacity))
             TextField(placeHolder, text: $value)
                 .foregroundColor(imageColor)
+                .autocapitalization(.none)
                 .padding(UIConst.normalPadding)
         }
         .overlay(

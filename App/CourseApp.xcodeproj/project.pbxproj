@@ -16,6 +16,10 @@
 		1F002E622C025DD9007B44E0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002E612C025DD9007B44E0 /* AppCoordinator.swift */; };
 		1F094FA02C0A4EE4001372BC /* Font+Appfonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F094F9F2C0A4EE4001372BC /* Font+Appfonts.swift */; };
 		1F0C19752BFCCAF200F720BE /* FlipEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C19742BFCCAF200F720BE /* FlipEffect.swift */; };
+		1F14D9C52C182DD5001893BB /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F14D9C42C182DD5001893BB /* FirebaseAuthManager.swift */; };
+		1F14D9CA2C183003001893BB /* KeychainServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F14D9C92C183003001893BB /* KeychainServicing.swift */; };
+		1F14D9CC2C18301B001893BB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F14D9CB2C18301B001893BB /* KeychainService.swift */; };
+		1F14D9CF2C188939001893BB /* FirebaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F14D9CE2C188939001893BB /* FirebaseStore.swift */; };
 		1F1CC4D82BEE78AC00037CE0 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC382BEE3B22007BCDC4 /* Poppins-Bold.ttf */; };
 		1F1CC4D92BEE78AF00037CE0 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC3A2BEE3B22007BCDC4 /* Poppins-MediumItalic.ttf */; };
 		1F1CC4DA2BEE78B200037CE0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC7EC392BEE3B22007BCDC4 /* Poppins-Regular.ttf */; };
@@ -134,6 +138,10 @@
 		1F002E612C025DD9007B44E0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		1F094F9F2C0A4EE4001372BC /* Font+Appfonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Appfonts.swift"; sourceTree = "<group>"; };
 		1F0C19742BFCCAF200F720BE /* FlipEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipEffect.swift; sourceTree = "<group>"; };
+		1F14D9C42C182DD5001893BB /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		1F14D9C92C183003001893BB /* KeychainServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServicing.swift; sourceTree = "<group>"; };
+		1F14D9CB2C18301B001893BB /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		1F14D9CE2C188939001893BB /* FirebaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStore.swift; sourceTree = "<group>"; };
 		1F1CC4E12BEEA76700037CE0 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 		1F1CC4E32BEEA84B00037CE0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1F1CC4E62BEEA8F000037CE0 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
@@ -284,6 +292,23 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		1F14D9C82C182FF7001893BB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1F14D9C92C183003001893BB /* KeychainServicing.swift */,
+				1F14D9CB2C18301B001893BB /* KeychainService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1F14D9CD2C18891C001893BB /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				1F14D9CE2C188939001893BB /* FirebaseStore.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		1F1CC4DB2BEEA68200037CE0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,17 +376,10 @@
 				1FD6BF8F2C171B2A00AB9BA9 /* Models */,
 				1FF870E42C0732D200CA175B /* Navigation */,
 				1FECA5632C036E0F00CB12E2 /* Protocols */,
-				1F25628A2C17391A0043A165 /* Services */,
+				1F14D9C82C182FF7001893BB /* Services */,
 				1FECA5622C036E0A00CB12E2 /* Types */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		1F25628A2C17391A0043A165 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		1F313CEA2C136D6A00825B46 /* Routers */ = {
@@ -434,6 +452,7 @@
 		1FB803662C109A51005E75CA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				1F14D9CD2C18891C001893BB /* Storage */,
 				1F313CEB2C136D9D00825B46 /* Models */,
 				1F313CEA2C136D6A00825B46 /* Routers */,
 				1FB803672C109A71005E75CA /* Endpoint.swift */,
@@ -441,6 +460,7 @@
 				1FB8036D2C10AED9005E75CA /* APIManager.swift */,
 				1F313CEE2C136FDE00825B46 /* JokeService.swift */,
 				1F313CEC2C136F7100825B46 /* APIManaging.swift */,
+				1F14D9C42C182DD5001893BB /* FirebaseAuthManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -915,6 +935,7 @@
 				1F1CC4E22BEEA76700037CE0 /* MockDataProvider.swift in Sources */,
 				1F002E572C01C3EA007B44E0 /* UINavigationController+Ext.swift in Sources */,
 				1FC7EC372BEE35AE007BCDC4 /* BuildConfiguration.swift in Sources */,
+				1F14D9C52C182DD5001893BB /* FirebaseAuthManager.swift in Sources */,
 				1F002E5C2C01C4EB007B44E0 /* FontSize.swift in Sources */,
 				1F313CEF2C136FDE00825B46 /* JokeService.swift in Sources */,
 				1FC4E2222C1619C400F1EA0C /* CategoriesViewEvent.swift in Sources */,
@@ -938,6 +959,7 @@
 				1FEF4A202BF688AB00FBA218 /* SelectableButtonStyle.swift in Sources */,
 				1FECA5662C038A8400CB12E2 /* OnboardingView.swift in Sources */,
 				1FC4E2202C16078F00F1EA0C /* FirstAppear.swift in Sources */,
+				1F14D9CF2C188939001893BB /* FirebaseStore.swift in Sources */,
 				1FB803722C10AF49005E75CA /* HTTPHeader.swift in Sources */,
 				1FB803682C109A71005E75CA /* Endpoint.swift in Sources */,
 				1FE64BC32C0506AD0089A2B4 /* CategoriesNavigationCoordinator.swift in Sources */,
@@ -946,6 +968,7 @@
 				1F1CC4ED2BEEA96C00037CE0 /* CategoriesViewController.swift in Sources */,
 				1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */,
 				1FB8036A2C109DFF005E75CA /* NetworkingError.swift in Sources */,
+				1F14D9CA2C183003001893BB /* KeychainServicing.swift in Sources */,
 				1F3EA9AB2C08C4B500FB1100 /* CustomTextLabel.swift in Sources */,
 				1F000B062C11BF1F002A0126 /* HTTPStatusCode.swift in Sources */,
 				1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */,
@@ -955,6 +978,7 @@
 				1FECA56C2C038C4E00CB12E2 /* SwipingNavigationCoordinator.swift in Sources */,
 				1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */,
 				1FB8036C2C10A327005E75CA /* ImagesRouter.swift in Sources */,
+				1F14D9CC2C18301B001893BB /* KeychainService.swift in Sources */,
 				1FE64BBD2C04D1660089A2B4 /* OnboardingButtonStyle.swift in Sources */,
 				1F094FA02C0A4EE4001372BC /* Font+Appfonts.swift in Sources */,
 				1FE64BBB2C04D0440089A2B4 /* OnboardingLastView.swift in Sources */,

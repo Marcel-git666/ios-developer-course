@@ -15,9 +15,14 @@ struct LoginCredentials {
 }
 
 struct LoginView: View {
-    @State private var credentials = LoginCredentials()
+    @State private var credentials: LoginCredentials
     private let eventSubject = PassthroughSubject<LoginViewEvent, Never>()
+    private let authManager = FirebaseAuthManager()
     let logger = Logger()
+    
+    init(credentials: LoginCredentials = LoginCredentials(email: "", password: "")) {
+        self.credentials = credentials
+    }
     
     var body: some View {
         ZStack {
@@ -31,15 +36,48 @@ struct LoginView: View {
                 CustomTextLabel(text: "Password", textTypeSize: .baseText)
                 CustomSecretTextField(placeHolder: "Password", imageName: "key", imageOpacity: 1, imageColor: .white, value: $credentials.password)
                 Spacer()
-                LoginButton(buttonText: "Login", buttonTextColor: .white, buttonBackground: .indigo) {
-                    logger.info("🔑 Login is pressed")
-                    eventSubject.send(.login(credentials))
+                HStack {
+                    LoginButton(buttonText: "SignIn", buttonTextColor: .white, buttonBackground: .indigo) {
+                        logger.info("🔑 SignIn is pressed")
+                        signIn()
+                    }
+                    LoginButton(buttonText: "SignUp", buttonTextColor: .white, buttonBackground: .teal) {
+                        logger.info("🔑 SignUp is pressed")
+                        signUp()
+                    }
                 }
                 Spacer()
             }
             .padding()
         }
         .ignoresSafeArea(.all)
+    }
+}
+
+private extension LoginView {
+    @MainActor
+    func signIn() {
+        Task {
+            do {
+                try await authManager.signIn(Credentials(email: credentials.email, password: credentials.password))
+                eventSubject.send(.loggedIn)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func signUp() {
+        Task {
+            do {
+                try await authManager.signUp(Credentials(email: credentials.email, password: credentials.password))
+                DispatchQueue.main.async {
+                    eventSubject.send(.loggedIn)
+                }
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
 }
 

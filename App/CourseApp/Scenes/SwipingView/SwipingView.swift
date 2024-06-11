@@ -20,6 +20,7 @@ struct SwipingView: View {
     private let jokesService = JokeService(apiManager: APIManager())
     private let category: String?
     @State private var jokes: [Joke] = []
+    private let store = FirebaseStoreManager() 
     
     init(joke: Joke? = nil) {
         self.category = joke?.categories.first
@@ -51,8 +52,10 @@ struct SwipingView: View {
                                                 ),
                                                 swipeStateAction: { action in
                                                     switch action {
-                                                    case .finished:
-                                                        logger.info("swipe action: finished")
+                                                    case .finished(let direction):
+                                                        Task {
+                                                            try await self.store.storeLike(jokeId: joke.id, liked: direction == .left)
+                                                        }
                                                     case .swiping:
                                                         logger.info("swipe action: swiping")
                                                     case .cancelled:

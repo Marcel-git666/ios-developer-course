@@ -92,7 +92,6 @@ private extension CategoriesViewController {
 private extension CategoriesViewController {
     func readData() {
         $data.sink { [weak self] data in
-            self?.logger.info("SINK - The value is \(data)")
             self?.applySnapshot(data: data, animatingDifferences: true)
         }
         .store(in: &cancellables)

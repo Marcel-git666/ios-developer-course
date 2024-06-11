@@ -32,6 +32,7 @@ extension AppCoordinator {
     
     func setupAppUI() {
         UITabBar.appearance().backgroundColor = .systemBrown
+        UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().tintColor = .white
         UITabBarItem.appearance().setTitleTextAttributes(
             [
@@ -65,7 +66,7 @@ extension AppCoordinator {
 extension AppCoordinator {
     func handleEvent(_ event: LoginNavigationEvent) {
         switch event {
-        case let .login(coordinator):
+        case let .signedIn(coordinator):
             rootViewController = makeTabBarFlow().rootViewController
             release(coordinator: coordinator)
             isAuthorized = true
