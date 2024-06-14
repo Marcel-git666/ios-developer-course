@@ -6,6 +6,7 @@
 //
 
 import Combine
+import os
 import UIKit
 
 protocol AppCoordinating: ViewControllerCoordinator {}
@@ -20,9 +21,14 @@ final class AppCoordinator: AppCoordinating, ObservableObject {
     }()
     var childCoordinators = [Coordinator]()
     private lazy var cancellables = Set<AnyCancellable>()
+    private lazy var keychainService = KeychainService(keychainManager: KeychainManager())
+    private lazy var logger = Logger()
     @Published var isAuthorized = false
     
-    init() {}
+    // MARK: Lifecycle
+    init() {
+        isAuthorized = (try? keychainService.fetchAuthData()) != nil
+    }
 }
 
 extension AppCoordinator {
@@ -55,6 +61,10 @@ extension AppCoordinator {
     func makeTabBarFlow() -> ViewControllerCoordinator {
         let mainTabBarCoordinator = MainTabBarCoordinator()
         startChildCoordinator(mainTabBarCoordinator)
+        mainTabBarCoordinator.eventPublisher.sink { [weak self] event in
+            self?.handleEvent(event)
+        }
+        .store(in: &cancellables)
         return mainTabBarCoordinator
     }
     
@@ -70,6 +80,20 @@ extension AppCoordinator {
             rootViewController = makeTabBarFlow().rootViewController
             release(coordinator: coordinator)
             isAuthorized = true
+        }
+    }
+    
+    func handleEvent(_ event: MainTabBarEvent) {
+        switch event {
+        case let .logout(coordinator):
+            rootViewController = makeLoginFlow().rootViewController
+            release(coordinator: coordinator)
+            do {
+                try keychainService.removeAuthData()
+            } catch {
+                logger.error("❌ AuthData not removed!")
+            }
+            isAuthorized = false
         }
     }
 }

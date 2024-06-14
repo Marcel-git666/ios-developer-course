@@ -30,6 +30,7 @@
 		1F1CC4ED2BEEA96C00037CE0 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CC4EA2BEEA96C00037CE0 /* CategoriesViewController.swift */; };
 		1F313CED2C136F7100825B46 /* APIManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F313CEC2C136F7100825B46 /* APIManaging.swift */; };
 		1F313CEF2C136FDE00825B46 /* JokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F313CEE2C136FDE00825B46 /* JokeService.swift */; };
+		1F37CA842C1CD4EF00F3CD7C /* ProfileNavigationCoordinatorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37CA832C1CD4EF00F3CD7C /* ProfileNavigationCoordinatorEvent.swift */; };
 		1F3EA9862C08769A00FB1100 /* CourseApp_Unit_DevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9852C08769A00FB1100 /* CourseApp_Unit_DevTests.swift */; };
 		1F3EA9952C0876A300FB1100 /* CourseApp_UI_DevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9942C0876A300FB1100 /* CourseApp_UI_DevTests.swift */; };
 		1F3EA9972C0876A300FB1100 /* CourseApp_UI_DevTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA9962C0876A300FB1100 /* CourseApp_UI_DevTestsLaunchTests.swift */; };
@@ -151,6 +152,7 @@
 		1F1CC4EB2BEEA96C00037CE0 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
 		1F313CEC2C136F7100825B46 /* APIManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManaging.swift; sourceTree = "<group>"; };
 		1F313CEE2C136FDE00825B46 /* JokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeService.swift; sourceTree = "<group>"; };
+		1F37CA832C1CD4EF00F3CD7C /* ProfileNavigationCoordinatorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationCoordinatorEvent.swift; sourceTree = "<group>"; };
 		1F3EA9832C08769A00FB1100 /* CourseApp Unit DevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CourseApp Unit DevTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3EA9852C08769A00FB1100 /* CourseApp_Unit_DevTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseApp_Unit_DevTests.swift; sourceTree = "<group>"; };
 		1F3EA9922C0876A300FB1100 /* CourseApp UI DevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CourseApp UI DevTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -698,6 +700,7 @@
 			children = (
 				1FF870E32C07322400CA175B /* Navigation */,
 				1FE64BC02C0503460089A2B4 /* ProfileView.swift */,
+				1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -742,7 +745,7 @@
 			isa = PBXGroup;
 			children = (
 				1FE64BBE2C0502ED0089A2B4 /* ProfileNavigationCoordinator.swift */,
-				1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */,
+				1F37CA832C1CD4EF00F3CD7C /* ProfileNavigationCoordinatorEvent.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -932,6 +935,7 @@
 				1FECA5682C038B1D00CB12E2 /* Action.swift in Sources */,
 				1FD658EB2C1AF20E006A9D10 /* StoreManaging.swift in Sources */,
 				1F002E572C01C3EA007B44E0 /* UINavigationController+Ext.swift in Sources */,
+				1F37CA842C1CD4EF00F3CD7C /* ProfileNavigationCoordinatorEvent.swift in Sources */,
 				1FD658ED2C1AF3A3006A9D10 /* SwipingViewFactory.swift in Sources */,
 				1FC7EC372BEE35AE007BCDC4 /* BuildConfiguration.swift in Sources */,
 				1F14D9C52C182DD5001893BB /* FirebaseAuthManager.swift in Sources */,

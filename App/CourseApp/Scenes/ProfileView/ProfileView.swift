@@ -28,6 +28,12 @@ struct ProfileView: EventEmittingView {
                 Text("Onboarding")
             }
             .buttonStyle(OnboardingButtonStyle(color: .purple))
+            Button {
+                eventSubject.send(.logout)
+            } label: {
+                Text("Logout")
+            }
+            .buttonStyle(OnboardingButtonStyle(color: .purple))
         }
     }
 }

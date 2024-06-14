@@ -8,5 +8,5 @@
 import Foundation
 
 enum MainTabBarEvent {
-    case dismiss(Coordinator)
+    case logout(Coordinator)
 }

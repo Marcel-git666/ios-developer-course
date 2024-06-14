@@ -10,6 +10,7 @@ import Foundation
 final class KeychainService: KeychainServicing {
     enum KeychainKey: String {
         case authData = "com.course.app.authData"
+        case loginString = "com.course.app.loginString"
     }
 
     private(set) var keychainManager: KeychainManaging
@@ -28,5 +29,17 @@ final class KeychainService: KeychainServicing {
 
     func removeAuthData() throws {
         try keychainManager.remove(key: KeychainKey.authData.rawValue)
+    }
+    
+    func storeLogin(_ login: String) throws {
+        try keychainManager.store(key: KeychainKey.loginString.rawValue, value: login)
+    }
+    
+    func fetchLogin() throws -> String {
+        try keychainManager.fetch(key: KeychainKey.loginString.rawValue)
+    }
+    
+    func removeLoginData() throws {
+        try keychainManager.remove(key: KeychainKey.loginString.rawValue)
     }
 }

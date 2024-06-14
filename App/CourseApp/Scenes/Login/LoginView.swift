@@ -10,8 +10,8 @@ import os
 import SwiftUI
 
 struct LoginCredentials {
-    var email: String = "marcel@marcel.cz"
-    var password: String = "123456"
+    var email: String = ""
+    var password: String = ""
 }
 
 struct LoginView: View {
@@ -19,12 +19,13 @@ struct LoginView: View {
     @State private var remeberMe = false
     private let eventSubject = PassthroughSubject<LoginViewEvent, Never>()
     private let authManager = FirebaseAuthManager()
+    private let keychainService = KeychainService(keychainManager: KeychainManager())
     let logger = Logger()
     enum UIConst {
         static let padding: CGFloat = 5
     }
     
-    init(credentials: LoginCredentials = LoginCredentials(email: "marcel@marcel.cz", password: "123456")) {
+    init(credentials: LoginCredentials = LoginCredentials(email: "", password: "")) {
         self.credentials = credentials
     }
     
@@ -44,6 +45,17 @@ struct LoginView: View {
                 }
                 .toggleStyle(SwitchToggleStyle(tint: .orange))
                 .padding(.vertical, UIConst.padding)
+                .onChange(of: remeberMe) {
+                    do {
+                        if remeberMe {
+                            try keychainService.storeLogin(credentials.email)
+                        } else {
+                            try keychainService.removeLoginData()
+                        }
+                    } catch {
+                        logger.info("Login (email) not saved/removed due to exception.")
+                    }
+                }
                 Spacer()
                 HStack {
                     LoginButton(buttonText: "SignIn", buttonTextColor: .white, buttonBackground: .indigo) {
@@ -60,6 +72,15 @@ struct LoginView: View {
             .padding()
         }
         .ignoresSafeArea(.all)
+        .onAppear {
+            do {
+                let loginString = try keychainService.fetchLogin()
+                credentials.email = loginString
+                remeberMe = true
+            } catch {
+                
+            }
+        }
     }
 }
 
