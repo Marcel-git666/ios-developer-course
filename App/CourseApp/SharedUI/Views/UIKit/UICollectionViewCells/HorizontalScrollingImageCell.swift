@@ -16,6 +16,7 @@ class HorizontalScrollingImageCell: UICollectionViewCell {
     var data: [Joke] = []
     private lazy var logger = Logger()
     private var didTapCallback: Action<Joke>?
+    private var didLikeCallback: Action<Joke>?
     
     // MARK: - Initialization
     
@@ -79,10 +80,11 @@ class HorizontalScrollingImageCell: UICollectionViewCell {
 
 // MARK: - Public methods
 extension HorizontalScrollingImageCell {
-    func configure(_ data: [Joke], callback: Action<Joke>? = nil) {
+    func configure(_ data: [Joke], callback: Action<Joke>? = nil, likedCallback: Action<Joke>? = nil) {
         self.data = data
         collectionView.reloadData()
         self.didTapCallback = callback
+        self.didLikeCallback = likedCallback
     }
 }
 
@@ -104,7 +106,8 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.contentConfiguration = UIHostingConfiguration {
+        let joke = data[indexPath.row]
+        cell.contentConfiguration = UIHostingConfiguration { [weak self] in
             if let url = try? ImagesRouter.size300x200.asURLRequest().url {
                 AsyncImage(url: url) { image in
                     image
@@ -116,6 +119,13 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
             } else {
                 Text("Error")
             }
+            Button(action: {
+                self?.didLikeCallback?(joke)
+            }, label: {
+                Image(systemName: "heart")
+            })
+            .buttonStyle(SelectableButtonStyle(isSelected: .constant(joke.liked), color: Color.gray))
+            
         }
         return cell
     }
@@ -124,6 +134,7 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
 extension HorizontalScrollingImageCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         logger.info("Horizontal scrolling did select item \(indexPath)")
+        print("Category: \(data[indexPath.row].categories)")
         didTapCallback?(data[indexPath.row])
     }
 }

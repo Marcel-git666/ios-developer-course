@@ -17,7 +17,6 @@ struct SwipingViewConfiguration {
 struct SwipingView: View {
     @State private var config = SwipingViewConfiguration()
     let logger = Logger()
-    
     @StateObject private var store: SwipingViewStore
     
     init(store: SwipingViewStore) {
@@ -39,7 +38,7 @@ struct SwipingView: View {
                             } else {
                                 SwipingCard(
                                     configuration: SwipingCard.Configuration(
-                                        title: joke.categories.first ?? "Unknown category",
+                                        title: store.category ?? "Unknown category",
                                         description: joke.text
                                     ),
                                     swipeStateAction: { action in

@@ -16,7 +16,7 @@ struct SwipingViewState {
 final class SwipingViewStore: ObservableObject {
     private let jokesService = JokeService(apiManager: APIManager())
     private let store = FirebaseStoreManager()
-    private let category: String?
+    let category: String?
     
     @Published var viewState: SwipingViewState = .initial
     
@@ -47,14 +47,14 @@ extension SwipingViewStore {
                     }
                     var jokes: [Joke] = []
                     for try await jokeResponse in group {
-                        jokes.append(Joke(jokeResponse: jokeResponse))
+                        jokes.append(Joke(jokeResponse: jokeResponse, liked: false))
                     }
                     self.viewState.jokes.append(contentsOf: jokes)
                 }
             }
         }
     }
-    
+        
     func storeLike(jokeId: String, liked: Bool) {
         Task {
             try await self.store.storeLike(jokeId: jokeId, liked: liked)

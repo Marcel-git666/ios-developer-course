@@ -32,6 +32,7 @@ final class CategoriesViewController: UIViewController {
     private lazy var cancellables = Set<AnyCancellable>()
     private let eventSubject = PassthroughSubject<CategoriesViewEvent, Never>()
     private let logger = Logger()
+    private let store: StoreManaging = FirebaseStoreManager()
     
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -110,9 +111,15 @@ private extension CategoriesViewController {
     
     func makeDataSource() -> DataSource {
         let cellRegistration = UICollectionView.CellRegistration<HorizontalScrollingImageCell, [Joke]> { cell, _, item in
-            cell.configure(item) { [weak self] item in
-                self?.eventSubject.send(.itemTapped(item))
-            }
+            cell.configure(
+                item,
+                callback: { [weak self] item in
+                    self?.eventSubject.send(.itemTapped(item))
+                },
+                likedCallback: { [weak self] item in
+                    self?.storeLike(joke: item)
+                }
+            )
         }
         
         let dataSource = DataSource(collectionView: categoriesCollectionView) { collectionView, indexPath, item in
@@ -141,6 +148,14 @@ private extension CategoriesViewController {
 
 // MARK: - Data fetching
 extension CategoriesViewController {
+    @MainActor
+    func storeLike(joke: Joke) {
+        Task {
+            try await store.storeLike(jokeId: joke.id, liked: !joke.liked)
+        }
+    }
+    
+    @MainActor
     func fetchData() {
         let numberOfJokesToLoad = 5
         Task {
@@ -158,13 +173,15 @@ extension CategoriesViewController {
                         }
                     }
                     var jokeResponses = [JokeResponse]()
-                    
+                    var likes: [String: Bool] = [:]
                     for try await jokeResponse in group {
                         jokeResponses.append(jokeResponse)
+                        let liked = try await store.fetchLiked(jokeId: jokeResponse.id)
+                        likes[jokeResponse.value] = liked ? true : false
                     }
                     let dataDictionary = Dictionary(grouping: jokeResponses) { $0.categories.first ?? "" }
                     for key in dataDictionary.keys {
-                        data.append(SectionData(title: key, jokes: dataDictionary[key] ?? []))
+                        data.append(SectionData(title: key, jokes: dataDictionary[key] ?? [], likes: likes))
                     }
                 }
             } catch let error as NetworkingError {

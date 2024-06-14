@@ -49,7 +49,8 @@ private extension CategoriesNavigationCoordinator {
         switch event {
         case let .itemTapped(joke):
             logger.info("Joke on home screen was tapped \(joke.text)")
-            navigationController.pushViewController(makeSwipingCard(), animated: true)
+            print("Categories: \(joke.categories)")
+            navigationController.pushViewController(makeSwipingCard(joke), animated: true)
         }
     }
 }
