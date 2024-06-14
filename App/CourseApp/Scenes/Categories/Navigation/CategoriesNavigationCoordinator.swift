@@ -12,7 +12,7 @@ import UIKit
 
 protocol CategoriesNavigationCoordinating: NavigationControllerCoordinator, SwipingViewFactory {}
 
-final class CategoriesNavigationCoordinator: CategoriesNavigationCoordinating  {
+final class CategoriesNavigationCoordinator: CategoriesNavigationCoordinating {
     private(set) lazy var navigationController: UINavigationController = CustomNavigationController()
     var childCoordinators = [Coordinator]()
     private let eventSubject = PassthroughSubject<CategoriesNavigationCoordinatorEvent, Never>()

@@ -45,13 +45,13 @@ final class APIManager: APIManaging {
         try checkStatusCode(httpResponse)
         
         let body = String(decoding: data, as: UTF8.self)
-//        logger.info("""
-//            ☀️ Response for \(request.description):
-//            👀 Status: \(httpResponse.statusCode),
-//            🫀 Body:
-//            \(body)
-//        """)
-        
+        logger.info("""
+            ☀️ Response for \(request.description):
+            👀 Status: \(httpResponse.statusCode),
+            🫀 Body:
+            \(body)
+        """)
+
         return data
     }
     

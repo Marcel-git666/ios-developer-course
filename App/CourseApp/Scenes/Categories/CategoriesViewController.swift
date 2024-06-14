@@ -142,13 +142,16 @@ private extension CategoriesViewController {
 // MARK: - Data fetching
 extension CategoriesViewController {
     func fetchData() {
+        let numberOfJokesToLoad = 5
         Task {
             do {
                 let categories = try await jokeService.fetchCategories()
                 try await withThrowingTaskGroup(of: JokeResponse.self) { [weak self] group in
-                    guard let self else { return }
+                    guard let self else {
+                        return
+                    }
                     for category in categories {
-                        for _ in 1...5 {
+                        for _ in 1...numberOfJokesToLoad {
                             group.addTask {
                                 try await self.jokeService.fetchJokeForCategory(category)
                             }

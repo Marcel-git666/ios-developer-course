@@ -10,17 +10,21 @@ import os
 import SwiftUI
 
 struct LoginCredentials {
-    var email: String = ""
-    var password: String = ""
+    var email: String = "marcel@marcel.cz"
+    var password: String = "123456"
 }
 
 struct LoginView: View {
     @State private var credentials: LoginCredentials
+    @State private var remeberMe = false
     private let eventSubject = PassthroughSubject<LoginViewEvent, Never>()
     private let authManager = FirebaseAuthManager()
     let logger = Logger()
+    enum UIConst {
+        static let padding: CGFloat = 5
+    }
     
-    init(credentials: LoginCredentials = LoginCredentials(email: "", password: "")) {
+    init(credentials: LoginCredentials = LoginCredentials(email: "marcel@marcel.cz", password: "123456")) {
         self.credentials = credentials
     }
     
@@ -35,6 +39,11 @@ struct LoginView: View {
                 CustomTextField(placeHolder: "E-mail", imageName: "envelope", imageOpacity: 1, imageColor: .white, value: $credentials.email)
                 CustomTextLabel(text: "Password", textTypeSize: .baseText)
                 CustomSecretTextField(placeHolder: "Password", imageName: "key", imageOpacity: 1, imageColor: .white, value: $credentials.password)
+                Toggle(isOn: $remeberMe) {
+                    CustomTextLabel(text: "Remember me", textTypeSize: .caption)
+                }
+                .toggleStyle(SwitchToggleStyle(tint: .orange))
+                .padding(.vertical, UIConst.padding)
                 Spacer()
                 HStack {
                     LoginButton(buttonText: "SignIn", buttonTextColor: .white, buttonBackground: .indigo) {

@@ -58,6 +58,10 @@ private extension MainTabBarCoordinator {
     
     func makeTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
+        let appearance = UITabBarAppearance()
+        appearance.backgroundEffect = .none
+        tabBarController.tabBar.standardAppearance = appearance
+        tabBarController.tabBar.scrollEdgeAppearance = appearance
         tabBarController.delegate = self
         return tabBarController
     }

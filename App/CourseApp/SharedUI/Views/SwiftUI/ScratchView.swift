@@ -14,7 +14,6 @@ struct Line {
 
 struct ScratchView: View {
     // MARK: Variables
-    //    let image: Image
     let text: String
     
     @State private var currentLine = Line()

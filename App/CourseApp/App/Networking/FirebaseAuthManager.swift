@@ -48,6 +48,6 @@ final class FirebaseAuthManager: FirebaseAuthManaging {
     
     func signOut() async throws {
         try authService.signOut()
-        try keychainService.removeAuthData() 
+        try keychainService.removeAuthData()
     }
 }

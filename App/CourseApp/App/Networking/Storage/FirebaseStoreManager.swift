@@ -1,5 +1,5 @@
 //
-//  FirebaseStore.swift
+//  FirebaseStoreManager.swift
 //  CourseApp
 //
 //  Created by Marcel Mravec on 11.06.2024.
@@ -8,11 +8,6 @@
 import FirebaseFirestore
 import Foundation
 import os
-
-protocol StoreManaging {
-    func storeLike(jokeId: String, liked: Bool) async throws
-    func fetchLiked(jokeId: String) async throws -> Bool
-}
 
 final class FirebaseStoreManager: StoreManaging {
     private let database = Firestore.firestore()

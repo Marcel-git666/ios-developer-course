@@ -22,7 +22,7 @@ class KeychainManager: KeychainManaging {
         }
     }
     
-    func fetch<T: Decodable>(key: String) throws -> T { // swiftlint:disable:next conditional_returns_on_newline
+    func fetch<T: Decodable>(key: String) throws -> T {
         guard let data = try keychain.getData(key) else { throw KeychainManagerError.dataNotFound }
         do {
             return try decoder.decode(T.self, from: data)

@@ -36,4 +36,3 @@ extension JokeService {
         try await apiManager.request(JokesRouter.getJokeFor(category: category))
     }
 }
-
