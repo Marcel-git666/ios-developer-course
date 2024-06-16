@@ -68,6 +68,7 @@
 		1FCB63842C1F461D00297FA9 /* SwipingViewNavigationCoordinatorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB63832C1F461D00297FA9 /* SwipingViewNavigationCoordinatorEvent.swift */; };
 		1FCB63862C1F46F600297FA9 /* SwipingViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB63852C1F46F600297FA9 /* SwipingViewAction.swift */; };
 		1FCB63892C1F4A2C00297FA9 /* Endpoint+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB63882C1F4A2C00297FA9 /* Endpoint+Convenience.swift */; };
+		1FCB638E2C1F54A900297FA9 /* SwipingViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB638D2C1F54A900297FA9 /* SwipingViewEvent.swift */; };
 		1FD2A47F2BF26FEF005D6D7F /* HorizontalScrollingImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2A47E2BF26FEF005D6D7F /* HorizontalScrollingImageCell.swift */; };
 		1FD2BC452C0B5DDA00D1723B /* LoginNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BC442C0B5DDA00D1723B /* LoginNavigationCoordinator.swift */; };
 		1FD2BC472C0B62A500D1723B /* MainTabBarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BC462C0B62A500D1723B /* MainTabBarEvent.swift */; };
@@ -194,6 +195,7 @@
 		1FCB63832C1F461D00297FA9 /* SwipingViewNavigationCoordinatorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewNavigationCoordinatorEvent.swift; sourceTree = "<group>"; };
 		1FCB63852C1F46F600297FA9 /* SwipingViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewAction.swift; sourceTree = "<group>"; };
 		1FCB63882C1F4A2C00297FA9 /* Endpoint+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+Convenience.swift"; sourceTree = "<group>"; };
+		1FCB638D2C1F54A900297FA9 /* SwipingViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewEvent.swift; sourceTree = "<group>"; };
 		1FD2A47E2BF26FEF005D6D7F /* HorizontalScrollingImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollingImageCell.swift; sourceTree = "<group>"; };
 		1FD2BC442C0B5DDA00D1723B /* LoginNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationCoordinator.swift; sourceTree = "<group>"; };
 		1FD2BC462C0B62A500D1723B /* MainTabBarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarEvent.swift; sourceTree = "<group>"; };
@@ -473,9 +475,9 @@
 		1FCB63802C1F45BC00297FA9 /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				1FD321782C19E1A0001C9424 /* SwipingViewStore.swift */,
 				1FCB63852C1F46F600297FA9 /* SwipingViewAction.swift */,
 				1FCB63812C1F45E800297FA9 /* SwipingViewState.swift */,
+				1FD321782C19E1A0001C9424 /* SwipingViewStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -734,6 +736,7 @@
 				1FF870E12C0731BE00CA175B /* Navigation */,
 				1FCB63802C1F45BC00297FA9 /* Store */,
 				1FB653532BF7BCBB00923AD7 /* SwipingView.swift */,
+				1FCB638D2C1F54A900297FA9 /* SwipingViewEvent.swift */,
 			);
 			path = SwipingView;
 			sourceTree = "<group>";
@@ -999,6 +1002,7 @@
 				1FC4E2222C1619C400F1EA0C /* CategoriesViewEvent.swift in Sources */,
 				1F002E5E2C02056C007B44E0 /* CustomNavigationController.swift in Sources */,
 				1FE64BBF2C0502ED0089A2B4 /* ProfileNavigationCoordinator.swift in Sources */,
+				1FCB638E2C1F54A900297FA9 /* SwipingViewEvent.swift in Sources */,
 				1FE1B3E12C0C921D00878252 /* Deeplink.swift in Sources */,
 				1FF870EC2C07381B00CA175B /* OnboardingNavigationCoordinatorEvent.swift in Sources */,
 				1FEF4A1E2BF6887900FBA218 /* Image+ResizableBordered.swift in Sources */,

@@ -44,7 +44,7 @@ struct SwipingView: View {
                                     swipeStateAction: { action in
                                         switch action {
                                         case .finished(let direction):
-                                            store.storeLike(jokeId: joke.id, liked: direction == .left)
+                                            store.send(.didLike(joke.id, direction == .left))
                                         case .swiping:
                                             logger.info("swipe action: swiping")
                                         case .cancelled:
@@ -71,7 +71,7 @@ struct SwipingView: View {
             }
         }
         .onFirstAppear {
-            store.fetchRandomJokes()
+            store.send(.viewDidLoad)
         }
         .navigationTitle("Random Jokes")
         .embedInScrollViewIfNeeded()

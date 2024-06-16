@@ -5,13 +5,19 @@
 //  Created by Marcel Mravec on 12.06.2024.
 //
 
+import Combine
 import Foundation
 import os
 
-final class SwipingViewStore: ObservableObject {
+final class SwipingViewStore: ObservableObject, EventEmitting {
     private let jokesService = JokeService(apiManager: APIManager())
     private let store = FirebaseStoreManager()
     private lazy var logger = Logger()
+    private var counter: Int = 0
+    private let eventSubject = PassthroughSubject<SwipingViewEvent, Never>()
+    var eventPublisher: AnyPublisher<SwipingViewEvent, Never> {
+        eventSubject.eraseToAnyPublisher()
+    }
     let category: String?
     
     @Published var viewState: SwipingViewState = .initial
@@ -25,12 +31,30 @@ final class SwipingViewStore: ObservableObject {
 }
 
 extension SwipingViewStore {
+    @MainActor
     func send(_ action: SwipingViewAction) {
+        switch action {
+        case let .dataFetched(jokes):
+            logger.info("thread jokes fetching: \(Thread.current.description)")
+            viewState.jokes.append(contentsOf: jokes)
+            viewState.status = .ready
+        case .viewDidLoad:
+            logger.info("thread Swiping view did load: \(Thread.current.description)")
+            fetchRandomJokes()
+            viewState.status = .loading
+        case let .didLike(jokeId, liked):
+            storeLike(jokeId: jokeId, liked: liked)
+            counter += 1
+            if counter == viewState.jokes.count {
+                send(.noMoreJokes)
+            }
+        case .noMoreJokes:
+            eventSubject.send(.dismiss)
+        }
     }
 }
 
-@MainActor
-extension SwipingViewStore {
+private extension SwipingViewStore {
     func fetchRandomJokes() {
         logger.info("thread: \(Thread.current.description)")
         let numberOfJokesToLoad = 5
@@ -52,8 +76,7 @@ extension SwipingViewStore {
                         jokes.append(Joke(jokeResponse: jokeResponse, liked: false))
                     }
                     logger.info("thread \(Thread.current.description)")
-                    
-                    viewState.jokes.append(contentsOf: jokes)
+                    await send(.dataFetched(jokes))
                 }
             }
         }
