@@ -6,16 +6,12 @@
 //
 
 import Foundation
-
-struct SwipingViewState {
-    var jokes: [Joke] = []
-    
-    static let initial = SwipingViewState()
-}
+import os
 
 final class SwipingViewStore: ObservableObject {
     private let jokesService = JokeService(apiManager: APIManager())
     private let store = FirebaseStoreManager()
+    private lazy var logger = Logger()
     let category: String?
     
     @Published var viewState: SwipingViewState = .initial
@@ -28,9 +24,15 @@ final class SwipingViewStore: ObservableObject {
     }
 }
 
+extension SwipingViewStore {
+    func send(_ action: SwipingViewAction) {
+    }
+}
+
 @MainActor
 extension SwipingViewStore {
     func fetchRandomJokes() {
+        logger.info("thread: \(Thread.current.description)")
         let numberOfJokesToLoad = 5
         Task {
             try await withThrowingTaskGroup(of: JokeResponse.self) { [weak self] group in
@@ -49,7 +51,9 @@ extension SwipingViewStore {
                     for try await jokeResponse in group {
                         jokes.append(Joke(jokeResponse: jokeResponse, liked: false))
                     }
-                    self.viewState.jokes.append(contentsOf: jokes)
+                    logger.info("thread \(Thread.current.description)")
+                    
+                    viewState.jokes.append(contentsOf: jokes)
                 }
             }
         }

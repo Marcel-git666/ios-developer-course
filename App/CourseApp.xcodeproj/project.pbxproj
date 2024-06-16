@@ -64,6 +64,10 @@
 		1FC7EC322BEE319D007BCDC4 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1FC7EC312BEE319D007BCDC4 /* FirebaseFirestoreCombine-Community */; };
 		1FC7EC342BEE319D007BCDC4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FC7EC332BEE319D007BCDC4 /* FirebaseFirestoreSwift */; };
 		1FC7EC372BEE35AE007BCDC4 /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7EC362BEE35AE007BCDC4 /* BuildConfiguration.swift */; };
+		1FCB63822C1F45E800297FA9 /* SwipingViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB63812C1F45E800297FA9 /* SwipingViewState.swift */; };
+		1FCB63842C1F461D00297FA9 /* SwipingViewNavigationCoordinatorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB63832C1F461D00297FA9 /* SwipingViewNavigationCoordinatorEvent.swift */; };
+		1FCB63862C1F46F600297FA9 /* SwipingViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB63852C1F46F600297FA9 /* SwipingViewAction.swift */; };
+		1FCB63892C1F4A2C00297FA9 /* Endpoint+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB63882C1F4A2C00297FA9 /* Endpoint+Convenience.swift */; };
 		1FD2A47F2BF26FEF005D6D7F /* HorizontalScrollingImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2A47E2BF26FEF005D6D7F /* HorizontalScrollingImageCell.swift */; };
 		1FD2BC452C0B5DDA00D1723B /* LoginNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BC442C0B5DDA00D1723B /* LoginNavigationCoordinator.swift */; };
 		1FD2BC472C0B62A500D1723B /* MainTabBarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BC462C0B62A500D1723B /* MainTabBarEvent.swift */; };
@@ -186,6 +190,10 @@
 		1FC7EC382BEE3B22007BCDC4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		1FC7EC392BEE3B22007BCDC4 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		1FC7EC3A2BEE3B22007BCDC4 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		1FCB63812C1F45E800297FA9 /* SwipingViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewState.swift; sourceTree = "<group>"; };
+		1FCB63832C1F461D00297FA9 /* SwipingViewNavigationCoordinatorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewNavigationCoordinatorEvent.swift; sourceTree = "<group>"; };
+		1FCB63852C1F46F600297FA9 /* SwipingViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewAction.swift; sourceTree = "<group>"; };
+		1FCB63882C1F4A2C00297FA9 /* Endpoint+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+Convenience.swift"; sourceTree = "<group>"; };
 		1FD2A47E2BF26FEF005D6D7F /* HorizontalScrollingImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollingImageCell.swift; sourceTree = "<group>"; };
 		1FD2BC442C0B5DDA00D1723B /* LoginNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationCoordinator.swift; sourceTree = "<group>"; };
 		1FD2BC462C0B62A500D1723B /* MainTabBarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarEvent.swift; sourceTree = "<group>"; };
@@ -451,17 +459,63 @@
 		1FB803662C109A51005E75CA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				1F14D9CD2C18891C001893BB /* Storage */,
+				1FCB63872C1F49F700297FA9 /* APIManager */,
+				1FCB638A2C1F4CC700297FA9 /* Authentication */,
 				1F313CEB2C136D9D00825B46 /* Models */,
+				1FCB638C2C1F4D0A00297FA9 /* Misc */,
 				1F313CEA2C136D6A00825B46 /* Routers */,
-				1FB803672C109A71005E75CA /* Endpoint.swift */,
-				1FB803692C109DFF005E75CA /* NetworkingError.swift */,
-				1FB8036D2C10AED9005E75CA /* APIManager.swift */,
-				1F313CEE2C136FDE00825B46 /* JokeService.swift */,
-				1F313CEC2C136F7100825B46 /* APIManaging.swift */,
-				1F14D9C42C182DD5001893BB /* FirebaseAuthManager.swift */,
+				1FCB638B2C1F4CE400297FA9 /* Services */,
+				1F14D9CD2C18891C001893BB /* Storage */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		1FCB63802C1F45BC00297FA9 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				1FD321782C19E1A0001C9424 /* SwipingViewStore.swift */,
+				1FCB63852C1F46F600297FA9 /* SwipingViewAction.swift */,
+				1FCB63812C1F45E800297FA9 /* SwipingViewState.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		1FCB63872C1F49F700297FA9 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				1FB8036D2C10AED9005E75CA /* APIManager.swift */,
+				1F313CEC2C136F7100825B46 /* APIManaging.swift */,
+				1FB803672C109A71005E75CA /* Endpoint.swift */,
+				1FCB63882C1F4A2C00297FA9 /* Endpoint+Convenience.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		1FCB638A2C1F4CC700297FA9 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1F14D9C42C182DD5001893BB /* FirebaseAuthManager.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		1FCB638B2C1F4CE400297FA9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1F313CEE2C136FDE00825B46 /* JokeService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1FCB638C2C1F4D0A00297FA9 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				1FB8036F2C10AF2D005E75CA /* HTTPMethod.swift */,
+				1FB803712C10AF49005E75CA /* HTTPHeader.swift */,
+				1F000B052C11BF1F002A0126 /* HTTPStatusCode.swift */,
+				1FB803692C109DFF005E75CA /* NetworkingError.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		1FD2BC422C0B5D5200D1723B /* Login */ = {
@@ -513,6 +567,7 @@
 				1FF3DEEA2BED0170008817F4 /* GoogleService-Info.plist */,
 				1FC7EC352BEE333E007BCDC4 /* Info.plist */,
 				1F1CC4E52BEEA8DA00037CE0 /* Common */,
+				1FB803662C109A51005E75CA /* Networking */,
 				1FD32B5A2BDACCE3006472B3 /* Preview Content */,
 				1FF870D92C072F2C00CA175B /* Scenes */,
 				1FEF4A182BF687BA00FBA218 /* SharedUI */,
@@ -558,7 +613,6 @@
 		1FECA5612C036DC300CB12E2 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				1FB803662C109A51005E75CA /* Networking */,
 				1FD3C94B2C00CD2B00B9135E /* Navigation */,
 				1F1CC4DD2BEEA6E000037CE0 /* Resources */,
 			);
@@ -572,9 +626,6 @@
 				1FECA5672C038B1D00CB12E2 /* Action.swift */,
 				1FE1B3E02C0C921D00878252 /* Deeplink.swift */,
 				1FE1B3E22C0CBAA300878252 /* CustomError.swift */,
-				1FB8036F2C10AF2D005E75CA /* HTTPMethod.swift */,
-				1FB803712C10AF49005E75CA /* HTTPHeader.swift */,
-				1F000B052C11BF1F002A0126 /* HTTPStatusCode.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -681,8 +732,8 @@
 			isa = PBXGroup;
 			children = (
 				1FF870E12C0731BE00CA175B /* Navigation */,
+				1FCB63802C1F45BC00297FA9 /* Store */,
 				1FB653532BF7BCBB00923AD7 /* SwipingView.swift */,
-				1FD321782C19E1A0001C9424 /* SwipingViewStore.swift */,
 			);
 			path = SwipingView;
 			sourceTree = "<group>";
@@ -728,6 +779,7 @@
 			children = (
 				1FECA56B2C038C4E00CB12E2 /* SwipingNavigationCoordinator.swift */,
 				1FD658EC2C1AF3A3006A9D10 /* SwipingViewFactory.swift */,
+				1FCB63832C1F461D00297FA9 /* SwipingViewNavigationCoordinatorEvent.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -754,10 +806,10 @@
 			isa = PBXGroup;
 			children = (
 				1FD3C94C2C00CD4A00B9135E /* Coordinator.swift */,
+				1FD2BC4C2C0B735D00D1723B /* DeeplinkHandling.swift */,
 				1FECA55C2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift */,
 				1FECA55E2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift */,
 				1FD3C94E2C00CF8C00B9135E /* ViewControllerCoordinator.swift */,
-				1FD2BC4C2C0B735D00D1723B /* DeeplinkHandling.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -930,8 +982,11 @@
 			files = (
 				1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift in Sources */,
 				1FF870E62C0734B900CA175B /* UIViewController+Ext.swift in Sources */,
+				1FCB63822C1F45E800297FA9 /* SwipingViewState.swift in Sources */,
 				1FD2BC452C0B5DDA00D1723B /* LoginNavigationCoordinator.swift in Sources */,
 				1FECA56A2C038C1F00CB12E2 /* OnboardingNavigationCoordinator.swift in Sources */,
+				1FCB63892C1F4A2C00297FA9 /* Endpoint+Convenience.swift in Sources */,
+				1FCB63842C1F461D00297FA9 /* SwipingViewNavigationCoordinatorEvent.swift in Sources */,
 				1FECA5682C038B1D00CB12E2 /* Action.swift in Sources */,
 				1FD658EB2C1AF20E006A9D10 /* StoreManaging.swift in Sources */,
 				1F002E572C01C3EA007B44E0 /* UINavigationController+Ext.swift in Sources */,
@@ -1010,6 +1065,7 @@
 				1FECA55F2C036B9B00CB12E2 /* TabBarControllerCoordinator.swift in Sources */,
 				1FEF4A1C2BF6883C00FBA218 /* BorderedModifier.swift in Sources */,
 				1FD321792C19E1A0001C9424 /* SwipingViewStore.swift in Sources */,
+				1FCB63862C1F46F600297FA9 /* SwipingViewAction.swift in Sources */,
 				1FB6535A2BF7C19900923AD7 /* TextType.swift in Sources */,
 				1F0C19752BFCCAF200F720BE /* FlipEffect.swift in Sources */,
 				1FD6BF932C171B5300AB9BA9 /* SectionData.swift in Sources */,
