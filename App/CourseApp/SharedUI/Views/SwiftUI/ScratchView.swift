@@ -14,12 +14,11 @@ struct Line {
 
 struct ScratchView: View {
     // MARK: Variables
-    let image: Image
     let text: String
-
+    
     @State private var currentLine = Line()
     @State private var lines = [Line]()
-
+    
     var body: some View {
         GeometryReader { geometry in
             let aspectRatio = UIConst.aspectRatio
@@ -27,12 +26,19 @@ struct ScratchView: View {
             let imageHeight = imageWidth / aspectRatio
             
             ZStack(alignment: .top) {
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: imageWidth, height: imageHeight)
-                    .bordered(cornerRadius: UIConst.normalImageRadius)
-
+                if let url = try? ImagesRouter.size300x200.asURLRequest().url {
+                    AsyncImage(url: url) { image in
+                        image
+                            .resizableBordered()
+                            .scaledToFit()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                } else {
+                    Text("Error")
+                }
+                
+                
                 RoundedRectangle(cornerRadius: UIConst.normalImageRadius)
                     .fill(.bg)
                     .frame(width: imageWidth, height: imageHeight)
@@ -65,7 +71,7 @@ struct ScratchView: View {
             .frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
-
+    
     // MARK: Drag gesture
     private var dragGesture: some Gesture {
         DragGesture(minimumDistance: 0, coordinateSpace: .local)
@@ -85,5 +91,5 @@ private extension ScratchView {
 }
 
 #Preview {
-    ScratchView(image: Image("nature"), text: "Joke")
+    ScratchView(text: "Joke")
 }

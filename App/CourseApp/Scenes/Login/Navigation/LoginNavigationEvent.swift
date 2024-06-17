@@ -8,5 +8,5 @@
 import Foundation
 
 enum LoginNavigationEvent {
-    case login(Coordinator)
+    case signedIn(Coordinator)
 }

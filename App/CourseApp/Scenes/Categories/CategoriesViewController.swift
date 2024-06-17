@@ -11,6 +11,7 @@ import SwiftUI
 import UIKit
 
 final class CategoriesViewController: UIViewController {
+    // MARK: - IBOutlets
     // swiftlint:disable:next prohibited_interface_builder
     @IBOutlet private var categoriesCollectionView: UICollectionView!
     
@@ -18,22 +19,34 @@ final class CategoriesViewController: UIViewController {
         static let cellSpacing: CGFloat = 8
         static let sectionInset: CGFloat = 4
         static let sectionScale: CGFloat = 3
-        static let headerHeight: CGFloat = 44
-        static let headerFontSize: CGFloat = 36
+        static let headerHeight: CGFloat = 40
     }
     // MARK: - DataSource
-    private let dataProvider = MockDataProvider()
     typealias DataSource = UICollectionViewDiffableDataSource<SectionData, [Joke]>
     typealias Snapshot = NSDiffableDataSourceSnapshot<SectionData, [Joke]>
+
+    // MARK: - Private variables
     private lazy var dataSource = makeDataSource()
+    private let jokeService: JokeServicing = JokeService(apiManager: APIManager())
+    @Published private var data = [SectionData]()
     private lazy var cancellables = Set<AnyCancellable>()
+    private let eventSubject = PassthroughSubject<CategoriesViewEvent, Never>()
     private let logger = Logger()
+    private let store: StoreManaging = FirebaseStoreManager()
     
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         title = "Categories"
-        // Do any additional setup after loading the view.
+        fetchData()
+    }
+}
+
+// MARK: - EventEmitting
+extension CategoriesViewController: EventEmitting {
+    var eventPublisher: AnyPublisher<CategoriesViewEvent, Never> {
+        eventSubject.eraseToAnyPublisher()
     }
 }
 
@@ -43,17 +56,6 @@ extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.bounds.width - UIConstants.cellSpacing
         let height: CGFloat = collectionView.bounds.height / UIConstants.sectionScale
         return CGSize(width: width, height: height)
-    }
-}
-
-// MARK: - UICollectionViewDelegate
-extension CategoriesViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.logger.info("Home collection view did select item at \(indexPath)")
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.logger.info("Home collection view cell will display \(indexPath)")
     }
 }
 
@@ -90,8 +92,7 @@ private extension CategoriesViewController {
 // MARK: - UICollectionViewDataSource
 private extension CategoriesViewController {
     func readData() {
-        dataProvider.$data.sink { [weak self] data in
-            self?.logger.log(level: .info, "The value is \(data)")
+        $data.sink { [weak self] data in
             self?.applySnapshot(data: data, animatingDifferences: true)
         }
         .store(in: &cancellables)
@@ -110,7 +111,15 @@ private extension CategoriesViewController {
     
     func makeDataSource() -> DataSource {
         let cellRegistration = UICollectionView.CellRegistration<HorizontalScrollingImageCell, [Joke]> { cell, _, item in
-            cell.setData(item)
+            cell.configure(
+                item,
+                callback: { [weak self] item in
+                    self?.eventSubject.send(.itemTapped(item))
+                },
+                likedCallback: { [weak self] item in
+                    self?.storeLike(joke: item)
+                }
+            )
         }
         
         let dataSource = DataSource(collectionView: categoriesCollectionView) { collectionView, indexPath, item in
@@ -134,5 +143,52 @@ private extension CategoriesViewController {
             return labelCell
         }
         return dataSource
+    }
+}
+
+// MARK: - Data fetching
+extension CategoriesViewController {
+    @MainActor
+    func storeLike(joke: Joke) {
+        Task {
+            try await store.storeLike(jokeId: joke.id, liked: !joke.liked)
+        }
+    }
+    
+    @MainActor
+    func fetchData() {
+        let numberOfJokesToLoad = 5
+        Task {
+            do {
+                let categories = try await jokeService.fetchCategories()
+                try await withThrowingTaskGroup(of: JokeResponse.self) { [weak self] group in
+                    guard let self else {
+                        return
+                    }
+                    for category in categories {
+                        for _ in 1...numberOfJokesToLoad {
+                            group.addTask {
+                                try await self.jokeService.fetchJokeForCategory(category)
+                            }
+                        }
+                    }
+                    var jokeResponses = [JokeResponse]()
+                    var likes: [String: Bool] = [:]
+                    for try await jokeResponse in group {
+                        jokeResponses.append(jokeResponse)
+                        let liked = try await store.fetchLiked(jokeId: jokeResponse.id)
+                        likes[jokeResponse.value] = liked ? true : false
+                    }
+                    let dataDictionary = Dictionary(grouping: jokeResponses) { $0.categories.first ?? "" }
+                    for key in dataDictionary.keys {
+                        data.append(SectionData(title: key, jokes: dataDictionary[key] ?? [], likes: likes))
+                    }
+                }
+            } catch let error as NetworkingError {
+                showInfoAlert(title: "Networking error: \(error)")
+            } catch {
+                showInfoAlert(title: "Unknown error.")
+            }
+        }
     }
 }

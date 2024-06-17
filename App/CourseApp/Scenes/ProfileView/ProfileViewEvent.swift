@@ -9,4 +9,5 @@ import Foundation
 
 enum ProfileViewEvent {
     case startOnboarding
+    case logout
 }

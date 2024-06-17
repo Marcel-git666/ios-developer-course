@@ -58,6 +58,10 @@ private extension MainTabBarCoordinator {
     
     func makeTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
+        let appearance = UITabBarAppearance()
+        appearance.backgroundEffect = .none
+        tabBarController.tabBar.standardAppearance = appearance
+        tabBarController.tabBar.scrollEdgeAppearance = appearance
         tabBarController.delegate = self
         return tabBarController
     }
@@ -84,7 +88,12 @@ private extension MainTabBarCoordinator {
     
     func setupProfileView() -> ViewControllerCoordinator {
         let profileCoordinator = ProfileNavigationCoordinator()
-        startChildCoordinator(profileCoordinator) // swiftlint:disable:next no_magic_numbers
+        startChildCoordinator(profileCoordinator)
+        profileCoordinator.eventPublisher
+            .sink { [weak self] event in
+                self?.handleEvent(event)
+            }
+            .store(in: &cancellables) // swiftlint:disable:next no_magic_numbers
         profileCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 2)
         
         return profileCoordinator
@@ -95,6 +104,16 @@ extension MainTabBarCoordinator: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if viewController === tabBarController.viewControllers?.last {
             // rootViewController.showInfoAlert(title: "Last view controller alert.")
+        }
+    }
+}
+
+// MARK: - Handling events
+private extension MainTabBarCoordinator {
+    func handleEvent(_ event: ProfileNavigationCoordinatorEvent) {
+        switch event {
+        case .logout:
+            eventSubject.send(.logout(self))
         }
     }
 }

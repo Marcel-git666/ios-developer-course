@@ -5,22 +5,23 @@
 //  Created by Marcel Mravec on 26.05.2024.
 //
 
-import SwiftUI
+import os
 import UIKit
 
-final class SwipingNavigationCoordinator: NSObject, NavigationControllerCoordinator {
+final class SwipingNavigationCoordinator: NSObject, NavigationControllerCoordinator, SwipingViewFactory {
     private(set) var navigationController: UINavigationController = CustomNavigationController()
     
     var childCoordinators = [Coordinator]()
+    private lazy var logger = Logger()
     
-    func start() {
-        navigationController.setViewControllers([makeSwipingCard()], animated: true)
+    // MARK: Lifecycle
+    deinit {
+        logger.info("Deinit SwipingViewNavigationCoordinator")
     }
 }
 
-// MARK: - Factories
-private extension SwipingNavigationCoordinator {
-    func makeSwipingCard() -> UIViewController {
-        UIHostingController(rootView: SwipingView())
+extension SwipingNavigationCoordinator {
+    func start() {
+        navigationController.setViewControllers([makeSwipingCard(nil)], animated: true)
     }
 }

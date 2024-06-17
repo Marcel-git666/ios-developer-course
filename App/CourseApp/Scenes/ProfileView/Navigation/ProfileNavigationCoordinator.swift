@@ -15,7 +15,7 @@ protocol ProfileCoordinating: NavigationControllerCoordinator {}
 final class ProfileNavigationCoordinator: NSObject, ProfileCoordinating {
     private(set) var navigationController: UINavigationController = CustomNavigationController()
     private lazy var cancellables = Set<AnyCancellable>()
-    private let eventSubject = PassthroughSubject<ProfileViewEvent, Never>()
+    private let eventSubject = PassthroughSubject<ProfileNavigationCoordinatorEvent, Never>()
     private let logger = Logger()
     var childCoordinators = [Coordinator]()
     
@@ -51,6 +51,8 @@ private extension ProfileNavigationCoordinator {
                 makeOnboardingFlow().rootViewController,
                 animated: true
             )
+        case .logout:
+            eventSubject.send(.logout)
         }
     }
 }
@@ -74,8 +76,9 @@ extension ProfileNavigationCoordinator {
         }
     }
 }
+
 extension ProfileNavigationCoordinator: EventEmitting {
-    var eventPublisher: AnyPublisher<ProfileViewEvent, Never> {
+    var eventPublisher: AnyPublisher<ProfileNavigationCoordinatorEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
 }
