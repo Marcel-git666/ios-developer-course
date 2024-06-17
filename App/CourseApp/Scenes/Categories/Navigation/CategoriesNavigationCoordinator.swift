@@ -6,18 +6,24 @@
 //
 
 import Combine
+import DependencyInjection
 import os
 import SwiftUI
 import UIKit
 
-protocol CategoriesNavigationCoordinating: NavigationControllerCoordinator, SwipingViewFactory {}
+protocol CategoriesNavigationCoordinating: NavigationControllerCoordinator {}
 
-final class CategoriesNavigationCoordinator: CategoriesNavigationCoordinating {
+final class CategoriesNavigationCoordinator: CategoriesNavigationCoordinating, SwipingViewFactory, CancellablesContaining {
     private(set) lazy var navigationController: UINavigationController = CustomNavigationController()
     var childCoordinators = [Coordinator]()
     private let eventSubject = PassthroughSubject<CategoriesNavigationCoordinatorEvent, Never>()
-    private lazy var cancellables = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
     private let logger = Logger()
+    var container: Container
+    
+    init(container: Container) {
+        self.container = container
+    }
 }
 
 extension CategoriesNavigationCoordinator: EventEmitting {
@@ -49,8 +55,17 @@ private extension CategoriesNavigationCoordinator {
         switch event {
         case let .itemTapped(joke):
             logger.info("Joke on home screen was tapped \(joke.text)")
-            print("Categories: \(joke.categories)")
-            navigationController.pushViewController(makeSwipingCard(joke), animated: true)
+            logger.info("Categories: \(joke.categories.description)")
+            navigationController.pushViewController(makeSwipingCard(), animated: true)
+        }
+    }
+}
+
+extension CategoriesNavigationCoordinator {
+    func handleSwipingEvent(_ event: SwipingViewEvent) {
+        switch event {
+        case .dismiss:
+            navigationController.popViewController(animated: true)
         }
     }
 }

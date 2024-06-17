@@ -9,9 +9,18 @@ import Combine
 import Foundation
 import os
 
+protocol Store {
+    associatedtype State
+    associatedtype Action
+    
+    @MainActor var state: State { get }
+    
+    @MainActor func send(action: Action)
+}
+
 final class SwipingViewStore: ObservableObject, EventEmitting {
     private let jokesService = JokeService(apiManager: APIManager())
-    private let store = FirebaseStoreManager()
+    private let store: StoreManaging
     private lazy var logger = Logger()
     private var counter: Int = 0
     private let eventSubject = PassthroughSubject<SwipingViewEvent, Never>()
@@ -22,7 +31,8 @@ final class SwipingViewStore: ObservableObject, EventEmitting {
     
     @Published var viewState: SwipingViewState = .initial
     
-    init(joke: Joke? = nil) {
+    init(joke: Joke? = nil, store: StoreManaging) {
+        self.store = store
         self.category = joke?.categories.first
         if let joke {
             self.viewState.jokes.append(joke)

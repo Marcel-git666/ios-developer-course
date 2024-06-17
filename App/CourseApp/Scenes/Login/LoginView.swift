@@ -78,7 +78,7 @@ struct LoginView: View {
                 credentials.email = loginString
                 remeberMe = true
             } catch {
-                
+                logger.info("❌ Credentials are not fetched.")
             }
         }
     }

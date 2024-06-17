@@ -6,6 +6,7 @@
 //
 
 import Combine
+import DependencyInjection
 import os
 import SwiftUI
 import UIKit
@@ -18,11 +19,15 @@ final class LoginNavigationCoordinator: NSObject, LoginCoordinating {
     private let eventSubject = PassthroughSubject<LoginNavigationEvent, Never>()
     private let logger = Logger()
     var childCoordinators = [Coordinator]()
-    
+    var container: Container
     
     // MARK: Lifecycle
     deinit {
         logger.info("❌ Deinit ProfileNavigationCoordinator")
+    }
+    
+    init(container: Container) {
+        self.container = container
     }
     
     func start() {
@@ -72,7 +77,7 @@ extension LoginNavigationCoordinator {
     }
     
     func makeOnboardingFlow(page: Int) -> ViewControllerCoordinator {
-        let coordinator = OnboardingNavigationCoordinator()
+        let coordinator = OnboardingNavigationCoordinator(container: container)
         coordinator.eventPublisher
             .sink { [weak self] event in
                 self?.handleEvent(event)

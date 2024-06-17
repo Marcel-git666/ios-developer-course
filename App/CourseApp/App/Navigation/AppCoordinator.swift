@@ -6,6 +6,7 @@
 //
 
 import Combine
+import DependencyInjection
 import os
 import UIKit
 
@@ -20,6 +21,7 @@ final class AppCoordinator: AppCoordinating, ObservableObject {
         }
     }()
     var childCoordinators = [Coordinator]()
+    var container = Container()
     private lazy var cancellables = Set<AnyCancellable>()
     private lazy var keychainService = KeychainService(keychainManager: KeychainManager())
     private lazy var logger = Logger()
@@ -34,6 +36,11 @@ final class AppCoordinator: AppCoordinating, ObservableObject {
 extension AppCoordinator {
     func start() {
         setupAppUI()
+        assembleDependencyInjectionContainer()
+    }
+    
+    func assembleDependencyInjectionContainer() {
+        ManagerRegistration.registerDependencies(to: container)
     }
     
     func setupAppUI() {
@@ -49,7 +56,7 @@ extension AppCoordinator {
     }
     
     func makeLoginFlow() -> ViewControllerCoordinator {
-        let loginCoordinator = LoginNavigationCoordinator()
+        let loginCoordinator = LoginNavigationCoordinator(container: container)
         startChildCoordinator(loginCoordinator)
         loginCoordinator.eventPublisher.sink { [weak self] event in
             self?.handleEvent(event)
@@ -59,7 +66,7 @@ extension AppCoordinator {
     }
     
     func makeTabBarFlow() -> ViewControllerCoordinator {
-        let mainTabBarCoordinator = MainTabBarCoordinator()
+        let mainTabBarCoordinator = MainTabBarCoordinator(container: container)
         startChildCoordinator(mainTabBarCoordinator)
         mainTabBarCoordinator.eventPublisher.sink { [weak self] event in
             self?.handleEvent(event)

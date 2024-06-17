@@ -6,6 +6,7 @@
 //
 
 import Combine
+import DependencyInjection
 import os
 import SwiftUI
 import UIKit
@@ -24,9 +25,14 @@ final class OnboardingNavigationCoordinator: OnboardingCoordinating {
         case services
         case letstart
     }
+    var container: Container
     
     deinit {
         logger.info("❌ Deinit of Onboarding Navigation Coordinator")
+    }
+    
+    init(container: Container) {
+        self.container = container
     }
     
     private(set) lazy var navigationController: UINavigationController = makeNavigationController()
