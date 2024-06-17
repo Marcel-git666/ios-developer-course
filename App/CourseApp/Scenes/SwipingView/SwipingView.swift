@@ -27,45 +27,50 @@ struct SwipingView: View {
     // swiftlint:disable no_magic_numbers
     var body: some View {
         GeometryReader { geometry in
-            NavigationStack {
-                ZStack {
-                    ForEach(store.viewState.jokes, id: \.self) { joke in
-                        ZStack {
-                            if config.flipped {
-                                Image("back")
-                                    .resizable()
-                                    .frame(width: geometry.size.width / 1.2, height: (geometry.size.width / 1.2) * 1.5)
-                            } else {
-                                SwipingCard(
-                                    configuration: SwipingCard.Configuration(
-                                        title: store.category ?? "Unknown category",
-                                        description: joke.text
-                                    ),
-                                    swipeStateAction: { action in
-                                        switch action {
-                                        case .finished(let direction):
-                                            store.send(.didLike(joke.id, direction == .left))
-                                        case .swiping:
-                                            logger.info("swipe action: swiping")
-                                        case .cancelled:
-                                            logger.info("swipe action: cancelled")
+            VStack {
+                if store.state.status == .loading {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                } else {
+                    ZStack {
+                        ForEach(store.state.jokes, id: \.self) { joke in
+                            ZStack {
+                                if config.flipped {
+                                    Image("back")
+                                        .resizable()
+                                        .frame(width: geometry.size.width / 1.2, height: (geometry.size.width / 1.2) * 1.5)
+                                } else {
+                                    SwipingCard(
+                                        configuration: SwipingCard.Configuration(
+                                            title: joke.categories.first ?? "Unknown category",
+                                            description: joke.text
+                                        ),
+                                        swipeStateAction: { action in
+                                            switch action {
+                                            case .finished(let direction):
+                                                store.send(.didLike(joke.id, direction == .left))
+                                            case .swiping:
+                                                logger.info("swipe action: swiping")
+                                            case .cancelled:
+                                                logger.info("swipe action: cancelled")
+                                            }
                                         }
-                                    }
-                                )
+                                    )
+                                }
                             }
                         }
+                        .padding(.top, geometry.size.height / 20)
+                        .frame(width: geometry.size.width / 1.2, height: (geometry.size.width / 1.2) * 1.5)
                     }
-                    .padding(.top, geometry.size.height / 20)
-                    .frame(width: geometry.size.width / 1.2, height: (geometry.size.width / 1.2) * 1.5)
-                }
-                .modifier(FlipEffect(flipped: $config.flipped, angle: config.animate3d ? 360 : 0, axis: (x: 1, y: 5)))
-                .rotationEffect(Angle(degrees: config.rotate ? 0 : 360))
-                .onAppear {
-                    withAnimation(Animation.linear(duration: 3.0)) {
-                        self.config.animate3d = true
-                    }
-                    withAnimation(Animation.linear(duration: 2.0)) {
-                        self.config.rotate = true
+                    .modifier(FlipEffect(flipped: $config.flipped, angle: config.animate3d ? 360 : 0, axis: (x: 1, y: 5)))
+                    .rotationEffect(Angle(degrees: config.rotate ? 0 : 360))
+                    .onAppear {
+                        withAnimation(Animation.linear(duration: 3.0)) {
+                            self.config.animate3d = true
+                        }
+                        withAnimation(Animation.linear(duration: 2.0)) {
+                            self.config.rotate = true
+                        }
                     }
                 }
             }

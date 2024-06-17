@@ -9,34 +9,28 @@ import Combine
 import Foundation
 import os
 
-protocol Store {
-    associatedtype State
-    associatedtype Action
-    
-    @MainActor var state: State { get }
-    
-    @MainActor func send(action: Action)
-}
-
-final class SwipingViewStore: ObservableObject, EventEmitting {
-    private let jokesService = JokeService(apiManager: APIManager())
+final class SwipingViewStore: ObservableObject, EventEmitting, Store {
+    private let jokesService: JokeServicing = JokeService(apiManager: APIManager())
     private let store: StoreManaging
-    private lazy var logger = Logger()
+    private let keychainService: KeychainServicing
+    private var category: String?
+    private let logger = Logger()
     private var counter: Int = 0
     private let eventSubject = PassthroughSubject<SwipingViewEvent, Never>()
+    
+    @Published var state: SwipingViewState = .initial
+    
     var eventPublisher: AnyPublisher<SwipingViewEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
-    let category: String?
     
-    @Published var viewState: SwipingViewState = .initial
-    
-    init(joke: Joke? = nil, store: StoreManaging) {
+    init(store: StoreManaging, keychainService: KeychainServicing) {
+        self.keychainService = keychainService
         self.store = store
-        self.category = joke?.categories.first
-        if let joke {
-            self.viewState.jokes.append(joke)
-        }
+//        self.category = joke?.categories.first
+//        if let joke {
+//            self.viewState.jokes.append(joke)
+//        }
     }
 }
 
@@ -46,16 +40,16 @@ extension SwipingViewStore {
         switch action {
         case let .dataFetched(jokes):
             logger.info("thread jokes fetching: \(Thread.current.description)")
-            viewState.jokes.append(contentsOf: jokes)
-            viewState.status = .ready
+            state.jokes.append(contentsOf: jokes)
+            state.status = .ready
         case .viewDidLoad:
             logger.info("thread Swiping view did load: \(Thread.current.description)")
             fetchRandomJokes()
-            viewState.status = .loading
+            state.status = .loading
         case let .didLike(jokeId, liked):
             storeLike(jokeId: jokeId, liked: liked)
             counter += 1
-            if counter == viewState.jokes.count {
+            if counter == state.jokes.count {
                 send(.noMoreJokes)
             }
         case .noMoreJokes:

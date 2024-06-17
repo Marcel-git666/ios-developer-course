@@ -41,6 +41,8 @@ extension AppCoordinator {
     
     func assembleDependencyInjectionContainer() {
         ManagerRegistration.registerDependencies(to: container)
+        ServiceRegistration.registerDependencies(to: container)
+        StoreRegistration.registerDependencies(to: container)
     }
     
     func setupAppUI() {

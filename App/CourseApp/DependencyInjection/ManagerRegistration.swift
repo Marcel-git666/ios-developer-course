@@ -19,15 +19,5 @@ enum ManagerRegistration {
             in: .shared,
             initializer: KeychainManager.init
             )
-        container.autoregister(
-            type: KeychainServicing.self,
-            in: .shared,
-            initializer: KeychainService.init
-            )
-        container.autoregister(
-            type: SwipingViewStore.self,
-            in: .new,
-            initializer: SwipingViewStore.init
-            )
     }
 }
