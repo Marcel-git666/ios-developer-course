@@ -9,14 +9,9 @@ import Combine
 import os
 import SwiftUI
 
-struct LoginCredentials {
-    var email: String = ""
-    var password: String = ""
-}
-
 struct LoginView: View {
-    @State private var credentials: LoginCredentials
-    @State private var remeberMe = false
+    @StateObject private var store: LoginViewStore
+    
     private let eventSubject = PassthroughSubject<LoginViewEvent, Never>()
     private let authManager = FirebaseAuthManager()
     private let keychainService = KeychainService(keychainManager: KeychainManager())
@@ -25,8 +20,8 @@ struct LoginView: View {
         static let padding: CGFloat = 5
     }
     
-    init(credentials: LoginCredentials = LoginCredentials(email: "", password: "")) {
-        self.credentials = credentials
+    init(store: LoginViewStore) {
+        _store = .init(wrappedValue: store)
     }
     
     var body: some View {
@@ -37,18 +32,18 @@ struct LoginView: View {
                 CustomTextLabel(text: "Login screen", textTypeSize: .navigationTitle)
                 Spacer()
                 CustomTextLabel(text: "E-mail", textTypeSize: .baseText)
-                CustomTextField(placeHolder: "E-mail", imageName: "envelope", imageOpacity: 1, imageColor: .white, value: $credentials.email)
+                CustomTextField(placeHolder: "E-mail", imageName: "envelope", imageOpacity: 1, imageColor: .white, value: store.state.email)
                 CustomTextLabel(text: "Password", textTypeSize: .baseText)
-                CustomSecretTextField(placeHolder: "Password", imageName: "key", imageOpacity: 1, imageColor: .white, value: $credentials.password)
-                Toggle(isOn: $remeberMe) {
+                CustomSecretTextField(placeHolder: "Password", imageName: "key", imageOpacity: 1, imageColor: .white, value: store.state.password)
+                Toggle(isOn: store.state.rememberMe) {
                     CustomTextLabel(text: "Remember me", textTypeSize: .caption)
                 }
                 .toggleStyle(SwitchToggleStyle(tint: .orange))
                 .padding(.vertical, UIConst.padding)
-                .onChange(of: remeberMe) {
+                .onChange(of: store.state.remeberMe) {
                     do {
-                        if remeberMe {
-                            try keychainService.storeLogin(credentials.email)
+                        if store.state.remeberMe {
+                            try keychainService.storeLogin(store.state.email)
                         } else {
                             try keychainService.removeLoginData()
                         }

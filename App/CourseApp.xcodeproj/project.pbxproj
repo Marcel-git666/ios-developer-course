@@ -42,6 +42,9 @@
 		1F7844F12C20A23F00CCEDEF /* ServiceRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7844F02C20A23F00CCEDEF /* ServiceRegistration.swift */; };
 		1F7844F32C20A24F00CCEDEF /* StoreRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7844F22C20A24F00CCEDEF /* StoreRegistration.swift */; };
 		1F7844F52C20A4F600CCEDEF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7844F42C20A4F600CCEDEF /* Store.swift */; };
+		1F7844F82C20BC0B00CCEDEF /* LoginViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7844F72C20BC0B00CCEDEF /* LoginViewStore.swift */; };
+		1F7844FA2C20BC7500CCEDEF /* LoginViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7844F92C20BC7400CCEDEF /* LoginViewState.swift */; };
+		1F7844FC2C20BD4800CCEDEF /* LoginViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7844FB2C20BD4800CCEDEF /* LoginViewAction.swift */; };
 		1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */; };
 		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
@@ -178,6 +181,9 @@
 		1F7844F02C20A23F00CCEDEF /* ServiceRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistration.swift; sourceTree = "<group>"; };
 		1F7844F22C20A24F00CCEDEF /* StoreRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRegistration.swift; sourceTree = "<group>"; };
 		1F7844F42C20A4F600CCEDEF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		1F7844F72C20BC0B00CCEDEF /* LoginViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewStore.swift; sourceTree = "<group>"; };
+		1F7844F92C20BC7400CCEDEF /* LoginViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewState.swift; sourceTree = "<group>"; };
+		1F7844FB2C20BD4800CCEDEF /* LoginViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewAction.swift; sourceTree = "<group>"; };
 		1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewEvent.swift; sourceTree = "<group>"; };
 		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
@@ -473,6 +479,16 @@
 			path = UICollectionViewCells;
 			sourceTree = "<group>";
 		};
+		1F7844F62C20B72900CCEDEF /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				1F7844F72C20BC0B00CCEDEF /* LoginViewStore.swift */,
+				1F7844FB2C20BD4800CCEDEF /* LoginViewAction.swift */,
+				1F7844F92C20BC7400CCEDEF /* LoginViewState.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		1FB803662C109A51005E75CA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,9 +571,10 @@
 		1FD2BC422C0B5D5200D1723B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				1FD2BC432C0B5D5D00D1723B /* Navigation */,
 				1F3EA9A12C088AC700FB1100 /* LoginView.swift */,
 				1FD2BC482C0B62E400D1723B /* LoginViewEvent.swift */,
+				1FD2BC432C0B5D5D00D1723B /* Navigation */,
+				1F7844F62C20B72900CCEDEF /* Store */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1071,6 +1088,7 @@
 				1F3EA9A92C08C38700FB1100 /* LoginButton.swift in Sources */,
 				1F1CC4ED2BEEA96C00037CE0 /* CategoriesViewController.swift in Sources */,
 				1FD3C94F2C00CF8C00B9135E /* ViewControllerCoordinator.swift in Sources */,
+				1F7844F82C20BC0B00CCEDEF /* LoginViewStore.swift in Sources */,
 				1FB8036A2C109DFF005E75CA /* NetworkingError.swift in Sources */,
 				1F14D9CA2C183003001893BB /* KeychainServicing.swift in Sources */,
 				1F3EA9AB2C08C4B500FB1100 /* CustomTextLabel.swift in Sources */,
@@ -1080,6 +1098,7 @@
 				1F002E622C025DD9007B44E0 /* AppCoordinator.swift in Sources */,
 				1F1CC4E72BEEA8F000037CE0 /* ReusableIdentifier.swift in Sources */,
 				1FECA56C2C038C4E00CB12E2 /* SwipingNavigationCoordinator.swift in Sources */,
+				1F7844FC2C20BD4800CCEDEF /* LoginViewAction.swift in Sources */,
 				1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */,
 				1FB8036C2C10A327005E75CA /* ImagesRouter.swift in Sources */,
 				1F14D9CC2C18301B001893BB /* KeychainService.swift in Sources */,
@@ -1106,6 +1125,7 @@
 				1F002E5A2C01C491007B44E0 /* FontType.swift in Sources */,
 				1FCB63932C20536800297FA9 /* ManagerRegistration.swift in Sources */,
 				1FF870E82C07354000CA175B /* CustomNavigationControllerEvent.swift in Sources */,
+				1F7844FA2C20BC7500CCEDEF /* LoginViewState.swift in Sources */,
 				1FD2BC492C0B62E400D1723B /* LoginViewEvent.swift in Sources */,
 				1F3EA9A62C08C0E700FB1100 /* CustomSecretTextField.swift in Sources */,
 				1FECA55D2C036B6E00CB12E2 /* NavigationControllerCoordinator.swift in Sources */,
