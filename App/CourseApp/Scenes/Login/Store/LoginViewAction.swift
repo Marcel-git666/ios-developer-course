@@ -9,4 +9,6 @@ import Foundation
 
 enum LoginViewAction {
     case viewdidLoad
+    case storeLogin(String)
+    case removeLogin
 }

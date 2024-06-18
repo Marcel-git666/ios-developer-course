@@ -38,13 +38,13 @@ final class LoginNavigationCoordinator: NSObject, LoginCoordinating {
 // MARK: - Factories
 private extension LoginNavigationCoordinator {
     func makeLogin() -> UIViewController {
-        let loginView = LoginView()
-        loginView.eventPublisher
+        let store = LoginViewStore()
+        store.eventPublisher
             .sink { [weak self] event in
                 self?.handleEvent(event)
             }
             .store(in: &cancellables)
-        return UIHostingController(rootView: loginView)
+        return UIHostingController(rootView: LoginView(store: store))
     }
 }
 
