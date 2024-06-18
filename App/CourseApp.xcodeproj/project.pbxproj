@@ -45,6 +45,8 @@
 		1F7844F82C20BC0B00CCEDEF /* LoginViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7844F72C20BC0B00CCEDEF /* LoginViewStore.swift */; };
 		1F7844FA2C20BC7500CCEDEF /* LoginViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7844F92C20BC7400CCEDEF /* LoginViewState.swift */; };
 		1F7844FC2C20BD4800CCEDEF /* LoginViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7844FB2C20BD4800CCEDEF /* LoginViewAction.swift */; };
+		1F7845002C21861500CCEDEF /* FirebaseAuthManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7844FF2C21861500CCEDEF /* FirebaseAuthManaging.swift */; };
+		1F7845022C21869900CCEDEF /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7845012C21869900CCEDEF /* Credentials.swift */; };
 		1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */; };
 		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
@@ -184,6 +186,8 @@
 		1F7844F72C20BC0B00CCEDEF /* LoginViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewStore.swift; sourceTree = "<group>"; };
 		1F7844F92C20BC7400CCEDEF /* LoginViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewState.swift; sourceTree = "<group>"; };
 		1F7844FB2C20BD4800CCEDEF /* LoginViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewAction.swift; sourceTree = "<group>"; };
+		1F7844FF2C21861500CCEDEF /* FirebaseAuthManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManaging.swift; sourceTree = "<group>"; };
+		1F7845012C21869900CCEDEF /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewEvent.swift; sourceTree = "<group>"; };
 		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
@@ -425,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				1FB803732C10F1A7005E75CA /* JokeResponse.swift */,
+				1F7845012C21869900CCEDEF /* Credentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				1F14D9C42C182DD5001893BB /* FirebaseAuthManager.swift */,
+				1F7844FF2C21861500CCEDEF /* FirebaseAuthManaging.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -1058,6 +1064,7 @@
 			files = (
 				1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift in Sources */,
 				1FF870E62C0734B900CA175B /* UIViewController+Ext.swift in Sources */,
+				1F7845022C21869900CCEDEF /* Credentials.swift in Sources */,
 				1FCB63822C1F45E800297FA9 /* SwipingViewState.swift in Sources */,
 				1FD2BC452C0B5DDA00D1723B /* LoginNavigationCoordinator.swift in Sources */,
 				1FECA56A2C038C1F00CB12E2 /* OnboardingNavigationCoordinator.swift in Sources */,
@@ -1153,6 +1160,7 @@
 				1F7844F32C20A24F00CCEDEF /* StoreRegistration.swift in Sources */,
 				1FB6535A2BF7C19900923AD7 /* TextType.swift in Sources */,
 				1F0C19752BFCCAF200F720BE /* FlipEffect.swift in Sources */,
+				1F7845002C21861500CCEDEF /* FirebaseAuthManaging.swift in Sources */,
 				1FD6BF932C171B5300AB9BA9 /* SectionData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
