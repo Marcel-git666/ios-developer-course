@@ -63,5 +63,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(store: LoginViewStore())
+    LoginView(store: LoginViewStore(keychainService: KeychainService(keychainManager: KeychainManager()), authManager: FirebaseAuthManager()))
 }

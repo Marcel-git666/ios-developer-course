@@ -13,4 +13,7 @@ protocol KeychainServicing {
     func storeAuthData(authData: String) throws
     func fetchAuthData() throws -> String
     func removeAuthData() throws
+    func storeLogin(_ login: String) throws
+    func fetchLogin() throws -> String
+    func removeLoginData() throws
 }

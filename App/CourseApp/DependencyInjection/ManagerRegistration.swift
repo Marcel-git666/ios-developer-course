@@ -19,5 +19,11 @@ enum ManagerRegistration {
             in: .shared,
             initializer: KeychainManager.init
             )
+        container.autoregister(
+            type: FirebaseAuthManaging.self,
+            in: .shared,
+            initializer: FirebaseAuthManager.init
+            )
     }
 }
+

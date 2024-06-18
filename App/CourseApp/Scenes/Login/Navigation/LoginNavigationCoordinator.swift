@@ -16,7 +16,7 @@ protocol LoginCoordinating: NavigationControllerCoordinator {}
 final class LoginNavigationCoordinator: NSObject, LoginCoordinating {
     private(set) var navigationController: UINavigationController = CustomNavigationController()
     private lazy var cancellables = Set<AnyCancellable>()
-    private let eventSubject = PassthroughSubject<LoginNavigationEvent, Never>()
+    private let eventSubject = PassthroughSubject<LoginNavigationCoordinatorEvent, Never>()
     private let logger = Logger()
     var childCoordinators = [Coordinator]()
     var container: Container
@@ -38,7 +38,7 @@ final class LoginNavigationCoordinator: NSObject, LoginCoordinating {
 // MARK: - Factories
 private extension LoginNavigationCoordinator {
     func makeLogin() -> UIViewController {
-        let store = LoginViewStore()
+        let store = container.resolve(type: LoginViewStore.self)
         store.eventPublisher
             .sink { [weak self] event in
                 self?.handleEvent(event)
@@ -58,7 +58,7 @@ private extension LoginNavigationCoordinator {
 }
 
 extension LoginNavigationCoordinator: EventEmitting {
-    var eventPublisher: AnyPublisher<LoginNavigationEvent, Never> {
+    var eventPublisher: AnyPublisher<LoginNavigationCoordinatorEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
 }

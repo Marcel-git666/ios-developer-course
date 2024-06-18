@@ -83,7 +83,7 @@ extension AppCoordinator {
 }
 
 extension AppCoordinator {
-    func handleEvent(_ event: LoginNavigationEvent) {
+    func handleEvent(_ event: LoginNavigationCoordinatorEvent) {
         switch event {
         case let .signedIn(coordinator):
             rootViewController = makeTabBarFlow().rootViewController

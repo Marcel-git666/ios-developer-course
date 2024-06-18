@@ -9,13 +9,18 @@ import Combine
 import os
 
 final class LoginViewStore: ObservableObject, Store {
-    private let keychainService = KeychainService(keychainManager: KeychainManager())
-    private let authManager = FirebaseAuthManager()
+    private let keychainService: KeychainServicing
+    private let authManager: FirebaseAuthManaging
     private let logger = Logger()
     private let eventSubject = PassthroughSubject<LoginViewEvent, Never>()
     @Published var state: LoginViewState = .initial
     var eventPublisher: AnyPublisher<LoginViewEvent, Never> {
         eventSubject.eraseToAnyPublisher()
+    }
+    
+    init(keychainService: KeychainServicing, authManager: FirebaseAuthManaging) {
+        self.keychainService = keychainService
+        self.authManager = authManager
     }
 }
 

@@ -83,7 +83,7 @@
 		1FD2BC452C0B5DDA00D1723B /* LoginNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BC442C0B5DDA00D1723B /* LoginNavigationCoordinator.swift */; };
 		1FD2BC472C0B62A500D1723B /* MainTabBarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BC462C0B62A500D1723B /* MainTabBarEvent.swift */; };
 		1FD2BC492C0B62E400D1723B /* LoginViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BC482C0B62E400D1723B /* LoginViewEvent.swift */; };
-		1FD2BC4B2C0B710000D1723B /* LoginNavigationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BC4A2C0B710000D1723B /* LoginNavigationEvent.swift */; };
+		1FD2BC4B2C0B710000D1723B /* LoginNavigationCoordinatorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BC4A2C0B710000D1723B /* LoginNavigationCoordinatorEvent.swift */; };
 		1FD2BC4D2C0B735D00D1723B /* DeeplinkHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BC4C2C0B735D00D1723B /* DeeplinkHandling.swift */; };
 		1FD321792C19E1A0001C9424 /* SwipingViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD321782C19E1A0001C9424 /* SwipingViewStore.swift */; };
 		1FD32B552BDACCE1006472B3 /* CourseAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD32B542BDACCE1006472B3 /* CourseAppApp.swift */; };
@@ -219,7 +219,7 @@
 		1FD2BC442C0B5DDA00D1723B /* LoginNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationCoordinator.swift; sourceTree = "<group>"; };
 		1FD2BC462C0B62A500D1723B /* MainTabBarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarEvent.swift; sourceTree = "<group>"; };
 		1FD2BC482C0B62E400D1723B /* LoginViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewEvent.swift; sourceTree = "<group>"; };
-		1FD2BC4A2C0B710000D1723B /* LoginNavigationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationEvent.swift; sourceTree = "<group>"; };
+		1FD2BC4A2C0B710000D1723B /* LoginNavigationCoordinatorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationCoordinatorEvent.swift; sourceTree = "<group>"; };
 		1FD2BC4C2C0B735D00D1723B /* DeeplinkHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkHandling.swift; sourceTree = "<group>"; };
 		1FD321782C19E1A0001C9424 /* SwipingViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewStore.swift; sourceTree = "<group>"; };
 		1FD32B512BDACCE1006472B3 /* CourseApp Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CourseApp Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -489,6 +489,24 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		1F7844FD2C21837200CCEDEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F3EA9A12C088AC700FB1100 /* LoginView.swift */,
+				1FD2BC482C0B62E400D1723B /* LoginViewEvent.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F7844FE2C21839100CCEDEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1FB653532BF7BCBB00923AD7 /* SwipingView.swift */,
+				1FCB638D2C1F54A900297FA9 /* SwipingViewEvent.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1FB803662C109A51005E75CA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,10 +589,9 @@
 		1FD2BC422C0B5D5200D1723B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				1F3EA9A12C088AC700FB1100 /* LoginView.swift */,
-				1FD2BC482C0B62E400D1723B /* LoginViewEvent.swift */,
 				1FD2BC432C0B5D5D00D1723B /* Navigation */,
 				1F7844F62C20B72900CCEDEF /* Store */,
+				1F7844FD2C21837200CCEDEF /* View */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -583,7 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD2BC442C0B5DDA00D1723B /* LoginNavigationCoordinator.swift */,
-				1FD2BC4A2C0B710000D1723B /* LoginNavigationEvent.swift */,
+				1FD2BC4A2C0B710000D1723B /* LoginNavigationCoordinatorEvent.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -789,8 +806,7 @@
 			children = (
 				1FF870E12C0731BE00CA175B /* Navigation */,
 				1FCB63802C1F45BC00297FA9 /* Store */,
-				1FB653532BF7BCBB00923AD7 /* SwipingView.swift */,
-				1FCB638D2C1F54A900297FA9 /* SwipingViewEvent.swift */,
+				1F7844FE2C21839100CCEDEF /* View */,
 			);
 			path = SwipingView;
 			sourceTree = "<group>";
@@ -1067,7 +1083,7 @@
 				1FD32B552BDACCE1006472B3 /* CourseAppApp.swift in Sources */,
 				1F1CC4E92BEEA91200037CE0 /* UICollectionView+ReusableIdenfifier.swift in Sources */,
 				1FF870EA2C0735B900CA175B /* OnboardingViewEvent.swift in Sources */,
-				1FD2BC4B2C0B710000D1723B /* LoginNavigationEvent.swift in Sources */,
+				1FD2BC4B2C0B710000D1723B /* LoginNavigationCoordinatorEvent.swift in Sources */,
 				1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */,
 				1FE1B3E62C0CC54D00878252 /* KeychainManager.swift in Sources */,
 				1FE64BC12C0503460089A2B4 /* ProfileView.swift in Sources */,
