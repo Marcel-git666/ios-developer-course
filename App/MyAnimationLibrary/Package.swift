@@ -4,21 +4,21 @@
 import PackageDescription
 
 let package = Package(
-    name: "MyLibrary",
+    name: "MyAnimationLibrary",
     platforms: [.iOS(.v16)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "MyLibrary",
-            targets: ["MyLibrary"]),
+            name: "MyAnimationLibrary",
+            targets: ["MyAnimationLibrary"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "MyLibrary"),
+            name: "MyAnimationLibrary"),
         .testTarget(
-            name: "MyLibraryTests",
-            dependencies: ["MyLibrary"]),
+            name: "MyAnimationLibraryTests",
+            dependencies: ["MyAnimationLibrary"]),
     ]
 )
