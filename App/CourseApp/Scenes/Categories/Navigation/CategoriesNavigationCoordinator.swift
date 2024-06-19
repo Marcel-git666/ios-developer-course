@@ -62,7 +62,7 @@ private extension CategoriesNavigationCoordinator {
 }
 
 extension CategoriesNavigationCoordinator {
-    func handleSwipingEvent(_ event: SwipingViewEvent) {
+    func handleEvent(_ event: SwipingViewEvent) {
         switch event {
         case .dismiss:
             navigationController.popViewController(animated: true)

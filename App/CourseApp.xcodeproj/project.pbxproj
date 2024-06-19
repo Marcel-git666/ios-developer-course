@@ -51,6 +51,7 @@
 		1F9E2A372C21DE0600570382 /* ProfileViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A362C21DE0600570382 /* ProfileViewStore.swift */; };
 		1F9E2A392C22D43A00570382 /* ProfileViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A382C22D43A00570382 /* ProfileViewAction.swift */; };
 		1F9E2A3B2C22D57300570382 /* ProfileViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A3A2C22D57300570382 /* ProfileViewState.swift */; };
+		1F9E2A3D2C23132300570382 /* MockJokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A3C2C23132300570382 /* MockJokeService.swift */; };
 		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
 		1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653572BF7C05700923AD7 /* ScratchView.swift */; };
@@ -194,6 +195,7 @@
 		1F9E2A362C21DE0600570382 /* ProfileViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewStore.swift; sourceTree = "<group>"; };
 		1F9E2A382C22D43A00570382 /* ProfileViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewAction.swift; sourceTree = "<group>"; };
 		1F9E2A3A2C22D57300570382 /* ProfileViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewState.swift; sourceTree = "<group>"; };
+		1F9E2A3C2C23132300570382 /* MockJokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJokeService.swift; sourceTree = "<group>"; };
 		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
 		1FB653572BF7C05700923AD7 /* ScratchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 			isa = PBXGroup;
 			children = (
 				1F313CEE2C136FDE00825B46 /* JokeService.swift */,
+				1F9E2A3C2C23132300570382 /* MockJokeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1156,6 +1159,7 @@
 				1F313CED2C136F7100825B46 /* APIManaging.swift in Sources */,
 				1FB803762C10F28B005E75CA /* JokesRouter.swift in Sources */,
 				1FC4E2242C161A7D00F1EA0C /* CategoriesNavigationCoordinatorEvent.swift in Sources */,
+				1F9E2A3D2C23132300570382 /* MockJokeService.swift in Sources */,
 				1F9E2A392C22D43A00570382 /* ProfileViewAction.swift in Sources */,
 				1FD3C94D2C00CD4A00B9135E /* Coordinator.swift in Sources */,
 				1FB803702C10AF2D005E75CA /* HTTPMethod.swift in Sources */,

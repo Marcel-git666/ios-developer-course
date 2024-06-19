@@ -17,7 +17,7 @@ enum ServiceRegistration {
         container.autoregister(
             type: JokeServicing.self,
             in: .shared,
-            initializer: JokeService.init
+            initializer: MockJokeService.init
             )
     }
 }

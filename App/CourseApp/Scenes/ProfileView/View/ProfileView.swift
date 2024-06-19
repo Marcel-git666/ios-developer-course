@@ -9,11 +9,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @StateObject private var store: ProfileViewStore
-    
-    init(store: ProfileViewStore) {
-        _store = .init(wrappedValue: store)
-    }
+    let store: ProfileViewStore
     
     var body: some View {
         VStack {

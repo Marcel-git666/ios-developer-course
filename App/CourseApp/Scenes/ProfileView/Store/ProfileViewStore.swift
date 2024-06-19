@@ -9,14 +9,13 @@ import Combine
 import Foundation
 import os
 
-final class ProfileViewStore: ObservableObject, Store {
-
+@Observable final class ProfileViewStore: ObservableObject, Store {
     private let logger = Logger()
     private let eventSubject = PassthroughSubject<ProfileViewEvent, Never>()
     var eventPublisher: AnyPublisher<ProfileViewEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
-    @Published var state: ProfileViewState = .initial
+    var state: ProfileViewState = .initial
 }
 
 extension ProfileViewStore {
