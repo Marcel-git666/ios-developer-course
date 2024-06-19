@@ -14,5 +14,10 @@ enum ServiceRegistration {
             in: .shared,
             initializer: KeychainService.init
             )
+        container.autoregister(
+            type: JokeServicing.self,
+            in: .shared,
+            initializer: JokeService.init
+            )
     }
 }

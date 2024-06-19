@@ -38,13 +38,13 @@ final class ProfileNavigationCoordinator: NSObject, ProfileCoordinating {
 // MARK: - Factories
 private extension ProfileNavigationCoordinator {
     func makeProfile() -> UIViewController {
-        let profileView = ProfileView()
-        profileView.eventPublisher
+        let store = container.resolve(type: ProfileViewStore.self)
+        store.eventPublisher
             .sink { [weak self] event in
                 self?.handleEvent(event)
             }
             .store(in: &cancellables)
-        return UIHostingController(rootView: profileView)
+        return UIHostingController(rootView: ProfileView(store: store))
     }
 }
 

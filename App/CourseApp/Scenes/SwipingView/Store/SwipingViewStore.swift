@@ -10,7 +10,7 @@ import Foundation
 import os
 
 final class SwipingViewStore: ObservableObject, EventEmitting, Store {
-    private let jokesService: JokeServicing = JokeService(apiManager: APIManager())
+    private let jokesService: JokeServicing
     private let store: StoreManaging
     private let keychainService: KeychainServicing
     private var category: String?
@@ -24,9 +24,10 @@ final class SwipingViewStore: ObservableObject, EventEmitting, Store {
         eventSubject.eraseToAnyPublisher()
     }
     
-    init(store: StoreManaging, keychainService: KeychainServicing) {
+    init(store: StoreManaging, keychainService: KeychainServicing, jokeService: JokeServicing) {
         self.keychainService = keychainService
         self.store = store
+        self.jokesService = jokeService
 //        self.category = joke?.categories.first
 //        if let joke {
 //            self.viewState.jokes.append(joke)

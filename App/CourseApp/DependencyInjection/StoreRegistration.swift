@@ -19,5 +19,10 @@ enum StoreRegistration {
             in: .new,
             initializer: LoginViewStore.init
             )
+        container.autoregister(
+            type: ProfileViewStore.self,
+            in: .new,
+            initializer: ProfileViewStore.init
+            )
     }
 }

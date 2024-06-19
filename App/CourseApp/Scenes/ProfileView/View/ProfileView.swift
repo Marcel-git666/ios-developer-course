@@ -5,13 +5,15 @@
 //  Created by Marcel Mravec on 27.05.2024.
 //
 
-import Combine
+
 import SwiftUI
 
-struct ProfileView: EventEmittingView {
-    typealias Event = ProfileViewEvent
+struct ProfileView: View {
+    @StateObject private var store: ProfileViewStore
     
-    private let eventSubject = PassthroughSubject<ProfileViewEvent, Never>()
+    init(store: ProfileViewStore) {
+        _store = .init(wrappedValue: store)
+    }
     
     var body: some View {
         VStack {
@@ -23,13 +25,13 @@ struct ProfileView: EventEmittingView {
             }
             .buttonStyle(OnboardingButtonStyle(color: .purple))
             Button {
-                eventSubject.send(.startOnboarding)
+                store.send(.startOnboarding)
             } label: {
                 Text("Onboarding")
             }
             .buttonStyle(OnboardingButtonStyle(color: .purple))
             Button {
-                eventSubject.send(.logout)
+                store.send(.logout)
             } label: {
                 Text("Logout")
             }
@@ -38,12 +40,6 @@ struct ProfileView: EventEmittingView {
     }
 }
 
-extension ProfileView {
-    var eventPublisher: AnyPublisher<Event, Never> {
-        eventSubject.eraseToAnyPublisher()
-    }
-}
-
 #Preview {
-    ProfileView()
+    ProfileView(store: ProfileViewStore())
 }

@@ -48,6 +48,9 @@
 		1F7845022C21869900CCEDEF /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7845012C21869900CCEDEF /* Credentials.swift */; };
 		1F78450F2C218D2400CCEDEF /* MyAnimationLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78450E2C218D2400CCEDEF /* MyAnimationLibrary */; };
 		1F8B77882C07635700D01E8E /* ProfileViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */; };
+		1F9E2A372C21DE0600570382 /* ProfileViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A362C21DE0600570382 /* ProfileViewStore.swift */; };
+		1F9E2A392C22D43A00570382 /* ProfileViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A382C22D43A00570382 /* ProfileViewAction.swift */; };
+		1F9E2A3B2C22D57300570382 /* ProfileViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A3A2C22D57300570382 /* ProfileViewState.swift */; };
 		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
 		1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653572BF7C05700923AD7 /* ScratchView.swift */; };
@@ -188,6 +191,9 @@
 		1F7845012C21869900CCEDEF /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		1F78450D2C218CFF00CCEDEF /* MyAnimationLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MyAnimationLibrary; sourceTree = "<group>"; };
 		1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewEvent.swift; sourceTree = "<group>"; };
+		1F9E2A362C21DE0600570382 /* ProfileViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewStore.swift; sourceTree = "<group>"; };
+		1F9E2A382C22D43A00570382 /* ProfileViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewAction.swift; sourceTree = "<group>"; };
+		1F9E2A3A2C22D57300570382 /* ProfileViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewState.swift; sourceTree = "<group>"; };
 		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
 		1FB653572BF7C05700923AD7 /* ScratchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
@@ -500,6 +506,25 @@
 				1FCB638D2C1F54A900297FA9 /* SwipingViewEvent.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1F9E2A342C21DDCE00570382 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1FE64BC02C0503460089A2B4 /* ProfileView.swift */,
+				1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F9E2A352C21DDD600570382 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				1F9E2A362C21DE0600570382 /* ProfileViewStore.swift */,
+				1F9E2A3A2C22D57300570382 /* ProfileViewState.swift */,
+				1F9E2A382C22D43A00570382 /* ProfileViewAction.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		1FB803662C109A51005E75CA /* Networking */ = {
@@ -818,8 +843,8 @@
 			isa = PBXGroup;
 			children = (
 				1FF870E32C07322400CA175B /* Navigation */,
-				1FE64BC02C0503460089A2B4 /* ProfileView.swift */,
-				1F8B77872C07635700D01E8E /* ProfileViewEvent.swift */,
+				1F9E2A352C21DDD600570382 /* Store */,
+				1F9E2A342C21DDCE00570382 /* View */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -1053,6 +1078,7 @@
 			files = (
 				1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift in Sources */,
 				1FF870E62C0734B900CA175B /* UIViewController+Ext.swift in Sources */,
+				1F9E2A3B2C22D57300570382 /* ProfileViewState.swift in Sources */,
 				1F7845022C21869900CCEDEF /* Credentials.swift in Sources */,
 				1FCB63822C1F45E800297FA9 /* SwipingViewState.swift in Sources */,
 				1FD2BC452C0B5DDA00D1723B /* LoginNavigationCoordinator.swift in Sources */,
@@ -1061,6 +1087,7 @@
 				1FCB63842C1F461D00297FA9 /* SwipingViewNavigationCoordinatorEvent.swift in Sources */,
 				1FECA5682C038B1D00CB12E2 /* Action.swift in Sources */,
 				1FD658EB2C1AF20E006A9D10 /* StoreManaging.swift in Sources */,
+				1F9E2A372C21DE0600570382 /* ProfileViewStore.swift in Sources */,
 				1F002E572C01C3EA007B44E0 /* UINavigationController+Ext.swift in Sources */,
 				1F37CA842C1CD4EF00F3CD7C /* ProfileNavigationCoordinatorEvent.swift in Sources */,
 				1FD658ED2C1AF3A3006A9D10 /* SwipingViewFactory.swift in Sources */,
@@ -1129,6 +1156,7 @@
 				1F313CED2C136F7100825B46 /* APIManaging.swift in Sources */,
 				1FB803762C10F28B005E75CA /* JokesRouter.swift in Sources */,
 				1FC4E2242C161A7D00F1EA0C /* CategoriesNavigationCoordinatorEvent.swift in Sources */,
+				1F9E2A392C22D43A00570382 /* ProfileViewAction.swift in Sources */,
 				1FD3C94D2C00CD4A00B9135E /* Coordinator.swift in Sources */,
 				1FB803702C10AF2D005E75CA /* HTTPMethod.swift in Sources */,
 				1FF870EE2C07493200CA175B /* EventEmittingView.swift in Sources */,
