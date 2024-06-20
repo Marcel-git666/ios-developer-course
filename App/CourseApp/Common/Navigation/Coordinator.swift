@@ -5,12 +5,13 @@
 //  Created by Marcel Mravec on 24.05.2024.
 //
 
+import DependencyInjection
 import Foundation
 
 protocol Coordinator: AnyObject, DeeplinkHandling {
     var childCoordinators: [Coordinator] { get set }
+    var container: Container { get }
     func start()
-    func handleDeeplink(_ deeplink: Deeplink)
 }
 
 extension Coordinator {

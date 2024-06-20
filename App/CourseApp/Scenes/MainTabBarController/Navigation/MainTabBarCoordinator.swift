@@ -6,6 +6,8 @@
 //
 
 import Combine
+import DependencyInjection
+import os
 import SwiftUI
 import UIKit
 
@@ -14,6 +16,16 @@ final class MainTabBarCoordinator: NSObject, TabBarControllerCoordinator {
     private(set) lazy var tabBarController = makeTabBarController()
     private let eventSubject = PassthroughSubject<MainTabBarEvent, Never>()
     private lazy var cancellables = Set<AnyCancellable>()
+    private lazy var logger = Logger()
+    var container: Container
+    
+    init(container: Container) {
+        self.container = container
+    }
+    
+    deinit {
+        logger.info("Deinit MainTabCoordinator")
+    }
 }
 
 extension MainTabBarCoordinator {
@@ -40,7 +52,7 @@ extension MainTabBarCoordinator {
 
 private extension MainTabBarCoordinator {
     func makeOnboardingFlow(page: Int) -> ViewControllerCoordinator {
-        let coordinator = OnboardingNavigationCoordinator()
+        let coordinator = OnboardingNavigationCoordinator(container: container)
         coordinator.eventPublisher
             .sink { [weak self] event in
                 self?.handleEvent(event)
@@ -67,7 +79,7 @@ private extension MainTabBarCoordinator {
     }
     
     func setupCategoriesView() -> ViewControllerCoordinator {
-        let categoriesCoordinator = CategoriesNavigationCoordinator()
+        let categoriesCoordinator = CategoriesNavigationCoordinator(container: container)
         startChildCoordinator(categoriesCoordinator)
         categoriesCoordinator.rootViewController.tabBarItem = UITabBarItem(
             title: "Categories",
@@ -79,7 +91,7 @@ private extension MainTabBarCoordinator {
     }
     
     func setupSwipingCardView() -> ViewControllerCoordinator {
-        let swipingCoordinator = SwipingNavigationCoordinator()
+        let swipingCoordinator = SwipingNavigationCoordinator(container: container)
         startChildCoordinator(swipingCoordinator)
         swipingCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Random", image: UIImage(systemName: "switch.2"), tag: 1)
         
@@ -87,7 +99,7 @@ private extension MainTabBarCoordinator {
     }
     
     func setupProfileView() -> ViewControllerCoordinator {
-        let profileCoordinator = ProfileNavigationCoordinator()
+        let profileCoordinator = ProfileNavigationCoordinator(container: container)
         startChildCoordinator(profileCoordinator)
         profileCoordinator.eventPublisher
             .sink { [weak self] event in

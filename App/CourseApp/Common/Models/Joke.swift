@@ -11,7 +11,7 @@ struct Joke: Identifiable, Hashable {
     let id: String
     let text: String
     let categories: [String]
-    var liked: Bool = false
+    var liked = false
     
     init(jokeResponse: JokeResponse, liked: Bool) {
         self.id = jokeResponse.id

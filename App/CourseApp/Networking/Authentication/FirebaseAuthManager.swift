@@ -8,22 +8,6 @@
 import FirebaseAuth
 import Foundation
 
-struct Credentials {
-    let email: String
-    let password: String
-}
-
-struct User {
-    let id: String
-    let name: String
-}
-
-protocol FirebaseAuthManaging {
-    func signUp(_ credentials: Credentials) async throws
-    func signIn(_ credentials: Credentials) async throws
-    func signOut() async throws
-}
-
 final class FirebaseAuthManager: FirebaseAuthManaging {
     private let authService = Auth.auth()
     private let keychainService: KeychainServicing = KeychainService(keychainManager: KeychainManager())

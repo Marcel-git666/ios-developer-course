@@ -125,7 +125,6 @@ extension HorizontalScrollingImageCell: UICollectionViewDataSource {
                 Image(systemName: "heart")
             })
             .buttonStyle(SelectableButtonStyle(isSelected: .constant(joke.liked), color: Color.gray))
-            
         }
         return cell
     }

@@ -6,6 +6,7 @@
 //
 
 import Combine
+import DependencyInjection
 import os
 import SwiftUI
 import UIKit
@@ -18,11 +19,15 @@ final class ProfileNavigationCoordinator: NSObject, ProfileCoordinating {
     private let eventSubject = PassthroughSubject<ProfileNavigationCoordinatorEvent, Never>()
     private let logger = Logger()
     var childCoordinators = [Coordinator]()
-    
+    var container: Container
     
     // MARK: Lifecycle
     deinit {
         logger.info("❌ Deinit ProfileNavigationCoordinator")
+    }
+    
+    init(container: Container) {
+        self.container = container
     }
     
     func start() {
@@ -33,13 +38,13 @@ final class ProfileNavigationCoordinator: NSObject, ProfileCoordinating {
 // MARK: - Factories
 private extension ProfileNavigationCoordinator {
     func makeProfile() -> UIViewController {
-        let profileView = ProfileView()
-        profileView.eventPublisher
+        let store = container.resolve(type: ProfileViewStore.self)
+        store.eventPublisher
             .sink { [weak self] event in
                 self?.handleEvent(event)
             }
             .store(in: &cancellables)
-        return UIHostingController(rootView: profileView)
+        return UIHostingController(rootView: ProfileView(store: store))
     }
 }
 
@@ -59,7 +64,7 @@ private extension ProfileNavigationCoordinator {
 
 extension ProfileNavigationCoordinator {
     func makeOnboardingFlow() -> ViewControllerCoordinator {
-        let coordinator = OnboardingNavigationCoordinator()
+        let coordinator = OnboardingNavigationCoordinator(container: container)
         startChildCoordinator(coordinator)
         coordinator.eventPublisher
             .sink { [weak self] event in

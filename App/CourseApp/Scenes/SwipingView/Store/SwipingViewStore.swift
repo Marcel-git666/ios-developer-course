@@ -5,32 +5,61 @@
 //  Created by Marcel Mravec on 12.06.2024.
 //
 
+import Combine
 import Foundation
 import os
 
-final class SwipingViewStore: ObservableObject {
-    private let jokesService = JokeService(apiManager: APIManager())
-    private let store = FirebaseStoreManager()
-    private lazy var logger = Logger()
-    let category: String?
+final class SwipingViewStore: ObservableObject, EventEmitting, Store {
+    private let jokesService: JokeServicing
+    private let store: StoreManaging
+    private let keychainService: KeychainServicing
+    private var category: String?
+    private let logger = Logger()
+    private var counter: Int = 0
+    private let eventSubject = PassthroughSubject<SwipingViewEvent, Never>()
     
-    @Published var viewState: SwipingViewState = .initial
+    @Published var state: SwipingViewState = .initial
     
-    init(joke: Joke? = nil) {
-        self.category = joke?.categories.first
-        if let joke {
-            self.viewState.jokes.append(joke)
+    var eventPublisher: AnyPublisher<SwipingViewEvent, Never> {
+        eventSubject.eraseToAnyPublisher()
+    }
+    
+    init(store: StoreManaging, keychainService: KeychainServicing, jokeService: JokeServicing) {
+        self.keychainService = keychainService
+        self.store = store
+        self.jokesService = jokeService
+//        self.category = joke?.categories.first
+//        if let joke {
+//            self.viewState.jokes.append(joke)
+//        }
+    }
+}
+
+extension SwipingViewStore {
+    @MainActor
+    func send(_ action: SwipingViewAction) {
+        switch action {
+        case let .dataFetched(jokes):
+            logger.info("thread jokes fetching: \(Thread.current.description)")
+            state.jokes.append(contentsOf: jokes)
+            state.status = .ready
+        case .viewDidLoad:
+            logger.info("thread Swiping view did load: \(Thread.current.description)")
+            fetchRandomJokes()
+            state.status = .loading
+        case let .didLike(jokeId, liked):
+            storeLike(jokeId: jokeId, liked: liked)
+            counter += 1
+            if counter == state.jokes.count {
+                send(.noMoreJokes)
+            }
+        case .noMoreJokes:
+            eventSubject.send(.dismiss)
         }
     }
 }
 
-extension SwipingViewStore {
-    func send(_ action: SwipingViewAction) {
-    }
-}
-
-@MainActor
-extension SwipingViewStore {
+private extension SwipingViewStore {
     func fetchRandomJokes() {
         logger.info("thread: \(Thread.current.description)")
         let numberOfJokesToLoad = 5
@@ -52,8 +81,7 @@ extension SwipingViewStore {
                         jokes.append(Joke(jokeResponse: jokeResponse, liked: false))
                     }
                     logger.info("thread \(Thread.current.description)")
-                    
-                    viewState.jokes.append(contentsOf: jokes)
+                    await send(.dataFetched(jokes))
                 }
             }
         }

@@ -9,11 +9,17 @@ import SwiftUI
 import UIKit
 
 protocol SwipingViewFactory {
-    func makeSwipingCard(_ joke: Joke?) -> UIViewController
+    func makeSwipingCard() -> UIViewController
+    func handleEvent(_ event: SwipingViewEvent)
 }
 
-extension SwipingViewFactory {
-    func makeSwipingCard(_ joke: Joke?) -> UIViewController {
-        UIHostingController(rootView: SwipingView(store: SwipingViewStore(joke: joke)))
+extension SwipingViewFactory where Self: ViewControllerCoordinator & CancellablesContaining {
+    func makeSwipingCard() -> UIViewController {
+        let store = container.resolve(type: SwipingViewStore.self)
+        store.eventPublisher.sink { [weak self] event in
+            self?.handleEvent(event)
+        }
+        .store(in: &cancellables)
+        return UIHostingController(rootView: SwipingView(store: store))
     }
 }
