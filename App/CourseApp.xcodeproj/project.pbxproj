@@ -52,6 +52,10 @@
 		1F9E2A392C22D43A00570382 /* ProfileViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A382C22D43A00570382 /* ProfileViewAction.swift */; };
 		1F9E2A3B2C22D57300570382 /* ProfileViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A3A2C22D57300570382 /* ProfileViewState.swift */; };
 		1F9E2A3D2C23132300570382 /* MockJokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A3C2C23132300570382 /* MockJokeService.swift */; };
+		1F9E2A3F2C24244000570382 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A3E2C24244000570382 /* EndpointTests.swift */; };
+		1F9E2A422C2436E800570382 /* MockAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A412C2436E800570382 /* MockAPIManager.swift */; };
+		1F9E2A442C2437E400570382 /* MockDataResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A432C2437E400570382 /* MockDataResponses.swift */; };
+		1F9E2A462C2441D900570382 /* JokeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A452C2441D900570382 /* JokeServiceTests.swift */; };
 		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
 		1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653572BF7C05700923AD7 /* ScratchView.swift */; };
@@ -196,6 +200,11 @@
 		1F9E2A382C22D43A00570382 /* ProfileViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewAction.swift; sourceTree = "<group>"; };
 		1F9E2A3A2C22D57300570382 /* ProfileViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewState.swift; sourceTree = "<group>"; };
 		1F9E2A3C2C23132300570382 /* MockJokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJokeService.swift; sourceTree = "<group>"; };
+		1F9E2A3E2C24244000570382 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
+		1F9E2A402C2433BA00570382 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		1F9E2A412C2436E800570382 /* MockAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIManager.swift; sourceTree = "<group>"; };
+		1F9E2A432C2437E400570382 /* MockDataResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataResponses.swift; sourceTree = "<group>"; };
+		1F9E2A452C2441D900570382 /* JokeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeServiceTests.swift; sourceTree = "<group>"; };
 		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
 		1FB653572BF7C05700923AD7 /* ScratchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
@@ -436,6 +445,11 @@
 			isa = PBXGroup;
 			children = (
 				1F3EA9852C08769A00FB1100 /* CourseApp_Unit_DevTests.swift */,
+				1F9E2A3E2C24244000570382 /* EndpointTests.swift */,
+				1F9E2A452C2441D900570382 /* JokeServiceTests.swift */,
+				1F9E2A412C2436E800570382 /* MockAPIManager.swift */,
+				1F9E2A432C2437E400570382 /* MockDataResponses.swift */,
+				1F9E2A402C2433BA00570382 /* TestPlan.xctestplan */,
 			);
 			path = "CourseApp Unit DevTests";
 			sourceTree = "<group>";
@@ -1062,7 +1076,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9E2A442C2437E400570382 /* MockDataResponses.swift in Sources */,
+				1F9E2A462C2441D900570382 /* JokeServiceTests.swift in Sources */,
+				1F9E2A3F2C24244000570382 /* EndpointTests.swift in Sources */,
 				1F3EA9862C08769A00FB1100 /* CourseApp_Unit_DevTests.swift in Sources */,
+				1F9E2A422C2436E800570382 /* MockAPIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
