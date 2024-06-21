@@ -52,6 +52,10 @@
 		1F9E2A392C22D43A00570382 /* ProfileViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A382C22D43A00570382 /* ProfileViewAction.swift */; };
 		1F9E2A3B2C22D57300570382 /* ProfileViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A3A2C22D57300570382 /* ProfileViewState.swift */; };
 		1F9E2A3D2C23132300570382 /* MockJokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A3C2C23132300570382 /* MockJokeService.swift */; };
+		1F9E2A3F2C24244000570382 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A3E2C24244000570382 /* EndpointTests.swift */; };
+		1F9E2A422C2436E800570382 /* MockAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A412C2436E800570382 /* MockAPIManager.swift */; };
+		1F9E2A442C2437E400570382 /* MockDataResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A432C2437E400570382 /* MockDataResponses.swift */; };
+		1F9E2A462C2441D900570382 /* JokeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E2A452C2441D900570382 /* JokeServiceTests.swift */; };
 		1FB653542BF7BCBC00923AD7 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653532BF7BCBB00923AD7 /* SwipingView.swift */; };
 		1FB653562BF7BD1A00923AD7 /* SwipingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */; };
 		1FB653582BF7C05700923AD7 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB653572BF7C05700923AD7 /* ScratchView.swift */; };
@@ -104,6 +108,10 @@
 		1FD6BF912C171B3400AB9BA9 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD6BF902C171B3400AB9BA9 /* Joke.swift */; };
 		1FD6BF932C171B5300AB9BA9 /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD6BF922C171B5300AB9BA9 /* SectionData.swift */; };
 		1FDB49DB2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift */; };
+		1FDCE3692C259EF10010529B /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDCE3682C259EF10010529B /* KeychainServiceTests.swift */; };
+		1FDCE36B2C259F050010529B /* MockKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDCE36A2C259F050010529B /* MockKeychainManager.swift */; };
+		1FDCE36E2C25BD330010529B /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 1FDCE36D2C25BD330010529B /* SnapshotTesting */; };
+		1FDCE3702C25BE2A0010529B /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDCE36F2C25BE2A0010529B /* SnapshotTests.swift */; };
 		1FE1B3E12C0C921D00878252 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B3E02C0C921D00878252 /* Deeplink.swift */; };
 		1FE1B3E32C0CBAA300878252 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B3E22C0CBAA300878252 /* CustomError.swift */; };
 		1FE1B3E62C0CC54D00878252 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B3E52C0CC54D00878252 /* KeychainManager.swift */; };
@@ -196,6 +204,11 @@
 		1F9E2A382C22D43A00570382 /* ProfileViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewAction.swift; sourceTree = "<group>"; };
 		1F9E2A3A2C22D57300570382 /* ProfileViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewState.swift; sourceTree = "<group>"; };
 		1F9E2A3C2C23132300570382 /* MockJokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJokeService.swift; sourceTree = "<group>"; };
+		1F9E2A3E2C24244000570382 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
+		1F9E2A402C2433BA00570382 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		1F9E2A412C2436E800570382 /* MockAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIManager.swift; sourceTree = "<group>"; };
+		1F9E2A432C2437E400570382 /* MockDataResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataResponses.swift; sourceTree = "<group>"; };
+		1F9E2A452C2441D900570382 /* JokeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeServiceTests.swift; sourceTree = "<group>"; };
 		1FB653532BF7BCBB00923AD7 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		1FB653552BF7BD1A00923AD7 /* SwipingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCard.swift; sourceTree = "<group>"; };
 		1FB653572BF7C05700923AD7 /* ScratchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
@@ -246,6 +259,9 @@
 		1FD6BF902C171B3400AB9BA9 /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 		1FD6BF922C171B5300AB9BA9 /* SectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
 		1FDB49DA2BFDBB6B00AE21B7 /* UIFont+Appfonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Appfonts.swift"; sourceTree = "<group>"; };
+		1FDCE3682C259EF10010529B /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
+		1FDCE36A2C259F050010529B /* MockKeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychainManager.swift; sourceTree = "<group>"; };
+		1FDCE36F2C25BE2A0010529B /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
 		1FE1B3E02C0C921D00878252 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
 		1FE1B3E22C0CBAA300878252 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		1FE1B3E52C0CC54D00878252 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -280,6 +296,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FDCE36E2C25BD330010529B /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +453,14 @@
 			isa = PBXGroup;
 			children = (
 				1F3EA9852C08769A00FB1100 /* CourseApp_Unit_DevTests.swift */,
+				1F9E2A3E2C24244000570382 /* EndpointTests.swift */,
+				1F9E2A452C2441D900570382 /* JokeServiceTests.swift */,
+				1F9E2A412C2436E800570382 /* MockAPIManager.swift */,
+				1FDCE36A2C259F050010529B /* MockKeychainManager.swift */,
+				1F9E2A432C2437E400570382 /* MockDataResponses.swift */,
+				1F9E2A402C2433BA00570382 /* TestPlan.xctestplan */,
+				1FDCE3682C259EF10010529B /* KeychainServiceTests.swift */,
+				1FDCE36F2C25BE2A0010529B /* SnapshotTests.swift */,
 			);
 			path = "CourseApp Unit DevTests";
 			sourceTree = "<group>";
@@ -927,6 +952,9 @@
 				1F3EA9882C08769A00FB1100 /* PBXTargetDependency */,
 			);
 			name = "CourseApp Unit DevTests";
+			packageProductDependencies = (
+				1FDCE36D2C25BD330010529B /* SnapshotTesting */,
+			);
 			productName = "CourseApp Unit DevTests";
 			productReference = 1F3EA9832C08769A00FB1100 /* CourseApp Unit DevTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1013,6 +1041,7 @@
 				1FC7EC2C2BEE319D007BCDC4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1FE1B3E72C0CC64600878252 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				1FCB638F2C2049FB00297FA9 /* XCRemoteSwiftPackageReference "ios-dependency-injection" */,
+				1FDCE36C2C25BD330010529B /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 1FD32B522BDACCE1006472B3 /* Products */;
 			projectDirPath = "";
@@ -1062,7 +1091,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9E2A442C2437E400570382 /* MockDataResponses.swift in Sources */,
+				1FDCE3702C25BE2A0010529B /* SnapshotTests.swift in Sources */,
+				1F9E2A462C2441D900570382 /* JokeServiceTests.swift in Sources */,
+				1FDCE36B2C259F050010529B /* MockKeychainManager.swift in Sources */,
+				1F9E2A3F2C24244000570382 /* EndpointTests.swift in Sources */,
+				1FDCE3692C259EF10010529B /* KeychainServiceTests.swift in Sources */,
 				1F3EA9862C08769A00FB1100 /* CourseApp_Unit_DevTests.swift in Sources */,
+				1F9E2A422C2436E800570382 /* MockAPIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2226,6 +2262,14 @@
 				minimumVersion = 1.0.3;
 			};
 		};
+		1FDCE36C2C25BD330010529B /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.16.1;
+			};
+		};
 		1FE1B3E72C0CC64600878252 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
@@ -2270,6 +2314,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1FCB638F2C2049FB00297FA9 /* XCRemoteSwiftPackageReference "ios-dependency-injection" */;
 			productName = DependencyInjection;
+		};
+		1FDCE36D2C25BD330010529B /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FDCE36C2C25BD330010529B /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 		1FE1B3E82C0CC65700878252 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;

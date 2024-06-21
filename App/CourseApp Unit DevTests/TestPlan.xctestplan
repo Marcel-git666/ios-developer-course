@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "8414FA2D-BADB-474A-81FC-07893271B8F0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CourseApp.xcodeproj",
+        "identifier" : "1F3EA9822C08769A00FB1100",
+        "name" : "CourseApp Unit DevTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:CourseApp.xcodeproj",
+        "identifier" : "1F3EA9912C0876A300FB1100",
+        "name" : "CourseApp UI DevTests"
+      }
+    }
+  ],
+  "version" : 1
+}

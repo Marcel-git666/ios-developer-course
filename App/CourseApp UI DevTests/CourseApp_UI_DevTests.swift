@@ -25,8 +25,26 @@ final class CourseApp_UI_DevTests: XCTestCase {
     func testExample() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
+        app.launchEnvironment["UITEST"] = "1"
         app.launch()
-
+        let tabBar = app.tabBars["Tab Bar"]
+        tabBar.buttons["Categories"].tap()
+        tabBar.buttons["Random"].tap()
+        tabBar.buttons["Profile"].tap()
+        app.buttons["Onboarding"].tap()
+        app.buttons["Dismiss onboarding"].tap()
+        app.buttons["Logout"].tap()
+        
+        let eMailTextField = app.textFields["E-mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("marcel@marcel.cz")
+        let passwordTextField = app.secureTextFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("123456")
+        app.keyboards.buttons["Return"].tap()
+        app.buttons["SignIn"].tap()
+        
+        
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
