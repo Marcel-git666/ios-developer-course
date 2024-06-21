@@ -30,6 +30,11 @@ final class AppCoordinator: AppCoordinating, ObservableObject {
     // MARK: Lifecycle
     init() {
         isAuthorized = (try? keychainService.fetchAuthData()) != nil
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["UITEST"] == "1" {
+            isAuthorized = true
+        }
+        #endif
     }
 }
 
