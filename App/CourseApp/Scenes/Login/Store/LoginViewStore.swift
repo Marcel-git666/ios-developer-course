@@ -28,7 +28,7 @@ extension LoginViewStore {
     @MainActor
     func send(_ action: LoginViewAction) {
         switch action {
-        case .viewdidLoad:
+        case .viewDidLoad:
             fetchLogin()
         case .removeLogin:
             removeLogin()

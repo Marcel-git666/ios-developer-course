@@ -57,7 +57,7 @@ struct LoginView: View {
         }
         .ignoresSafeArea(.all)
         .onAppear {
-            store.send(.viewdidLoad)
+            store.send(.viewDidLoad)
         }
     }
 }

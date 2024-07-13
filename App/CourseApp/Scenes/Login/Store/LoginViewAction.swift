@@ -8,7 +8,7 @@
 import Foundation
 
 enum LoginViewAction {
-    case viewdidLoad
+    case viewDidLoad
     case storeLogin(String)
     case removeLogin
 }
