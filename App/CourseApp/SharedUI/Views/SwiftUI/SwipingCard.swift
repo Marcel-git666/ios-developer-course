@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-typealias Action<T> = (T) -> Void
-
 struct SwipingCard: View {
     // MARK: - SwipeDirection
     enum SwipeDirection {
@@ -91,7 +89,7 @@ struct SwipingCard: View {
     // MARK: CardDescription
     private var cardDescription: some View {
         Text(configuration.title)
-            .textTypeModifier(textType: .h1Title)
+            .textTypeModifier(textType: .sectionTitle)
             .padding(10)
             .cornerRadius(UIConstants.normalImageRadius)
             .padding()
